@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rules.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JiebaTkinter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JiebaTkinter.iml" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.0&#10;- 实现了基础窗口的创建和删除&#10;- 添加了项目简介文件&#10;- 添加了test项目测试文件&#10;- 完善多个窗口关闭触发事件逻辑">
+      <change afterPath="$PROJECT_DIR$/app/widget/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -27,21 +23,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Aq789"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Aq789&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Aq789/JiebaTkinter.git",
-    "accountId": "2258d8e1-5d9f-480f-b4a2-5f6f54b5681e"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Aq789/JiebaTkinter.git&quot;,
+    &quot;accountId&quot;: &quot;2258d8e1-5d9f-480f-b4a2-5f6f54b5681e&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="3B4PkCsdT5alBHeI7y2AsDhz3tb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,6 +47,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.main.executor": "Run",
+    "Python.menu.executor": "Run",
     "Python.view.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -72,6 +69,15 @@
       <option name="presentableId" value="Default" />
       <updated>1773745509188</updated>
     </task>
+    <task id="LOCAL-00001" summary="0.0.0&#10;- 实现了基础窗口的创建和删除&#10;- 添加了项目简介文件&#10;- 添加了test项目测试文件&#10;- 完善多个窗口关闭触发事件逻辑">
+      <option name="closed" value="true" />
+      <created>1773762241240</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773762241240</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,5 +90,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0.0.0&#10;- 实现了基础窗口的创建和删除&#10;- 添加了项目简介文件&#10;- 添加了test项目测试文件&#10;- 完善多个窗口关闭触发事件逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.0&#10;- 实现了基础窗口的创建和删除&#10;- 添加了项目简介文件&#10;- 添加了test项目测试文件&#10;- 完善多个窗口关闭触发事件逻辑" />
   </component>
 </project>
