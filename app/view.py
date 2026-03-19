@@ -1,6 +1,7 @@
 # 主窗口创建
 import tkinter as tk
 import app.widget.menu
+import app.widget.paned_window
 view_root = None # 全局变量，用来记录根窗口
 
 def create_new_window(): # 创建窗口实例方法
@@ -20,7 +21,8 @@ class MainWindow:
         self.main_window.title("中文分词工具")
         self.main_window.geometry("800x450")
         self.main_window.protocol("WM_DELETE_WINDOW", self.close_window)
-        app.widget.menu.Menu(self.main_window)
+        app.widget.menu.Menu(self.main_window) # 加载menu模块
+        app.widget.paned_window.PanedWindow(self.main_window) # 加载分隔条模块
 
     def destroy_window(self):
         if self.main_window:
