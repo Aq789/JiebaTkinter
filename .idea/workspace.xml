@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.3&#10;- 为分词结果创建预览表格&#10;- 为词典创建预览表格&#10;- 更改左侧窗口大小">
-      <change afterPath="$PROJECT_DIR$/app/widget/status_bar.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.4&#10;- 添加底部状态栏并在主界面加载">
+      <change afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/left_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,20 +45,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.left_frame.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.menu.executor": "Run",
-    "Python.paned_window.executor": "Run",
-    "Python.right_frame.executor": "Run",
-    "Python.view.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.left_frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.menu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.paned_window.executor&quot;: &quot;Run&quot;,
+    &quot;Python.right_frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.seg_result_toplevel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.view.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="JiebaTkinter" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (JiebaTkinter)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -102,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774275123606</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="0.0.4&#10;- 添加底部状态栏并在主界面加载">
+      <option name="closed" value="true" />
+      <created>1774276459505</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774276459505</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +160,7 @@
     <MESSAGE value="0.0.1&#10;- 添加了菜单栏&#10;- 添加了菜单选项&#10;- 调整了主界面的一些参数" />
     <MESSAGE value="0.0.2&#10;- 添加了窗口分隔条&#10;- 添加了左侧标签页，包含两个元素&#10;- 添加了右侧编辑框，包含右侧以及底部滚动条&#10;- 修改view部分代码" />
     <MESSAGE value="0.0.3&#10;- 为分词结果创建预览表格&#10;- 为词典创建预览表格&#10;- 更改左侧窗口大小" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.3&#10;- 为分词结果创建预览表格&#10;- 为词典创建预览表格&#10;- 更改左侧窗口大小" />
+    <MESSAGE value="0.0.4&#10;- 添加底部状态栏并在主界面加载" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.4&#10;- 添加底部状态栏并在主界面加载" />
   </component>
 </project>

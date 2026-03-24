@@ -1,6 +1,9 @@
 # 左侧窗口模块
 import tkinter as tk
+import app.widget.edit_toplevel.seg_result_toplevel
+import app.widget.edit_toplevel.word_dic_toplevel
 from tkinter import ttk
+main_window = None
 
 class LeftFrame:
     def __init__(self, paned_window):
@@ -43,8 +46,8 @@ class LeftFrame:
         height_scroll_seg_result.grid(row=0, column=1, sticky="ns")
         show_word_seg_result.config(yscrollcommand=height_scroll_seg_result.set)
 
-        edit_word_seg_result = ttk.Button(tab_word_seg_result, text="编辑分词结果")
-        edit_word_seg_result.grid(row=1, column=0, sticky="e", pady=5, padx=10)
+        self.edit_word_seg_result = ttk.Button(tab_word_seg_result, text="编辑分词结果", command=self.create_seg_result_toplevel) # 按钮绑定上方方法
+        self.edit_word_seg_result.grid(row=1, column=0, sticky="e", pady=5, padx=10)
 
         start_word_seg_result = ttk.Button(tab_word_seg_result, text="开始分词")
         start_word_seg_result.grid(row=1, column=0, sticky="w", pady=5, padx=10)
@@ -71,5 +74,21 @@ class LeftFrame:
         height_scroll_word_dic.grid(row=0, column=1, sticky="ns")
         show_word_dic.config(yscrollcommand=height_scroll_word_dic.set)
 
-        edit_word_dic = ttk.Button(tab_word_dic, text="编辑词典")
-        edit_word_dic.grid(row=1, column=0, sticky="e", pady=5, padx=10)
+        self.edit_word_dic = ttk.Button(tab_word_dic, text="编辑词典", command=self.create_word_dic_toplevel)
+        self.edit_word_dic.grid(row=1, column=0, sticky="e", pady=5, padx=10)
+
+    def create_seg_result_toplevel(self): # 创建编辑分词结果窗口
+        global main_window  # 导入主窗口变量
+        app.widget.edit_toplevel.seg_result_toplevel.SegResultToplevel(main_window, callback=self.recover_seg_result_toplevel)  # 创建窗口实例
+        self.edit_word_seg_result.config(state=tk.DISABLED) # 将按钮转为禁用状态
+
+    def recover_seg_result_toplevel(self): # 当编辑分词结果窗口删除时触发代码
+        self.edit_word_seg_result.config(state=tk.NORMAL)
+
+    def create_word_dic_toplevel(self): # 创建词典窗口
+        global main_window
+        app.widget.edit_toplevel.word_dic_toplevel.WordDicToplevel(main_window, callback=self.recover_word_dic_toplevel)
+        self.edit_word_dic.config(state=tk.DISABLED) # 将按钮转为禁用状态
+
+    def recover_word_dic_toplevel(self): # 当编辑词典窗口删除时触发代码
+        self.edit_word_dic.config(state=tk.NORMAL)
