@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.4&#10;- 添加底部状态栏并在主界面加载">
-      <change afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/left_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774276459505</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码">
+      <option name="closed" value="true" />
+      <created>1774364659986</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1774364659986</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +164,7 @@
     <MESSAGE value="0.0.2&#10;- 添加了窗口分隔条&#10;- 添加了左侧标签页，包含两个元素&#10;- 添加了右侧编辑框，包含右侧以及底部滚动条&#10;- 修改view部分代码" />
     <MESSAGE value="0.0.3&#10;- 为分词结果创建预览表格&#10;- 为词典创建预览表格&#10;- 更改左侧窗口大小" />
     <MESSAGE value="0.0.4&#10;- 添加底部状态栏并在主界面加载" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.4&#10;- 添加底部状态栏并在主界面加载" />
+    <MESSAGE value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
   </component>
 </project>
