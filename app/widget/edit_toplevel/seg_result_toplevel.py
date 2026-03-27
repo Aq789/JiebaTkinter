@@ -1,5 +1,6 @@
 # 编辑分词结果窗口
 import tkinter as tk
+import app.controllers.edit_toplevel.seg_result_toplevel as c_srt
 from tkinter import ttk
 
 class SegResultToplevel:
@@ -86,10 +87,11 @@ class SegResultToplevel:
 
         tk.Frame(self.edit_seg_result_window).grid(row=5, column=0, pady=5)
 
-
         """关闭窗口事件"""
         self.callback = callback # 保存回调函数
         self.edit_seg_result_window.protocol("WM_DELETE_WINDOW", self.on_close)
+
+        c_srt.input_data(self)
 
     def on_close(self): # 关闭执行的方法
         if self.callback: self.callback() # 先调用回调（恢复按钮）
