@@ -9,8 +9,7 @@ class SegResultToplevel:
         self.edit_seg_result_window.transient(window) # 子窗口在父窗口之上
         self.edit_seg_result_window.wm_attributes("-toolwindow", True) # 只保留关闭按钮
         self.edit_seg_result_window.geometry("450x350+500+200") # 窗口大小和初始位置
-        self.edit_seg_result_window.wm_minsize(450, 350) # 最小窗口大小
-
+        self.edit_seg_result_window.wm_minsize(450, 370) # 最小窗口大小
 
         self.edit_seg_result_window.grid_columnconfigure(0, weight=1)
         self.edit_seg_result_window.grid_rowconfigure(1, weight=1)
@@ -67,35 +66,26 @@ class SegResultToplevel:
         move_pgdn = ttk.Button(self.right_frame_toplevel, text="移至最后")
         move_pgdn.grid(row=3, column=0, pady=5)
 
-        save_change = ttk.Button(self.right_frame_toplevel, text="保存更改")
-        save_change.grid(row=4, column=0, pady=5)
+        delete_select = ttk.Button(self.right_frame_toplevel, text="删除选中结果")
+        delete_select.grid(row=4, column=0, pady=5)
 
-        cancel_change = ttk.Button(self.right_frame_toplevel, text="取消更改")
-        cancel_change.grid(row=5, column=0, pady=5)
+        save_change = ttk.Button(self.right_frame_toplevel, text="保存更改")
+        save_change.grid(row=5, column=0, pady=5)
 
         """底部内容"""
         # 展示文字
-        label_2 = tk.Label(self.edit_seg_result_window, text="请输入要查找的内容：")
+        label_2 = tk.Label(self.edit_seg_result_window, text="请输入要查找的词名：")
         label_2.grid(row=2, column=0, sticky="w", padx=10)
 
         # 底部添加新模块
         self.search_entry = ttk.Entry(self.edit_seg_result_window)
-        self.search_entry.grid(row=3, column=0, columnspan=2, sticky="ew", padx=10, pady=5)
+        self.search_entry.grid(row=3, column=0, sticky="ew", padx=10, pady=5)
 
-        self.bottom_frame_toplevel = tk.Frame(self.edit_seg_result_window)
-        self.bottom_frame_toplevel.grid(row=4, column=0, columnspan=2, sticky="ew", padx=10, pady=5)
+        search_result = ttk.Button(self.edit_seg_result_window, text="查找结果")
+        search_result.grid(row=3, column=1)
 
-        search_and_add = ttk.Button(self.bottom_frame_toplevel, text="查找并添加")
-        search_and_add.grid(row=0, column=0, padx=10)
+        tk.Frame(self.edit_seg_result_window).grid(row=5, column=0, pady=5)
 
-        search_and_delete = ttk.Button(self.bottom_frame_toplevel, text="查找并删除")
-        search_and_delete.grid(row=0, column=1, padx=10)
-
-        search_and_change = ttk.Button(self.bottom_frame_toplevel, text="查找并替换")
-        search_and_change.grid(row=0, column=2, padx=10)
-
-        search_result = ttk.Button(self.bottom_frame_toplevel, text="查找结果")
-        search_result.grid(row=0, column=3, padx=10)
 
         """关闭窗口事件"""
         self.callback = callback # 保存回调函数

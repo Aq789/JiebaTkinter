@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码">
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.6 -1&#10;- 完善编辑分词结果窗口界面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774364659986</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="0.0.6 -1&#10;- 完善编辑分词结果窗口界面">
+      <option name="closed" value="true" />
+      <created>1774540631470</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774540631470</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +175,7 @@
     <MESSAGE value="0.0.3&#10;- 为分词结果创建预览表格&#10;- 为词典创建预览表格&#10;- 更改左侧窗口大小" />
     <MESSAGE value="0.0.4&#10;- 添加底部状态栏并在主界面加载" />
     <MESSAGE value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
+    <MESSAGE value="0.0.6 -1&#10;- 完善编辑分词结果窗口界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.6 -1&#10;- 完善编辑分词结果窗口界面" />
   </component>
 </project>
