@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.6&#10;- 完善编辑分词结果窗口界面&#10;- 完善编辑词典窗口界面&#10;- 删除测试窗口在主程序中的调用">
-      <change afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/datas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/datas/word_seg_result.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.0.7-1&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 在编辑分词结果窗口添加调用">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/seg_result_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -166,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774602964383</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="0.0.7-1&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 在编辑分词结果窗口添加调用">
+      <option name="closed" value="true" />
+      <created>1774622995056</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1774622995056</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +193,7 @@
     <MESSAGE value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
     <MESSAGE value="0.0.6 -1&#10;- 完善编辑分词结果窗口界面" />
     <MESSAGE value="0.0.6&#10;- 完善编辑分词结果窗口界面&#10;- 完善编辑词典窗口界面&#10;- 删除测试窗口在主程序中的调用" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.6&#10;- 完善编辑分词结果窗口界面&#10;- 完善编辑词典窗口界面&#10;- 删除测试窗口在主程序中的调用" />
+    <MESSAGE value="0.0.7-1&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 在编辑分词结果窗口添加调用" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.7-1&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 在编辑分词结果窗口添加调用" />
   </component>
 </project>

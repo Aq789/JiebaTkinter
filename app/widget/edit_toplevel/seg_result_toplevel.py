@@ -55,16 +55,16 @@ class SegResultToplevel:
         self.right_frame_toplevel = tk.Frame(self.edit_seg_result_window)
         self.right_frame_toplevel.grid(row=1, column=1, sticky="nes", padx=10, pady=5)
 
-        move_pgup = ttk.Button(self.right_frame_toplevel, text="移至最前")
+        move_pgup = ttk.Button(self.right_frame_toplevel, text="移至最前", command=lambda :c_srt.move_pgup(self))
         move_pgup.grid(row=0, column=0, pady=5)
 
-        move_up = ttk.Button(self.right_frame_toplevel, text="向前移动")
+        move_up = ttk.Button(self.right_frame_toplevel, text="向前移动", command=lambda :c_srt.move_up(self))
         move_up.grid(row=1, column=0, pady=5)
 
-        move_down = ttk.Button(self.right_frame_toplevel, text="向后移动")
+        move_down = ttk.Button(self.right_frame_toplevel, text="向后移动", command=lambda :c_srt.move_down(self))
         move_down.grid(row=2, column=0, pady=5)
 
-        move_pgdn = ttk.Button(self.right_frame_toplevel, text="移至最后")
+        move_pgdn = ttk.Button(self.right_frame_toplevel, text="移至最后", command=lambda :c_srt.move_pgdn(self))
         move_pgdn.grid(row=3, column=0, pady=5)
 
         delete_select = ttk.Button(self.right_frame_toplevel, text="删除选中结果")
