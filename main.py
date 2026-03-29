@@ -1,8 +1,7 @@
 # 根程序开始
 import tkinter as tk
-import app.view
 import app.datas.word_seg_result as d_wsr
-import test.test_window
+import app.view
 
 if __name__ == '__main__':
     root = tk.Tk()  # 创建根窗口
@@ -13,7 +12,8 @@ if __name__ == '__main__':
 
     """此处可添加test.test_window类的create_test_window()来测试窗口"""
     d_wsr.add_word_seg_result('空格', 0, 'n')
-    d_wsr.add_word_seg_result('输入', 1, 'n')
+    d_wsr.add_word_seg_result('输入', 1, 'v')
+    d_wsr.add_word_seg_result('输出', 2, 'v')
     d_wsr.add_word_seg_result('故事', 2, 'n')
     d_wsr.add_word_seg_result('词典', 3, 'n')
     d_wsr.add_word_seg_result('百科', 4, 'n')
