@@ -3,9 +3,13 @@ import tkinter as tk
 import app.controllers.edit_toplevel.seg_result_toplevel as c_srt
 from tkinter import ttk
 from tkinter import messagebox
+main_window = None
 
 class SegResultToplevel:
     def __init__(self, window, callback):
+        global main_window
+        self.main_window = main_window
+
         self.edit_seg_result_window = tk.Toplevel(window)
         self.edit_seg_result_window.title("编辑分词结果")
         self.edit_seg_result_window.transient(window) # 子窗口在父窗口之上

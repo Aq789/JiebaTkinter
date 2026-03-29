@@ -1,8 +1,12 @@
 # 菜单栏
 import tkinter as tk
+main_window = None
 
 class Menu:
     def __init__(self, window):
+        global main_window
+        self.main_window = main_window
+
         self.menubar = tk.Menu(window)
 
         # 文件菜单 - file_menu

@@ -1,8 +1,11 @@
 # 编辑分词结果控制器
 from tkinter import messagebox
-import app.datas.word_seg_result as d_wsr
+import app.controllers.left_frame
+
 select_result_iid = () # 全局变量，记录选中元素到列表中
 seg_result_save_state = True # 全局变量，记录分词结果是否保存
+left_frame = None
+main_window = None
 # Treeview 注意有三种要素：选项、iid、索引。分别对应 item iid index
 
 # 方法控制保存状态
@@ -19,8 +22,9 @@ def return_saved():
 
 # 将分词结果数据导入至编辑分词结果窗口
 def input_data(edit_window):
+    global main_window
     number = 1 # 用来记录序号
-    for data in d_wsr.word_seg_result_list: # 遍历分词结果数据
+    for data in main_window.word_seg_result_datas.return_word_seg_result_list(): # 遍历分词结果数据
         edit_window.show_word_seg_result_toplevel.insert('', "end", # 添加到表格中
                                                          values=(number, data.word_name, data.word_frequency, data.word_class))
         number += 1
@@ -28,7 +32,8 @@ def input_data(edit_window):
 
 # 将编辑分词结果窗口数据导出至分词结果数据
 def output_data(edit_window):
-    d_wsr.delete_all_word_seg_result() # 首先删除data中全部元素
+    global main_window
+    main_window.word_seg_result_datas.delete_all_word_seg_result() # 首先删除data中全部元素
     start_iid = edit_window.show_word_seg_result_toplevel.insert('', 0)  # 先在开头创建一个元素，存到变量中
     temp_iid = edit_window.show_word_seg_result_toplevel.next(start_iid)  # 循环用到的变量，将开头元素赋值进去
     edit_window.show_word_seg_result_toplevel.delete(start_iid)  # 随后把开头元素删除
@@ -36,10 +41,11 @@ def output_data(edit_window):
         word_name = edit_window.show_word_seg_result_toplevel.set(temp_iid, column="word_name") # 获取词名
         word_frequency = edit_window.show_word_seg_result_toplevel.set(temp_iid, column="word_frequency") # 获取词频
         word_class = edit_window.show_word_seg_result_toplevel.set(temp_iid, column="word_class") # 获取词性
-        d_wsr.add_word_seg_result(word_name, word_frequency, word_class) # 将数据传入分词结果data中
+        main_window.word_seg_result_datas.add_word_seg_result(word_name, word_frequency, word_class) # 将数据传入分词结果data中
         next_temp_iid = edit_window.show_word_seg_result_toplevel.next(temp_iid)  # 利用当前元素iid找下一个元素的iid
         temp_iid = next_temp_iid  # 开启下一个循环
     is_saved()
+    app.controllers.left_frame.input_seg_result_data(left_frame)
     return True
 
 # 对序号进行排序

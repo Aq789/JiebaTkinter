@@ -3,9 +3,13 @@ import tkinter as tk
 import app.view
 import app.widget.left_frame
 import app.widget.right_frame
+main_window = None
 
 class PanedWindow:
     def __init__(self, window):
+        global main_window
+        self.main_window = main_window
+
         self.new_paned_window = tk.PanedWindow(window, orient="horizontal", showhandle=True) # 创建可调节窗格实例
         self.new_paned_window.pack(fill="both", expand=True) # 放置可调节窗格
 

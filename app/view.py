@@ -4,6 +4,14 @@ import app.widget.menu
 import app.widget.paned_window
 import app.widget.status_bar
 import app.widget.left_frame
+import app.widget.right_frame
+import app.widget.edit_toplevel.seg_result_toplevel
+import app.widget.edit_toplevel.word_dic_toplevel
+
+import app.controllers.left_frame
+import app.controllers.edit_toplevel.seg_result_toplevel
+
+import app.datas.word_seg_result
 
 view_root = None # 全局变量，用来记录根窗口
 
@@ -25,11 +33,41 @@ class MainWindow:
         self.main_window.geometry("800x450")
         self.main_window.protocol("WM_DELETE_WINDOW", self.close_window)
 
-        app.widget.menu.Menu(self.main_window) # 加载menu模块
-        app.widget.paned_window.PanedWindow(self.main_window) # 加载分隔条模块
-        app.widget.status_bar.StatusBar(self.main_window) # 加载底部状态栏模块
+        # 初始化数据集
+        self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
 
+        # 往数据集中添加测试数据
+        self.word_seg_result_datas.add_word_seg_result("你好", 10, "n")
+        self.word_seg_result_datas.add_word_seg_result("我是", 10, "v")
+        self.word_seg_result_datas.add_word_seg_result("王", 10, "n")
+        self.word_seg_result_datas.add_word_seg_result("敬虔", 10, "v")
+        self.word_seg_result_datas.add_word_seg_result("我", 10, "adj")
+        self.word_seg_result_datas.add_word_seg_result("正在", 10, "vt")
+        self.word_seg_result_datas.add_word_seg_result("开发", 10, "vi")
+        self.word_seg_result_datas.add_word_seg_result("一个", 10, "adv")
+        self.word_seg_result_datas.add_word_seg_result("项目", 10, "n")
+        self.word_seg_result_datas.add_word_seg_result("但是", 10, "v")
+        self.word_seg_result_datas.add_word_seg_result("遇到了", 10, "n")
+        self.word_seg_result_datas.add_word_seg_result("问题", 10, "v")
+
+        # 将main_window传入各个模块
         app.widget.left_frame.main_window = self.main_window
+        app.widget.menu.main_window = self.main_window
+        app.widget.paned_window.main_window = self.main_window
+        app.widget.right_frame.main_window = self.main_window
+        app.widget.status_bar.main_window = self.main_window
+        app.widget.edit_toplevel.seg_result_toplevel.main_window = self.main_window
+        app.widget.edit_toplevel.word_dic_toplevel.main_window = self.main_window
+
+        app.controllers.left_frame.main_window = self
+        app.controllers.edit_toplevel.seg_result_toplevel.main_window = self
+
+        # 加载模块
+        self.menu = app.widget.menu.Menu(self.main_window) # 加载menu模块
+        self.paned_window = app.widget.paned_window.PanedWindow(self.main_window) # 加载分隔条模块
+        self.status_bar = app.widget.status_bar.StatusBar(self.main_window) # 加载底部状态栏模块
+
+
 
     def destroy_window(self):
         if self.main_window:

@@ -1,8 +1,12 @@
 # 底部状态栏
 import tkinter as tk
+main_window = None
 
 class StatusBar:
     def __init__(self, window):
+        global main_window
+        self.main_window = main_window
+
         self.bottom_status_bar = tk.Frame(window)
         self.bottom_status_bar.pack(fill="x")
 

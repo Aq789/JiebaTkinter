@@ -1,8 +1,12 @@
 # 右侧编辑文本模块
 import tkinter as tk
+main_window = None
 
 class RightFrame:
     def __init__(self, paned_window):
+        global main_window
+        self.main_window = main_window
+
         self.right_frame = tk.Frame(paned_window) # 创建右侧模块
         self.right_frame.grid_rowconfigure(0, weight=1)
         self.right_frame.grid_columnconfigure(0, weight=1)
