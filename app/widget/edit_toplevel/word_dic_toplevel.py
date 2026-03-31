@@ -6,9 +6,9 @@ class WordDicToplevel:
     def __init__(self, window, callback):
         self.main_window = window
 
-        self.edit_word_dic_window = tk.Toplevel(window)
+        self.edit_word_dic_window = tk.Toplevel(window.main_window)
         self.edit_word_dic_window.title("编辑词典")
-        self.edit_word_dic_window.transient(window) # 子窗口在父窗口之上
+        self.edit_word_dic_window.transient(window.main_window) # 子窗口在父窗口之上
         self.edit_word_dic_window.wm_attributes("-toolwindow", True) # 只保留关闭按钮
         self.edit_word_dic_window.geometry("400x300+480+180") # 窗口大小和初始位置
         self.edit_word_dic_window.wm_minsize(480, 410) # 最小窗口大小
