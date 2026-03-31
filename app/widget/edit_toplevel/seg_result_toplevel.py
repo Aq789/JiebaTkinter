@@ -3,16 +3,16 @@ import tkinter as tk
 import app.controllers.edit_toplevel.seg_result_toplevel as c_srt
 from tkinter import ttk
 from tkinter import messagebox
-main_window = None
 
 class SegResultToplevel:
     def __init__(self, window, callback):
-        global main_window
-        self.main_window = main_window
+        self.main_window = window
+        self.select_result_iid = ()
+        self.seg_result_save_state = True
 
-        self.edit_seg_result_window = tk.Toplevel(window)
+        self.edit_seg_result_window = tk.Toplevel(window.main_window)
         self.edit_seg_result_window.title("编辑分词结果")
-        self.edit_seg_result_window.transient(window) # 子窗口在父窗口之上
+        self.edit_seg_result_window.transient(window.main_window) # 子窗口在父窗口之上
         self.edit_seg_result_window.wm_attributes("-toolwindow", True) # 只保留关闭按钮
         self.edit_seg_result_window.geometry("450x350+500+200") # 窗口大小和初始位置
         self.edit_seg_result_window.wm_minsize(450, 370) # 最小窗口大小
@@ -99,7 +99,7 @@ class SegResultToplevel:
         c_srt.input_data(self)
 
     def on_close(self): # 关闭执行的方法
-        if c_srt.return_saved(): # 如果窗口已经保存到分词结果数据
+        if c_srt.return_saved(self): # 如果窗口已经保存到分词结果数据
             self.edit_seg_result_window.destroy() # 关闭窗口
             if self.callback: self.callback()  # 调用回调（恢复按钮）
             return True
@@ -109,12 +109,12 @@ class SegResultToplevel:
                 c_srt.output_data(self) # 导出数据
                 self.edit_seg_result_window.destroy() # 关闭窗口
                 if self.callback: self.callback()  # 调用回调（恢复按钮）
-                c_srt.is_saved()
+                c_srt.is_saved(self)
                 return True
             elif ask_save_yesnocancel == False: # 如果用户选择不保存
                 self.edit_seg_result_window.destroy() # 直接关闭窗口
                 if self.callback: self.callback()  # 调用回调（恢复按钮）
-                c_srt.is_saved()
+                c_srt.is_saved(self)
                 return True
             else:
                 return False

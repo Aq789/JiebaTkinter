@@ -1,12 +1,10 @@
 # 编辑词典窗口
 import tkinter as tk
 from tkinter import ttk
-main_window = None
 
 class WordDicToplevel:
     def __init__(self, window, callback):
-        global main_window
-        self.main_window = main_window
+        self.main_window = window
 
         self.edit_word_dic_window = tk.Toplevel(window)
         self.edit_word_dic_window.title("编辑词典")

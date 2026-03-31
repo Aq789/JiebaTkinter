@@ -10,5 +10,5 @@ def create_test_window():
     test_window.title("测试窗口")
     test_window.geometry("400x300")
 
-    tk.Button(test_window, text="点击新建窗口", command=app.view.create_new_window).pack()
+    tk.Button(test_window, text="点击新建窗口", command=lambda :app.view.create_new_window(root)).pack()
     tk.Button(test_window, text="点击删除窗口", command=app.view.delete_new_window).pack()

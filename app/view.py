@@ -13,11 +13,8 @@ import app.controllers.edit_toplevel.seg_result_toplevel
 
 import app.datas.word_seg_result
 
-view_root = None # 全局变量，用来记录根窗口
-
-def create_new_window(): # 创建窗口实例方法
-    global view_root
-    new_window = MainWindow(view_root) # 创建窗口实例
+def create_new_window(root): # 创建窗口实例方法
+    new_window = MainWindow(root) # 创建窗口实例
     MainWindow.windows.append(new_window) # 添加窗口到列表
 
 def delete_new_window(): # 删除窗口实例方法
@@ -50,24 +47,13 @@ class MainWindow:
         self.word_seg_result_datas.add_word_seg_result("遇到了", 10, "n")
         self.word_seg_result_datas.add_word_seg_result("问题", 10, "v")
 
-        # 将main_window传入各个模块
-        app.widget.left_frame.main_window = self.main_window
-        app.widget.menu.main_window = self.main_window
-        app.widget.paned_window.main_window = self.main_window
-        app.widget.right_frame.main_window = self.main_window
-        app.widget.status_bar.main_window = self.main_window
-        app.widget.edit_toplevel.seg_result_toplevel.main_window = self.main_window
-        app.widget.edit_toplevel.word_dic_toplevel.main_window = self.main_window
-
-        app.controllers.left_frame.main_window = self
-        app.controllers.edit_toplevel.seg_result_toplevel.main_window = self
+        for i in self.word_seg_result_datas.return_word_seg_result_list():
+            print(i.word_name, i.word_frequency, i.word_class)
 
         # 加载模块
-        self.menu = app.widget.menu.Menu(self.main_window) # 加载menu模块
-        self.paned_window = app.widget.paned_window.PanedWindow(self.main_window) # 加载分隔条模块
-        self.status_bar = app.widget.status_bar.StatusBar(self.main_window) # 加载底部状态栏模块
-
-
+        self.menu = app.widget.menu.Menu(self) # 加载menu模块
+        self.paned_window = app.widget.paned_window.PanedWindow(self) # 加载分隔条模块
+        self.status_bar = app.widget.status_bar.StatusBar(self) # 加载底部状态栏模块
 
     def destroy_window(self):
         if self.main_window:

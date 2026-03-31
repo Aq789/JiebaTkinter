@@ -1,13 +1,11 @@
 # 菜单栏
 import tkinter as tk
-main_window = None
 
 class Menu:
     def __init__(self, window):
-        global main_window
-        self.main_window = main_window
+        self.main_window = window
 
-        self.menubar = tk.Menu(window)
+        self.menubar = tk.Menu(window.main_window)
 
         # 文件菜单 - file_menu
         self.file_menu = tk.Menu(self.menubar, tearoff=0)
@@ -59,4 +57,4 @@ class Menu:
         self.help_menu.add_command(label="帮助")
         self.help_menu.add_command(label="关于...")
 
-        window.config(menu=self.menubar)
+        window.main_window.config(menu=self.menubar)

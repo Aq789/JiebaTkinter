@@ -1,16 +1,15 @@
 # 左侧窗口模块
 import tkinter as tk
+from tkinter import ttk
+
+import app.controllers.left_frame as c_lf
 import app.widget.edit_toplevel.seg_result_toplevel
 import app.widget.edit_toplevel.word_dic_toplevel
-import app.controllers.left_frame as c_lf
-import app.controllers.edit_toplevel.seg_result_toplevel as c_srt
-from tkinter import ttk
-main_window = None
+
 
 class LeftFrame:
-    def __init__(self, paned_window):
-        global main_window
-        self.main_window = main_window
+    def __init__(self, paned_window, window):
+        self.main_window = window
 
         self.left_frame = tk.Frame(paned_window) # 创建左侧模块实例
         notebook = ttk.Notebook(self.left_frame) # 创建notebook标签页
@@ -81,16 +80,14 @@ class LeftFrame:
         self.edit_word_dic = ttk.Button(tab_word_dic, text="编辑词典", command=self.create_word_dic_toplevel)
         self.edit_word_dic.grid(row=1, column=0, sticky="e", pady=5, padx=10)
 
-        # 将模块传入控制器中
-        c_srt.left_frame = self
-
         # 初始状态：将分词结果数据传入模块中
         c_lf.input_seg_result_data(self)
 
     # 创建编辑分词结果窗口
     def create_seg_result_toplevel(self):
-        global main_window  # 导入主窗口变量
-        app.widget.edit_toplevel.seg_result_toplevel.SegResultToplevel(main_window, callback=self.recover_seg_result_toplevel)  # 创建窗口实例
+        app.widget.edit_toplevel.seg_result_toplevel.SegResultToplevel(
+            self.main_window,
+            callback=self.recover_seg_result_toplevel)  # 创建窗口实例
         self.edit_word_seg_result.config(state=tk.DISABLED) # 将按钮转为禁用状态
 
     # 当编辑分词结果窗口删除时触发代码
@@ -99,8 +96,9 @@ class LeftFrame:
 
     # 创建词典窗口
     def create_word_dic_toplevel(self):
-        global main_window
-        app.widget.edit_toplevel.word_dic_toplevel.WordDicToplevel(main_window, callback=self.recover_word_dic_toplevel)
+        app.widget.edit_toplevel.word_dic_toplevel.WordDicToplevel(
+            self.main_window,
+            callback=self.recover_word_dic_toplevel)
         self.edit_word_dic.config(state=tk.DISABLED) # 将按钮转为禁用状态
 
     # 当编辑词典窗口删除时触发代码
