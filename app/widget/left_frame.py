@@ -56,32 +56,33 @@ class LeftFrame:
         start_word_seg_result.grid(row=1, column=0, sticky="w", pady=5, padx=10)
 
         """词典"""
-        show_word_dic = ttk.Treeview(tab_word_dic, columns=("id", "word_name", "word_frequency", "word_class"), show="headings")
+        self.show_word_dic = ttk.Treeview(tab_word_dic, columns=("id", "word_name", "word_frequency", "word_class"), show="headings")
 
         # 定义每一列的标题
-        show_word_dic.heading("id", text="序号")
-        show_word_dic.heading("word_name", text="词名")
-        show_word_dic.heading("word_frequency", text="词频")
-        show_word_dic.heading("word_class", text="词性")
+        self.show_word_dic.heading("id", text="序号")
+        self.show_word_dic.heading("word_name", text="词名")
+        self.show_word_dic.heading("word_frequency", text="词频")
+        self.show_word_dic.heading("word_class", text="词性")
 
         # 定义每一列的宽度
-        show_word_dic.column("id", width=20)
-        show_word_dic.column("word_name", width=60)
-        show_word_dic.column("word_frequency", width=30)
-        show_word_dic.column("word_class", width=30)
+        self.show_word_dic.column("id", width=20)
+        self.show_word_dic.column("word_name", width=60)
+        self.show_word_dic.column("word_frequency", width=30)
+        self.show_word_dic.column("word_class", width=30)
 
-        show_word_dic.grid(row=0, column=0, sticky="nsew", pady=10, padx=10)  # 放置表格
+        self.show_word_dic.grid(row=0, column=0, sticky="nsew", pady=10, padx=10)  # 放置表格
 
         height_scroll_word_dic = tk.Scrollbar(tab_word_dic, orient="vertical",
-                                                command=show_word_dic.yview)  # 创建纵向滚动条
+                                                command=self.show_word_dic.yview)  # 创建纵向滚动条
         height_scroll_word_dic.grid(row=0, column=1, sticky="ns")
-        show_word_dic.config(yscrollcommand=height_scroll_word_dic.set)
+        self.show_word_dic.config(yscrollcommand=height_scroll_word_dic.set)
 
         self.edit_word_dic = ttk.Button(tab_word_dic, text="编辑词典", command=self.create_word_dic_toplevel)
         self.edit_word_dic.grid(row=1, column=0, sticky="e", pady=5, padx=10)
 
         # 初始状态：将分词结果数据传入模块中
         c_lf.input_seg_result_data(self)
+        c_lf.input_dic_data(self)
 
     # 创建编辑分词结果窗口
     def create_seg_result_toplevel(self):

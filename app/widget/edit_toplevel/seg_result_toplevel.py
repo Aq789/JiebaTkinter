@@ -96,6 +96,7 @@ class SegResultToplevel:
         self.callback = callback # 保存回调函数
         self.edit_seg_result_window.protocol("WM_DELETE_WINDOW", self.on_close)
 
+        # 将分词结果数据集导入至表格
         c_srt.input_data(self)
 
     def on_close(self): # 关闭执行的方法

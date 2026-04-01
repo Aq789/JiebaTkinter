@@ -12,6 +12,7 @@ import app.controllers.left_frame
 import app.controllers.edit_toplevel.seg_result_toplevel
 
 import app.datas.word_seg_result
+import app.datas.word_dic
 
 def create_new_window(root): # 创建窗口实例方法
     new_window = MainWindow(root) # 创建窗口实例
@@ -32,6 +33,7 @@ class MainWindow:
 
         # 初始化数据集
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
+        self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
 
         # 往数据集中添加测试数据
         self.word_seg_result_datas.add_word_seg_result("你好", 10, "n")
@@ -47,8 +49,16 @@ class MainWindow:
         self.word_seg_result_datas.add_word_seg_result("遇到了", 10, "n")
         self.word_seg_result_datas.add_word_seg_result("问题", 10, "v")
 
-        for i in self.word_seg_result_datas.return_word_seg_result_list():
-            print(i.word_name, i.word_frequency, i.word_class)
+        self.word_dic_datas.add_word_dic("开始", 10,  "n")
+        self.word_dic_datas.add_word_dic("词典", 10, "v")
+        self.word_dic_datas.add_word_dic("正确", 10, "n")
+        self.word_dic_datas.add_word_dic("窗口", 10, "v")
+        self.word_dic_datas.add_word_dic("结果", 10, "n")
+        self.word_dic_datas.add_word_dic("删除", 10, "v")
+        self.word_dic_datas.add_word_dic("百叶窗", 10, "n")
+        self.word_dic_datas.add_word_dic("百花齐放", 10, "v")
+        self.word_dic_datas.add_word_dic("论语", 10, "n")
+        self.word_dic_datas.add_word_dic("结束", 10, "v")
 
         # 加载模块
         self.menu = app.widget.menu.Menu(self) # 加载menu模块

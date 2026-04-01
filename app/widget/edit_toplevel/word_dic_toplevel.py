@@ -1,10 +1,19 @@
 # 编辑词典窗口
 import tkinter as tk
+import app.controllers.edit_toplevel.word_dic_toplevel as c_wdt
 from tkinter import ttk
+from tkinter import messagebox
 
 class WordDicToplevel:
     def __init__(self, window, callback):
         self.main_window = window
+        self.select_result_iid = ()
+        self.word_dic_save_state = True
+
+        self.last_select_result_iid = () # 记录上一个状态的iid，纯为entry_change服务
+        self.last_word_name = None # 纯为entry_change服务
+        self.last_word_frequency = None # 纯为entry_change服务
+        self.last_word_class = None # 纯为entry_change服务
 
         self.edit_word_dic_window = tk.Toplevel(window.main_window)
         self.edit_word_dic_window.title("编辑词典")
@@ -56,25 +65,25 @@ class WordDicToplevel:
         self.right_frame_toplevel = tk.Frame(self.edit_word_dic_window)
         self.right_frame_toplevel.grid(row=1, column=1, sticky="nes", padx=10, pady=5)
 
-        move_pgup = ttk.Button(self.right_frame_toplevel, text="移至最前")
+        move_pgup = ttk.Button(self.right_frame_toplevel, text="移至最前", command=lambda :c_wdt.move_pgup(self))
         move_pgup.grid(row=0, column=0, pady=5)
 
-        move_up = ttk.Button(self.right_frame_toplevel, text="向前移动")
+        move_up = ttk.Button(self.right_frame_toplevel, text="向前移动", command=lambda :c_wdt.move_up(self))
         move_up.grid(row=1, column=0, pady=5)
 
-        move_down = ttk.Button(self.right_frame_toplevel, text="向后移动")
+        move_down = ttk.Button(self.right_frame_toplevel, text="向后移动", command=lambda :c_wdt.move_down(self))
         move_down.grid(row=2, column=0, pady=5)
 
-        move_pgdn = ttk.Button(self.right_frame_toplevel, text="移至最后")
+        move_pgdn = ttk.Button(self.right_frame_toplevel, text="移至最后", command=lambda :c_wdt.move_pgdn(self))
         move_pgdn.grid(row=3, column=0, pady=5)
 
         create_word_dic = ttk.Button(self.right_frame_toplevel, text="创建词典条目")
         create_word_dic.grid(row=4, column=0, pady=5)
 
-        delete_select = ttk.Button(self.right_frame_toplevel, text="删除选中词典")
+        delete_select = ttk.Button(self.right_frame_toplevel, text="删除选中词典", command=lambda :c_wdt.delete_select_results(self))
         delete_select.grid(row=5, column=0, pady=5)
 
-        save_change = ttk.Button(self.right_frame_toplevel, text="保存更改")
+        save_change = ttk.Button(self.right_frame_toplevel, text="保存更改", command=lambda :c_wdt.output_data(self))
         save_change.grid(row=6, column=0, pady=5)
 
         """底部内容"""
@@ -85,28 +94,34 @@ class WordDicToplevel:
         self.bottom_frame_toplevel.grid_columnconfigure(1, weight=1)
         self.bottom_frame_toplevel.grid_columnconfigure(2, weight=1)
 
+        self.word_name_var = tk.StringVar()
+        self.word_name_var.trace("w", self.on_entry_change)
         bottom_frame_1 = tk.Frame(self.bottom_frame_toplevel)
         bottom_frame_1.grid(row=0, column=0, padx=5, pady=5)
         bottom_frame_1.grid_columnconfigure(1, weight=1)
         bottom_label_1 = tk.Label(bottom_frame_1, text="词名：")
         bottom_label_1.grid(row=0, column=0)
-        self.word_name_entry = ttk.Entry(bottom_frame_1)
+        self.word_name_entry = ttk.Entry(bottom_frame_1, textvariable=self.word_name_var)
         self.word_name_entry.grid(row=0, column=1, sticky="ew")
 
+        self.word_frequency_var = tk.StringVar()
+        self.word_frequency_var.trace("w", self.on_entry_change)
         bottom_frame_2 = tk.Frame(self.bottom_frame_toplevel)
         bottom_frame_2.grid(row=0, column=1, padx=5, pady=5)
         bottom_frame_2.grid_columnconfigure(1, weight=1)
         bottom_label_2 = tk.Label(bottom_frame_2, text="词频：")
         bottom_label_2.grid(row=0, column=0)
-        self.word_frequency_entry = ttk.Entry(bottom_frame_2)
+        self.word_frequency_entry = ttk.Entry(bottom_frame_2, textvariable=self.word_frequency_var)
         self.word_frequency_entry.grid(row=0, column=1, sticky="ew")
 
+        self.word_class_var = tk.StringVar()
+        self.word_class_var.trace("w", self.on_entry_change)
         bottom_frame_3 = tk.Frame(self.bottom_frame_toplevel)
         bottom_frame_3.grid(row=0, column=2, padx=5, pady=5)
         bottom_frame_3.grid_columnconfigure(1, weight=1)
         bottom_label_3 = tk.Label(bottom_frame_3, text="词性：")
         bottom_label_3.grid(row=0, column=0)
-        self.word_class_entry = ttk.Entry(bottom_frame_3)
+        self.word_class_entry = ttk.Entry(bottom_frame_3, textvariable=self.word_class_var)
         self.word_class_entry.grid(row=0, column=1, sticky="ew")
 
         # 底部查询
@@ -127,9 +142,38 @@ class WordDicToplevel:
 
         self.callback = callback # 保存回调函数
         self.edit_word_dic_window.protocol("WM_DELETE_WINDOW", self.on_close)
+        self.show_word_dic_toplevel.bind('<<TreeviewSelect>>', self.on_refresh_entry)
 
         tk.Frame(self.edit_word_dic_window).grid(row=5, column=0, pady=5)
 
-    def on_close(self): # 关闭执行的方法
-        if self.callback: self.callback() # 先调用回调（恢复按钮）
-        self.edit_word_dic_window.destroy()
+        # 将词典数据集导入至表格
+        c_wdt.input_data(self)
+
+    # 关闭执行的方法
+    def on_close(self):  # 关闭执行的方法
+        if c_wdt.return_saved(self):  # 如果窗口已经保存到分词结果数据
+            self.edit_word_dic_window.destroy()  # 关闭窗口
+            if self.callback: self.callback()  # 调用回调（恢复按钮）
+            return True
+        else:  # 如果没有保存到分词结果数据
+            ask_save_yesnocancel = messagebox.askyesnocancel("确认", "改动尚未保存，是否保存？")  # 询问用户是否保存
+            if ask_save_yesnocancel:  # 如果用户选择保存
+                c_wdt.output_data(self)  # 导出数据
+                self.edit_word_dic_window.destroy()  # 关闭窗口
+                if self.callback: self.callback()  # 调用回调（恢复按钮）
+                c_wdt.is_saved(self)
+                return True
+            elif ask_save_yesnocancel == False:  # 如果用户选择不保存
+                self.edit_word_dic_window.destroy()  # 直接关闭窗口
+                if self.callback: self.callback()  # 调用回调（恢复按钮）
+                c_wdt.is_saved(self)
+                return True
+            else:
+                return False
+
+    # 当用户点击表格中的选项时触发代码
+    def on_refresh_entry(self, event):
+        c_wdt.refresh_entry(self)
+
+    def on_entry_change(self, *args):
+        c_wdt.entry_change(self)

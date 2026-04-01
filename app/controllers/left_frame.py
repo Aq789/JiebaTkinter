@@ -17,3 +17,20 @@ def input_seg_result_data(left_frame):
                                                          values=(number, data.word_name, data.word_frequency, data.word_class))
         number += 1
     return True
+
+# 从词典数据导入至左侧表格模块
+def input_dic_data(left_frame):
+    last_iid = left_frame.show_word_dic.insert('', "end")
+    temp_iid = left_frame.show_word_dic.prev(last_iid)
+    left_frame.show_word_dic.delete(last_iid)
+    while temp_iid:
+        prev_temp_iid = left_frame.show_word_dic.prev(temp_iid)
+        left_frame.show_word_dic.delete(temp_iid)
+        temp_iid = prev_temp_iid
+
+    number = 1  # 用来记录序号
+    for data in left_frame.main_window.word_dic_datas.return_word_dic_list():  # 遍历词典数据
+        left_frame.show_word_dic.insert('', "end",  # 添加到表格中
+                                               values=(number, data.word_name, data.word_frequency, data.word_class))
+        number += 1
+    return True
