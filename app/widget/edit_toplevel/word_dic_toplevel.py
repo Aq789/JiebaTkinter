@@ -11,9 +11,9 @@ class WordDicToplevel:
         self.word_dic_save_state = True
 
         self.last_select_result_iid = () # 记录上一个状态的iid，纯为entry_change服务
-        self.last_word_name = None # 纯为entry_change服务
-        self.last_word_frequency = None # 纯为entry_change服务
-        self.last_word_class = None # 纯为entry_change服务
+        self.last_word_name = "词名" # 纯为entry_change服务
+        self.last_word_frequency = "词频" # 纯为entry_change服务
+        self.last_word_class = "词性" # 纯为entry_change服务
 
         self.edit_word_dic_window = tk.Toplevel(window.main_window)
         self.edit_word_dic_window.title("编辑词典")
@@ -77,7 +77,7 @@ class WordDicToplevel:
         move_pgdn = ttk.Button(self.right_frame_toplevel, text="移至最后", command=lambda :c_wdt.move_pgdn(self))
         move_pgdn.grid(row=3, column=0, pady=5)
 
-        create_word_dic = ttk.Button(self.right_frame_toplevel, text="创建词典条目")
+        create_word_dic = ttk.Button(self.right_frame_toplevel, text="创建词典条目", command=lambda :c_wdt.create_word_dic(self))
         create_word_dic.grid(row=4, column=0, pady=5)
 
         delete_select = ttk.Button(self.right_frame_toplevel, text="删除选中词典", command=lambda :c_wdt.delete_select_results(self))
@@ -137,7 +137,7 @@ class WordDicToplevel:
         self.search_entry = ttk.Entry(self.bottom_search_toplevel)
         self.search_entry.grid(row=0, column=1, sticky="ew", padx=5, pady=5)
 
-        search_result = ttk.Button(self.bottom_search_toplevel, text="查找结果")
+        search_result = ttk.Button(self.bottom_search_toplevel, text="查找结果", command=lambda :c_wdt.search_result(self))
         search_result.grid(row=0, column=2)
 
         self.callback = callback # 保存回调函数
@@ -158,7 +158,8 @@ class WordDicToplevel:
         else:  # 如果没有保存到分词结果数据
             ask_save_yesnocancel = messagebox.askyesnocancel("确认", "改动尚未保存，是否保存？")  # 询问用户是否保存
             if ask_save_yesnocancel:  # 如果用户选择保存
-                c_wdt.output_data(self)  # 导出数据
+                if not c_wdt.output_data(self):  # 导出数据
+                    return False
                 self.edit_word_dic_window.destroy()  # 关闭窗口
                 if self.callback: self.callback()  # 调用回调（恢复按钮）
                 c_wdt.is_saved(self)

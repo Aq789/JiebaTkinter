@@ -35,31 +35,6 @@ class MainWindow:
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
 
-        # 往数据集中添加测试数据
-        self.word_seg_result_datas.add_word_seg_result("你好", 10, "n")
-        self.word_seg_result_datas.add_word_seg_result("我是", 10, "v")
-        self.word_seg_result_datas.add_word_seg_result("王", 10, "n")
-        self.word_seg_result_datas.add_word_seg_result("敬虔", 10, "v")
-        self.word_seg_result_datas.add_word_seg_result("我", 10, "adj")
-        self.word_seg_result_datas.add_word_seg_result("正在", 10, "vt")
-        self.word_seg_result_datas.add_word_seg_result("开发", 10, "vi")
-        self.word_seg_result_datas.add_word_seg_result("一个", 10, "adv")
-        self.word_seg_result_datas.add_word_seg_result("项目", 10, "n")
-        self.word_seg_result_datas.add_word_seg_result("但是", 10, "v")
-        self.word_seg_result_datas.add_word_seg_result("遇到了", 10, "n")
-        self.word_seg_result_datas.add_word_seg_result("问题", 10, "v")
-
-        self.word_dic_datas.add_word_dic("开始", 10,  "n")
-        self.word_dic_datas.add_word_dic("词典", 10, "v")
-        self.word_dic_datas.add_word_dic("正确", 10, "n")
-        self.word_dic_datas.add_word_dic("窗口", 10, "v")
-        self.word_dic_datas.add_word_dic("结果", 10, "n")
-        self.word_dic_datas.add_word_dic("删除", 10, "v")
-        self.word_dic_datas.add_word_dic("百叶窗", 10, "n")
-        self.word_dic_datas.add_word_dic("百花齐放", 10, "v")
-        self.word_dic_datas.add_word_dic("论语", 10, "n")
-        self.word_dic_datas.add_word_dic("结束", 10, "v")
-
         # 加载模块
         self.menu = app.widget.menu.Menu(self) # 加载menu模块
         self.paned_window = app.widget.paned_window.PanedWindow(self) # 加载分隔条模块
