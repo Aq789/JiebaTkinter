@@ -220,7 +220,8 @@ def create_word_dic(word_dic_toplevel):
     # 获取当前选中的索引，如果没有或者多选的情况下就在尾部添加
     if len(word_dic_toplevel.select_result_iid) == 1:
         select_result_index = word_dic_toplevel.show_word_dic_toplevel.index(word_dic_toplevel.show_word_dic_toplevel.next(word_dic_toplevel.select_result_iid[0])) # 获取选中元素下一个的索引
-        new_word_dic = word_dic_toplevel.show_word_dic_toplevel.insert('', select_result_index, values=(0, "", "", ""))
+        if select_result_index == 0: new_word_dic = word_dic_toplevel.show_word_dic_toplevel.insert('', "end", values=(0, "", "", "")) # 特殊情况：如果选中元素为末尾元素，需要在最后添加
+        else: new_word_dic = word_dic_toplevel.show_word_dic_toplevel.insert('', select_result_index, values=(0, "", "", ""))
     else:
         new_word_dic = word_dic_toplevel.show_word_dic_toplevel.insert('', "end", values=(0, "", "", ""))
     sort_number(word_dic_toplevel) # 对序号进行排序
@@ -229,6 +230,7 @@ def create_word_dic(word_dic_toplevel):
     word_dic_toplevel.show_word_dic_toplevel.see(new_word_dic)  # 视图转到新项
     not_saved(word_dic_toplevel) # 未保存状态
     refresh_entry(word_dic_toplevel) # 刷新输入框
+    word_dic_toplevel.word_name_entry.focus_set() # 文本框获得焦点
 
 # 查找分词结果
 def search_result(word_dic_toplevel):

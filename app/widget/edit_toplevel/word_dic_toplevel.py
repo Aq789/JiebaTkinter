@@ -27,7 +27,7 @@ class WordDicToplevel:
 
         """左侧内容"""
         # 展示文字
-        label_1 = tk.Label(self.edit_word_dic_window, text="当前词典如下：")
+        label_1 = tk.Label(self.edit_word_dic_window, text="当前词典如下：（词名不得为空！）")
         label_1.grid(row=0, column=0, sticky="w", padx=10)
 
         # 开始创建新模块
