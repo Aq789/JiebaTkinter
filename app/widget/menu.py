@@ -1,6 +1,8 @@
 # 菜单栏
 import tkinter as tk
 
+import app.widget.settings.setting_toplevel
+
 class Menu:
     def __init__(self, window):
         self.main_window = window
@@ -49,6 +51,12 @@ class Menu:
         self.check_menu.add_command(label="自动换行")
         self.check_menu.add_command(label="统计")
 
+        # 设置菜单
+        self.settings_menu = tk.Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="设置", menu=self.settings_menu)
+        self.settings_menu.add_command(label="全局设置", command=self.create_settings_toplevel)
+        self.settings_menu.add_separator()
+
         # 帮助菜单
         self.help_menu = tk.Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="帮助", menu=self.help_menu)
@@ -58,3 +66,6 @@ class Menu:
         self.help_menu.add_command(label="关于...")
 
         window.main_window.config(menu=self.menubar)
+
+    def create_settings_toplevel(self):
+        app.widget.settings.setting_toplevel.SettingsToplevel(self.main_window)

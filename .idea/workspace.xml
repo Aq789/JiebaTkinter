@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.1.1&#10;- 删除测试数据&#10;- 完善编辑词典功能&#10;- 优化部分代码">
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.1.2&#10;- 修改部分代码">
+      <change afterPath="$PROJECT_DIR$/app/widget/settings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778923438133</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="0.1.2&#10;- 修改部分代码">
+      <option name="closed" value="true" />
+      <created>1780401809636</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1780401809636</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +266,7 @@
     <MESSAGE value="0.0.9&#10;- 添加了左侧窗口模块控制器&#10;- 优化主窗口代码逻辑&#10;- 优化分词结果数据集结构&#10;- 添加分词结果测试数据&#10;- 对绝大多数模块代码结构进行了重构&#10;- 修复了当打开多个界面时，编辑分词结果只修改最后一个窗口的bug&#10;- 修改了编辑分词结果和编辑词典的主窗口传入" />
     <MESSAGE value="0.1.0&#10;- 为词典添加数据导入&#10;- 修改了词典界面部分代码&#10;- 添加了词典数据结构&#10;- 添加了编辑词典控制器&#10;- 为编辑词典类添加了新的属性&#10;- 优化部分代码" />
     <MESSAGE value="0.1.1&#10;- 删除测试数据&#10;- 完善编辑词典功能&#10;- 优化部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.1&#10;- 删除测试数据&#10;- 完善编辑词典功能&#10;- 优化部分代码" />
+    <MESSAGE value="0.1.2&#10;- 修改部分代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.1.2&#10;- 修改部分代码" />
   </component>
 </project>
