@@ -36,6 +36,7 @@ class SegNotebook:
             if custom_file_path:
                 self.custom_path_entry.delete('0', 'end')
                 self.custom_path_entry.insert('0', custom_file_path)
+                self.toplevel.apply_button.state(['!disabled'])
 
         def has_changed():
             if [self.seg_mode_data, self.auto_seg_result_frequency_data, self.auto_seg_result_class_data, self.hmm_data,
@@ -65,22 +66,22 @@ class SegNotebook:
         self.exact_mode.grid(row=0, column=2)
         self.search_mode.grid(row=0, column=3)
 
-        self.auto_seg_result_frequency_var = tk.IntVar()
-        self.auto_seg_result_frequency = tk.Checkbutton(self.seg_label_frame, text="是否统计词频", variable=self.auto_seg_result_frequency_var, onvalue=1, offvalue=0, command=has_changed)
-        if self.auto_seg_result_frequency_data: self.auto_seg_result_frequency_var.set(1)
-        else: self.auto_seg_result_frequency_var.set(0)
+        self.auto_seg_result_frequency_var = tk.BooleanVar()
+        self.auto_seg_result_frequency = tk.Checkbutton(self.seg_label_frame, text="是否统计词频", variable=self.auto_seg_result_frequency_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.auto_seg_result_frequency_data: self.auto_seg_result_frequency_var.set(True)
+        else: self.auto_seg_result_frequency_var.set(False)
         self.auto_seg_result_frequency.grid(row=1, column=0, sticky="nw", padx=15, pady=3)
 
-        self.auto_seg_result_class_var = tk.IntVar()
-        self.auto_seg_result_class = tk.Checkbutton(self.seg_label_frame, text="是否进行词性标注", variable=self.auto_seg_result_class_var, onvalue=1, offvalue=0, command=has_changed)
-        if self.auto_seg_result_class_data: self.auto_seg_result_class_var.set(1)
-        else: self.auto_seg_result_class_var.set(0)
+        self.auto_seg_result_class_var = tk.BooleanVar()
+        self.auto_seg_result_class = tk.Checkbutton(self.seg_label_frame, text="是否进行词性标注", variable=self.auto_seg_result_class_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.auto_seg_result_class_data: self.auto_seg_result_class_var.set(True)
+        else: self.auto_seg_result_class_var.set(False)
         self.auto_seg_result_class.grid(row=2, column=0, sticky="nw", padx=15, pady=3)
 
-        self.hmm_var = tk.IntVar()
-        self.hmm_button = tk.Checkbutton(self.seg_label_frame, text="是否开启HMM（可能增加耗时）", variable=self.hmm_var, onvalue=1, offvalue=0, command=has_changed)
-        if self.hmm_data: self.hmm_var.set(1)
-        else: self.hmm_var.set(0)
+        self.hmm_var = tk.BooleanVar()
+        self.hmm_button = tk.Checkbutton(self.seg_label_frame, text="是否开启HMM（可能增加耗时）", variable=self.hmm_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.hmm_data: self.hmm_var.set(True)
+        else: self.hmm_var.set(False)
         self.hmm_button.grid(row=3, column=0, sticky="nw", padx=15, pady=3)
 
         """词典选项标签栏"""
@@ -88,10 +89,10 @@ class SegNotebook:
         self.dic_label_frame.grid(row=1, column=0, sticky="new", padx=5, pady=5)
         self.dic_label_frame.grid_columnconfigure(0, weight=1)
 
-        self.word_frequency_adjust_var = tk.IntVar()
-        self.word_frequency_adjust = tk.Checkbutton(self.dic_label_frame, text="默认对词典进行动态词频调整", variable=self.word_frequency_adjust_var, onvalue=1, offvalue=0, command=has_changed)
-        if self.word_frequency_adjust_data: self.word_frequency_adjust_var.set(1)
-        else: self.word_frequency_adjust_var.set(0)
+        self.word_frequency_adjust_var = tk.BooleanVar()
+        self.word_frequency_adjust = tk.Checkbutton(self.dic_label_frame, text="默认对词典进行动态词频调整", variable=self.word_frequency_adjust_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.word_frequency_adjust_data: self.word_frequency_adjust_var.set(True)
+        else: self.word_frequency_adjust_var.set(False)
         self.word_frequency_adjust.grid(row=0, column=0, sticky="nw", padx=15, pady=3)
 
         self.label1 = tk.Label(self.dic_label_frame, text="主词典选项")
@@ -128,3 +129,7 @@ class SegNotebook:
             self.custom_path_entry.state(['!disabled'])
             self.custom_path_button.state(['!disabled'])
 
+        self.custom_path_entry.bind('<Key>', self.on_refresh_entry) # 当在输入框输入任何内容时，触发函数
+
+    def on_refresh_entry(self, event):
+        self.toplevel.apply_button.state(['!disabled'])

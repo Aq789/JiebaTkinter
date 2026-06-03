@@ -3,7 +3,7 @@ class SegSettings:
     def __init__(self, main_window):
         self.main_window = main_window
 
-        self.seg_mode_data = 0
+        self.seg_mode_data = 0 # 0, 1, 2
         self.auto_seg_result_frequency_data = True
         self.auto_seg_result_class_data = True
         self.hmm_data = False

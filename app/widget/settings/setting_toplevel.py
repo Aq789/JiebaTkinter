@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 
 import app.widget.settings.seg_notebook
+import app.controllers.settings.setting_toplevel as c_sst
 
 class SettingsToplevel:
     def __init__(self, window):
@@ -41,13 +42,13 @@ class SettingsToplevel:
         frame = tk.Frame(self.bottom_frame)
         frame.pack(side="right")
 
-        self.ok_button = ttk.Button(frame, text="确定")
+        self.ok_button = ttk.Button(frame, text="确定", command=lambda :c_sst.ok(self))
         self.ok_button.grid(row=0, column=0, pady=10, padx=5)
 
-        self.cancel_button = ttk.Button(frame, text="取消")
+        self.cancel_button = ttk.Button(frame, text="取消", command=lambda :c_sst.cancel(self))
         self.cancel_button.grid(row=0, column=1, pady=10, padx=5)
 
-        self.apply_button = ttk.Button(frame, text="应用")
+        self.apply_button = ttk.Button(frame, text="应用", command=lambda :c_sst.apply(self))
         self.apply_button.grid(row=0, column=2, pady=10, padx=5)
         self.apply_button.state(['disabled'])   # 设置禁用状态
 
