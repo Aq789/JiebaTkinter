@@ -15,6 +15,8 @@ import app.datas.word_seg_result
 import app.datas.word_dic
 import app.datas.seg_settings
 
+import app.service.settings
+
 def create_new_window(root): # 创建窗口实例方法
     new_window = MainWindow(root) # 创建窗口实例
     MainWindow.windows.append(new_window) # 添加窗口到列表
@@ -36,6 +38,9 @@ class MainWindow:
         self.seg_settings_datas = app.datas.seg_settings.SegSettings(self.main_window) # 创建分词设置数据集
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
+
+        # 加载配置文件
+        app.service.settings.seg_settings_to_data(self) # 从磁盘中加载分词设置
 
         # 加载模块
         self.menu = app.widget.menu.Menu(self) # 加载menu模块

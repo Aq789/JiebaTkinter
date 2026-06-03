@@ -1,4 +1,5 @@
 # 设置总窗口控制器
+import app.service.io.settings
 
 def apply(settings_toplevel):
     seg_notebook = settings_toplevel.seg_notebook # 将数据集和界面的数据赋予到临时变量中
@@ -14,6 +15,8 @@ def apply(settings_toplevel):
     seg_settings_datas.custom_path = seg_notebook.custom_path_entry.get()
 
     settings_toplevel.apply_button.state(['disabled'])   # 设置禁用状态
+
+    app.service.io.settings.save_seg_settings(seg_settings_datas) # 将设置转为json配置文件并保存
 
 def ok(settings_toplevel):
     apply(settings_toplevel)
