@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.1.2&#10;- 修改部分代码">
-      <change afterPath="$PROJECT_DIR$/app/widget/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.1.3&#10;- 在目录中添加了设置&#10;- 添加了设置窗口&#10;- 添加了分词设置">
+      <change afterPath="$PROJECT_DIR$/app/datas/seg_settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780401809636</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="0.1.3&#10;- 在目录中添加了设置&#10;- 添加了设置窗口&#10;- 添加了分词设置">
+      <option name="closed" value="true" />
+      <created>1780464556893</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1780464556893</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,6 +273,7 @@
     <MESSAGE value="0.1.0&#10;- 为词典添加数据导入&#10;- 修改了词典界面部分代码&#10;- 添加了词典数据结构&#10;- 添加了编辑词典控制器&#10;- 为编辑词典类添加了新的属性&#10;- 优化部分代码" />
     <MESSAGE value="0.1.1&#10;- 删除测试数据&#10;- 完善编辑词典功能&#10;- 优化部分代码" />
     <MESSAGE value="0.1.2&#10;- 修改部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.2&#10;- 修改部分代码" />
+    <MESSAGE value="0.1.3&#10;- 在目录中添加了设置&#10;- 添加了设置窗口&#10;- 添加了分词设置" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.1.3&#10;- 在目录中添加了设置&#10;- 添加了设置窗口&#10;- 添加了分词设置" />
   </component>
 </project>

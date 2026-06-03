@@ -13,6 +13,7 @@ import app.controllers.edit_toplevel.seg_result_toplevel
 
 import app.datas.word_seg_result
 import app.datas.word_dic
+import app.datas.seg_settings
 
 def create_new_window(root): # 创建窗口实例方法
     new_window = MainWindow(root) # 创建窗口实例
@@ -32,6 +33,7 @@ class MainWindow:
         self.main_window.protocol("WM_DELETE_WINDOW", self.close_window)
 
         # 初始化数据集
+        self.seg_settings_datas = app.datas.seg_settings.SegSettings(self.main_window) # 创建分词设置数据集
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
 
