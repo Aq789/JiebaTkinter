@@ -28,7 +28,7 @@ class SettingsToplevel:
         self.seg_settings = ttk.Frame(self.settings_notebook) # 创建分词设置标签页
         self.window_settings = ttk.Frame(self.settings_notebook) # 创建窗口设置标签页
 
-        self.seg_notebook = app.widget.settings.seg_notebook.SegNotebook(self.seg_settings, self.main_window)
+        self.seg_notebook = app.widget.settings.seg_notebook.SegNotebook(self.seg_settings, self.main_window, self)
 
         # 加入notebook标签页中
         self.settings_notebook.add(self.seg_settings, text=" 分词设置 ")
