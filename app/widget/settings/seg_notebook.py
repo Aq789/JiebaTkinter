@@ -100,7 +100,7 @@ class SegNotebook:
 
         self.dic_var = tk.IntVar()
         self.default_dic = tk.Radiobutton(self.dic_label_frame, text="默认词典", variable=self.dic_var, value=0, command=dic_path_radiobutton)
-        self.custom_path = tk.Radiobutton(self.dic_label_frame, text="自定义词典路径", variable=self.dic_var, value=1, command=dic_path_radiobutton)
+        self.custom_path = tk.Radiobutton(self.dic_label_frame, text="自定义词典路径（不推荐）", variable=self.dic_var, value=1, command=dic_path_radiobutton)
         self.default_dic.grid(row=2, column=0, sticky="nw", padx=15, pady=0)
         self.custom_path.grid(row=3, column=0, sticky="nw", padx=15, pady=0)
 

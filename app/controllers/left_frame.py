@@ -1,4 +1,6 @@
 # 左侧窗口模块控制器
+import app.controllers.right_frame as c_rf
+import app.service.jieba.start as s_js
 
 # 从分词结果数据导入至左侧表格模块
 def input_seg_result_data(left_frame):
@@ -34,3 +36,9 @@ def input_dic_data(left_frame):
                                                values=(number, data.word_name, data.word_frequency, data.word_class))
         number += 1
     return True
+
+# 开始分词按钮总控制器
+def start_seg_word(left_frame):
+    c_rf.text_to_data(left_frame.main_window.paned_window.right_frame) # 将文本上传至数据集
+    s_js.start(left_frame.main_window.seg_settings_datas, left_frame.main_window.text_datas, left_frame.main_window.word_dic_datas, left_frame.main_window.word_seg_result_datas)
+    input_seg_result_data(left_frame)

@@ -25,7 +25,7 @@ class LeftFrame:
 
         # 加入notebook标签页中
         notebook.add(tab_word_seg_result, text="分词结果")
-        notebook.add(tab_word_dic, text="字典")
+        notebook.add(tab_word_dic, text="词典")
 
         """分词结果"""
         # 开始创建新表格
@@ -52,7 +52,7 @@ class LeftFrame:
         self.edit_word_seg_result = ttk.Button(tab_word_seg_result, text="编辑分词结果", command=self.create_seg_result_toplevel) # 按钮绑定上方方法
         self.edit_word_seg_result.grid(row=1, column=0, sticky="e", pady=5, padx=10)
 
-        start_word_seg_result = ttk.Button(tab_word_seg_result, text="开始分词")
+        start_word_seg_result = ttk.Button(tab_word_seg_result, text="开始分词", command=lambda :c_lf.start_seg_word(self))
         start_word_seg_result.grid(row=1, column=0, sticky="w", pady=5, padx=10)
 
         """词典"""

@@ -13,7 +13,8 @@ class WordSegResultDatas:
 
     def add_word_seg_result(self, word_name, word_frequency, word_class):
         temp = WordSegResult(word_name, word_frequency, word_class)
-        self.word_seg_result_list.append(temp)
+        if word_name != "" and " " not in word_name and "\n" not in word_name:
+            self.word_seg_result_list.append(temp)
 
     def delete_all_word_seg_result(self):
         while self.word_seg_result_list:

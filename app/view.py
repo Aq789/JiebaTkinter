@@ -14,6 +14,7 @@ import app.controllers.edit_toplevel.seg_result_toplevel
 import app.datas.word_seg_result
 import app.datas.word_dic
 import app.datas.seg_settings
+import app.datas.text
 
 import app.service.settings
 
@@ -38,6 +39,7 @@ class MainWindow:
         self.seg_settings_datas = app.datas.seg_settings.SegSettings(self.main_window) # 创建分词设置数据集
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
+        self.text_datas = app.datas.text.Text(self.main_window) # 创建文本数据集
 
         # 加载配置文件
         app.service.settings.seg_settings_to_data(self) # 从磁盘中加载分词设置
