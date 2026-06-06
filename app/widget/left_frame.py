@@ -3,8 +3,8 @@ import tkinter as tk
 from tkinter import ttk
 
 import app.controllers.left_frame as c_lf
-import app.widget.edit_toplevel.seg_result_toplevel
-import app.widget.edit_toplevel.word_dic_toplevel
+import app.widget.edit_toplevel.seg_result_toplevel as w_es
+import app.widget.edit_toplevel.word_dic_toplevel as w_ew
 
 
 class LeftFrame:
@@ -86,10 +86,11 @@ class LeftFrame:
 
     # 创建编辑分词结果窗口
     def create_seg_result_toplevel(self):
-        app.widget.edit_toplevel.seg_result_toplevel.SegResultToplevel(
-            self.main_window,
-            callback=self.recover_seg_result_toplevel)  # 创建窗口实例
+        edit_seg_result_toplevel = w_es.SegResultToplevel(self.main_window, callback=self.recover_seg_result_toplevel)  # 创建窗口实例
         self.edit_word_seg_result.config(state=tk.DISABLED) # 将按钮转为禁用状态
+        self.main_window.menu.edit_seg_result_toplevel = edit_seg_result_toplevel
+        self.main_window.menu.edit_seg_result_var.set(True)
+        return edit_seg_result_toplevel
 
     # 当编辑分词结果窗口删除时触发代码
     def recover_seg_result_toplevel(self):
@@ -97,10 +98,11 @@ class LeftFrame:
 
     # 创建词典窗口
     def create_word_dic_toplevel(self):
-        app.widget.edit_toplevel.word_dic_toplevel.WordDicToplevel(
-            self.main_window,
-            callback=self.recover_word_dic_toplevel)
+        edit_dic_toplevel = w_ew.WordDicToplevel(self.main_window, callback=self.recover_word_dic_toplevel)
         self.edit_word_dic.config(state=tk.DISABLED) # 将按钮转为禁用状态
+        self.main_window.menu.edit_dic_toplevel = edit_dic_toplevel
+        self.main_window.menu.edit_dic_var.set(True)
+        return edit_dic_toplevel
 
     # 当编辑词典窗口删除时触发代码
     def recover_word_dic_toplevel(self):

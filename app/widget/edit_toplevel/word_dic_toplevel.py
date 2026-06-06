@@ -154,6 +154,7 @@ class WordDicToplevel:
         if c_wdt.return_saved(self):  # 如果窗口已经保存到分词结果数据
             self.edit_word_dic_window.destroy()  # 关闭窗口
             if self.callback: self.callback()  # 调用回调（恢复按钮）
+            self.main_window.menu.edit_dic_var.set(False)  # 将目录按钮回调
             return True
         else:  # 如果没有保存到分词结果数据
             ask_save_yesnocancel = messagebox.askyesnocancel("确认", "改动尚未保存，是否保存？")  # 询问用户是否保存
@@ -162,11 +163,13 @@ class WordDicToplevel:
                     return False
                 self.edit_word_dic_window.destroy()  # 关闭窗口
                 if self.callback: self.callback()  # 调用回调（恢复按钮）
+                self.main_window.menu.edit_dic_var.set(False)  # 将目录按钮回调
                 c_wdt.is_saved(self)
                 return True
             elif ask_save_yesnocancel == False:  # 如果用户选择不保存
                 self.edit_word_dic_window.destroy()  # 直接关闭窗口
                 if self.callback: self.callback()  # 调用回调（恢复按钮）
+                self.main_window.menu.edit_dic_var.set(False)  # 将目录按钮回调
                 c_wdt.is_saved(self)
                 return True
             else:
