@@ -7,8 +7,9 @@ class SegSettings:
         self.auto_seg_result_frequency_data = True
         self.auto_seg_result_class_data = True
         self.hmm_data = False
+        self.ignore_sign_data = True
+        self.ignore_english_data = False
 
-        self.word_frequency_adjust_data = True
         self.dic_var_data = 0
         self.custom_path = ""
 
@@ -49,15 +50,25 @@ class SegSettings:
     def get_hmm_data(self):
         return self.hmm_data
 
-    # 动态词频调整
-    def open_word_frequency_adjust_data(self):
-        self.word_frequency_adjust_data = True
+    # 忽略标点符号
+    def open_ignore_sign_data(self):
+        self.ignore_sign_data = True
 
-    def close_word_frequency_adjust_data(self):
-        self.word_frequency_adjust_data = False
+    def close_ignore_sign_data(self):
+        self.ignore_sign_data = False
 
-    def get_word_frequency_adjust_data(self):
-        return self.word_frequency_adjust_data
+    def get_ignore_sign_data(self):
+        return self.ignore_sign_data
+
+    # 忽略英文单词
+    def open_ignore_english_data(self):
+        self.ignore_english_data = True
+
+    def close_ignore_english_data(self):
+        self.ignore_english_data = False
+
+    def get_ignore_english_data(self):
+        return self.ignore_english_data
 
     # 主词典选项
     def set_dic_var_data(self, number):

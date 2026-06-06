@@ -14,7 +14,8 @@ class SegNotebook:
         self.auto_seg_result_frequency_data = window.seg_settings_datas.get_auto_seg_result_frequency_data()
         self.auto_seg_result_class_data = window.seg_settings_datas.get_auto_seg_result_class_data()
         self.hmm_data = window.seg_settings_datas.get_hmm_data()
-        self.word_frequency_adjust_data = window.seg_settings_datas.get_word_frequency_adjust_data()
+        self.ignore_sign_data = window.seg_settings_datas.get_ignore_sign_data()
+        self.ignore_english_data = window.seg_settings_datas.get_ignore_english_data()
         self.dic_var_data = window.seg_settings_datas.get_dic_var_data()
         self.custom_path_data = window.seg_settings_datas.get_custom_path()
 
@@ -40,8 +41,8 @@ class SegNotebook:
 
         def has_changed():
             if [self.seg_mode_data, self.auto_seg_result_frequency_data, self.auto_seg_result_class_data, self.hmm_data,
-                self.word_frequency_adjust_data, self.dic_var_data] != [self.seg_var.get(), self.auto_seg_result_frequency_var.get(), self.auto_seg_result_class_var.get(),
-                 self.hmm_var.get(), self.word_frequency_adjust_var.get(), self.dic_var.get()]:
+                 self.ignore_sign_data, self.ignore_english_data, self.dic_var_data] != [self.seg_var.get(), self.auto_seg_result_frequency_var.get(), self.auto_seg_result_class_var.get(),
+                 self.hmm_var.get(), self.ignore_sign_var.get(), self.ignore_english_var.get(), self.dic_var.get()]:
                 self.toplevel.apply_button.state(['!disabled'])
             else:
                 self.toplevel.apply_button.state(['disabled'])
@@ -84,16 +85,27 @@ class SegNotebook:
         else: self.hmm_var.set(False)
         self.hmm_button.grid(row=3, column=0, sticky="nw", padx=15, pady=3)
 
+        self.frame0 = tk.Frame(self.seg_label_frame)
+        self.frame0.grid(row=4, column=0, sticky="nw", padx=15, pady=3)
+        self.label0 = tk.Label(self.frame0, text="忽略项：")
+        self.label0.grid(row=0, column=0)
+
+        self.ignore_sign_var = tk.BooleanVar()
+        self.ignore_sign_button = tk.Checkbutton(self.frame0, text="标点符号", variable=self.ignore_sign_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.ignore_sign_data: self.ignore_sign_var.set(True)
+        else: self.ignore_sign_var.set(False)
+        self.ignore_sign_button.grid(row=0, column=1)
+
+        self.ignore_english_var = tk.BooleanVar()
+        self.ignore_english_button = tk.Checkbutton(self.frame0, text="英文单词", variable=self.ignore_english_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.ignore_english_data: self.ignore_english_var.set(True)
+        else: self.ignore_english_var.set(False)
+        self.ignore_english_button.grid(row=0, column=2)
+
         """词典选项标签栏"""
         self.dic_label_frame = tk.LabelFrame(self.seg_frame, text="词典选项", labelanchor="nw", relief="groove")
         self.dic_label_frame.grid(row=1, column=0, sticky="new", padx=5, pady=5)
         self.dic_label_frame.grid_columnconfigure(0, weight=1)
-
-        self.word_frequency_adjust_var = tk.BooleanVar()
-        self.word_frequency_adjust = tk.Checkbutton(self.dic_label_frame, text="默认对词典进行动态词频调整", variable=self.word_frequency_adjust_var, onvalue=True, offvalue=False, command=has_changed)
-        if self.word_frequency_adjust_data: self.word_frequency_adjust_var.set(True)
-        else: self.word_frequency_adjust_var.set(False)
-        self.word_frequency_adjust.grid(row=0, column=0, sticky="nw", padx=15, pady=3)
 
         self.label1 = tk.Label(self.dic_label_frame, text="主词典选项")
         self.label1.grid(row=1, column=0, sticky="nw", padx=10, pady=3)

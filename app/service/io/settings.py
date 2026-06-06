@@ -24,7 +24,8 @@ def load_seg_settings():
             "auto_seg_result_frequency_data": True,
             "auto_seg_result_class_data": True,
             "hmm_data": False,
-            "word_frequency_adjust_data": True,
+            "ignore_sign_data": True,
+            "ignore_english_data": False,
             "dic_var_data": 0,
             "custom_path": ""
         }

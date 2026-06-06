@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.1.7&#10;- 创建文件读写流软件包&#10;- 创建服务软件包&#10;- 添加配置文件并保存在磁盘里&#10;- 实现设置本地化&#10;- 将加载配置文件注册至总线">
-      <change afterPath="$PROJECT_DIR$/app/controllers/right_frame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/datas/text.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/jieba/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/jieba/dictionary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/jieba/start.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/jieba/word_class.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/jieba/word_frequency.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_python.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/JiebaTkinter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JiebaTkinter.iml" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.0&#10;核心功能更新&#10;- 支持开始分词，可以读取分词设置和词典进行分词&#10;其他更新&#10;- 开始分词按钮现已可用&#10;- 创建服务算法软件包&#10;- 添加开始分词相关算法&#10;- 添加词典读取算法&#10;- 添加词性标注算法&#10;- 添加词频统计算法&#10;- 添加文本数据集并添加至主线&#10;- 添加测试代码&#10;- 优化分词结果数据集方法判断条件&#10;- 优化部分代码&#10;- 更正部分文本错误">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/left_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/datas/word_seg_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/word_seg_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/left_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/right_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/right_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/datas/seg_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/seg_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/io/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/io/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/jieba/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/jieba/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780501898520</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="0.2.0&#10;核心功能更新&#10;- 支持开始分词，可以读取分词设置和词典进行分词&#10;其他更新&#10;- 开始分词按钮现已可用&#10;- 创建服务算法软件包&#10;- 添加开始分词相关算法&#10;- 添加词典读取算法&#10;- 添加词性标注算法&#10;- 添加词频统计算法&#10;- 添加文本数据集并添加至主线&#10;- 添加测试代码&#10;- 优化分词结果数据集方法判断条件&#10;- 优化部分代码&#10;- 更正部分文本错误">
+      <option name="closed" value="true" />
+      <created>1780727008206</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1780727008206</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,6 +333,7 @@
     <MESSAGE value="0.1.5&#10;- 分词设置现在可以读取数据集数据&#10;- 优化代码逻辑&#10;- 添加应用按钮状态逻辑" />
     <MESSAGE value="0.1.6&#10;- 优化部分代码逻辑&#10;- 添加总窗口控制器&#10;- 完善设置窗口功能" />
     <MESSAGE value="0.1.7&#10;- 创建文件读写流软件包&#10;- 创建服务软件包&#10;- 添加配置文件并保存在磁盘里&#10;- 实现设置本地化&#10;- 将加载配置文件注册至总线" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.7&#10;- 创建文件读写流软件包&#10;- 创建服务软件包&#10;- 添加配置文件并保存在磁盘里&#10;- 实现设置本地化&#10;- 将加载配置文件注册至总线" />
+    <MESSAGE value="0.2.0&#10;核心功能更新&#10;- 支持开始分词，可以读取分词设置和词典进行分词&#10;其他更新&#10;- 开始分词按钮现已可用&#10;- 创建服务算法软件包&#10;- 添加开始分词相关算法&#10;- 添加词典读取算法&#10;- 添加词性标注算法&#10;- 添加词频统计算法&#10;- 添加文本数据集并添加至主线&#10;- 添加测试代码&#10;- 优化分词结果数据集方法判断条件&#10;- 优化部分代码&#10;- 更正部分文本错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.0&#10;核心功能更新&#10;- 支持开始分词，可以读取分词设置和词典进行分词&#10;其他更新&#10;- 开始分词按钮现已可用&#10;- 创建服务算法软件包&#10;- 添加开始分词相关算法&#10;- 添加词典读取算法&#10;- 添加词性标注算法&#10;- 添加词频统计算法&#10;- 添加文本数据集并添加至主线&#10;- 添加测试代码&#10;- 优化分词结果数据集方法判断条件&#10;- 优化部分代码&#10;- 更正部分文本错误" />
   </component>
 </project>
