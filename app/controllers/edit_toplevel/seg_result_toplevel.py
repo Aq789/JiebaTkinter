@@ -1,6 +1,7 @@
 # 编辑分词结果控制器
 from tkinter import messagebox
 import app.controllers.left_frame
+import app.service.word_class_name as s_wcn
 
 # Treeview 注意有三种要素：选项、iid、索引。分别对应 item iid index
 
@@ -15,15 +16,21 @@ def return_saved(seg_result_toplevel):
 
 # 将分词结果数据导入至编辑分词结果窗口
 def input_data(seg_result_toplevel):
+    chinese_word_class_setting = seg_result_toplevel.main_window.seg_settings_datas.get_chinese_word_class_data() # 读取是否显示中文词性
+
     number = 1 # 用来记录序号
     for data in seg_result_toplevel.main_window.word_seg_result_datas.return_word_seg_result_list(): # 遍历分词结果数据
-        seg_result_toplevel.show_word_seg_result_toplevel.insert('', "end",  # 添加到表格中
-                                                                 values=(number, data.word_name, data.word_frequency, data.word_class))
+        if chinese_word_class_setting:
+            seg_result_toplevel.show_word_seg_result_toplevel.insert('', "end", values=(number, data.word_name, data.word_frequency, s_wcn.chinese_word_class(data.word_class))) # 添加到表格中
+        else:
+            seg_result_toplevel.show_word_seg_result_toplevel.insert('', "end", values=(number, data.word_name, data.word_frequency, data.word_class))  # 添加到表格中
         number += 1
     return True
 
 # 将编辑分词结果窗口数据导出至分词结果数据
 def output_data(seg_result_toplevel):
+    chinese_word_class_setting = seg_result_toplevel.main_window.seg_settings_datas.get_chinese_word_class_data()  # 读取是否显示中文词性
+
     seg_result_toplevel.main_window.word_seg_result_datas.delete_all_word_seg_result() # 首先删除data中全部元素
     start_iid = seg_result_toplevel.show_word_seg_result_toplevel.insert('', 0)  # 先在开头创建一个元素，存到变量中
     temp_iid = seg_result_toplevel.show_word_seg_result_toplevel.next(start_iid)  # 循环用到的变量，将开头元素赋值进去
@@ -32,7 +39,10 @@ def output_data(seg_result_toplevel):
         word_name = seg_result_toplevel.show_word_seg_result_toplevel.set(temp_iid, column="word_name") # 获取词名
         word_frequency = seg_result_toplevel.show_word_seg_result_toplevel.set(temp_iid, column="word_frequency") # 获取词频
         word_class = seg_result_toplevel.show_word_seg_result_toplevel.set(temp_iid, column="word_class") # 获取词性
-        seg_result_toplevel.main_window.word_seg_result_datas.add_word_seg_result(word_name, word_frequency, word_class) # 将数据传入分词结果data中
+        if chinese_word_class_setting:
+            seg_result_toplevel.main_window.word_seg_result_datas.add_word_seg_result(word_name, word_frequency, s_wcn.simple_word_class(word_class))  # 将数据传入分词结果data中
+        else:
+            seg_result_toplevel.main_window.word_seg_result_datas.add_word_seg_result(word_name, word_frequency, word_class)  # 将数据传入分词结果data中
         next_temp_iid = seg_result_toplevel.show_word_seg_result_toplevel.next(temp_iid)  # 利用当前元素iid找下一个元素的iid
         temp_iid = next_temp_iid  # 开启下一个循环
     is_saved(seg_result_toplevel)

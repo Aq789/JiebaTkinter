@@ -7,6 +7,7 @@ class SegSettings:
         self.auto_seg_result_frequency_data = True
         self.auto_seg_result_class_data = True
         self.hmm_data = False
+        self.chinese_word_class_data = False
         self.ignore_sign_data = True
         self.ignore_english_data = False
 
@@ -49,6 +50,16 @@ class SegSettings:
 
     def get_hmm_data(self):
         return self.hmm_data
+
+    # 开启中文词性
+    def open_chinese_word_class_data(self):
+        self.chinese_word_class_data = True
+
+    def close_chinese_word_class_data(self):
+        self.chinese_word_class_data = False
+
+    def get_chinese_word_class_data(self):
+        return self.chinese_word_class_data
 
     # 忽略标点符号
     def open_ignore_sign_data(self):

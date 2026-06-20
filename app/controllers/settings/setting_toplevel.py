@@ -10,6 +10,7 @@ def apply(settings_toplevel):
     seg_settings_datas.auto_seg_result_frequency_data = seg_notebook.auto_seg_result_frequency_var.get()
     seg_settings_datas.auto_seg_result_class_data = seg_notebook.auto_seg_result_class_var.get()
     seg_settings_datas.hmm_data = seg_notebook.hmm_var.get()
+    seg_settings_datas.chinese_word_class_data = seg_notebook.chinese_word_class_var.get()
     seg_settings_datas.ignore_sign_data = seg_notebook.ignore_sign_var.get()
     seg_settings_datas.ignore_english_data = seg_notebook.ignore_english_var.get()
     seg_settings_datas.dic_var_data = seg_notebook.dic_var.get()

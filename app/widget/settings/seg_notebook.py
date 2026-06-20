@@ -14,6 +14,7 @@ class SegNotebook:
         self.auto_seg_result_frequency_data = window.seg_settings_datas.get_auto_seg_result_frequency_data()
         self.auto_seg_result_class_data = window.seg_settings_datas.get_auto_seg_result_class_data()
         self.hmm_data = window.seg_settings_datas.get_hmm_data()
+        self.chinese_word_class_data = window.seg_settings_datas.get_chinese_word_class_data()
         self.ignore_sign_data = window.seg_settings_datas.get_ignore_sign_data()
         self.ignore_english_data = window.seg_settings_datas.get_ignore_english_data()
         self.dic_var_data = window.seg_settings_datas.get_dic_var_data()
@@ -40,9 +41,9 @@ class SegNotebook:
                 self.toplevel.apply_button.state(['!disabled'])
 
         def has_changed():
-            if [self.seg_mode_data, self.auto_seg_result_frequency_data, self.auto_seg_result_class_data, self.hmm_data,
+            if [self.seg_mode_data, self.auto_seg_result_frequency_data, self.auto_seg_result_class_data, self.hmm_data, self.chinese_word_class_data,
                  self.ignore_sign_data, self.ignore_english_data, self.dic_var_data] != [self.seg_var.get(), self.auto_seg_result_frequency_var.get(), self.auto_seg_result_class_var.get(),
-                 self.hmm_var.get(), self.ignore_sign_var.get(), self.ignore_english_var.get(), self.dic_var.get()]:
+                 self.hmm_var.get(), self.chinese_word_class_var.get(), self.ignore_sign_var.get(), self.ignore_english_var.get(), self.dic_var.get()]:
                 self.toplevel.apply_button.state(['!disabled'])
             else:
                 self.toplevel.apply_button.state(['disabled'])
@@ -85,8 +86,14 @@ class SegNotebook:
         else: self.hmm_var.set(False)
         self.hmm_button.grid(row=3, column=0, sticky="nw", padx=15, pady=3)
 
+        self.chinese_word_class_var = tk.BooleanVar()
+        self.chinese_word_class = tk.Checkbutton(self.seg_label_frame, text="显示中文词性", variable=self.chinese_word_class_var, onvalue=True, offvalue=False, command=has_changed)
+        if self.chinese_word_class_data: self.chinese_word_class_var.set(True)
+        else: self.chinese_word_class_var.set(False)
+        self.chinese_word_class.grid(row=4, column=0, sticky="nw", padx=15, pady=3)
+
         self.frame0 = tk.Frame(self.seg_label_frame)
-        self.frame0.grid(row=4, column=0, sticky="nw", padx=15, pady=3)
+        self.frame0.grid(row=5, column=0, sticky="nw", padx=15, pady=3)
         self.label0 = tk.Label(self.frame0, text="忽略项：")
         self.label0.grid(row=0, column=0)
 
@@ -128,9 +135,6 @@ class SegNotebook:
         self.custom_path_button = ttk.Button(self.frame2, text="浏览...", command=custom_path_dialog)
         self.custom_path_button.grid(row=0, column=1)
         self.custom_path_button.state(['disabled']) # 初始禁用
-
-        self.label2 = tk.Label(self.dic_label_frame)
-        self.label2.grid(row=5, column=0)
 
         if self.dic_var_data == 0:
             self.dic_var.set(0)

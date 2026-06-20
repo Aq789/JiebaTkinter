@@ -1,9 +1,11 @@
 # 左侧窗口模块控制器
 import app.controllers.right_frame as c_rf
 import app.service.jieba.start as s_js
+import app.service.word_class_name as s_wcn
 
 # 从分词结果数据导入至左侧表格模块
 def input_seg_result_data(left_frame):
+    setting_chinese_word_class = left_frame.main_window.seg_settings_datas.get_chinese_word_class_data() # 获取中文词性设置
 
     last_iid = left_frame.show_word_seg_result.insert('', "end")
     temp_iid = left_frame.show_word_seg_result.prev(last_iid)
@@ -14,10 +16,14 @@ def input_seg_result_data(left_frame):
         temp_iid = prev_temp_iid
 
     number = 1  # 用来记录序号
-    for data in left_frame.main_window.word_seg_result_datas.return_word_seg_result_list():  # 遍历分词结果数据
-        left_frame.show_word_seg_result.insert('', "end",  # 添加到表格中
-                                                         values=(number, data.word_name, data.word_frequency, data.word_class))
-        number += 1
+    if setting_chinese_word_class:
+        for data in left_frame.main_window.word_seg_result_datas.return_word_seg_result_list():  # 遍历分词结果数据
+            left_frame.show_word_seg_result.insert('', "end", values=(number, data.word_name, data.word_frequency, s_wcn.chinese_word_class(data.word_class))) # 添加到表格中
+            number += 1
+    else:
+        for data in left_frame.main_window.word_seg_result_datas.return_word_seg_result_list():  # 遍历分词结果数据
+            left_frame.show_word_seg_result.insert('', "end", values=(number, data.word_name, data.word_frequency, data.word_class)) # 添加到表格中
+            number += 1
     return True
 
 # 从词典数据导入至左侧表格模块
@@ -32,8 +38,7 @@ def input_dic_data(left_frame):
 
     number = 1  # 用来记录序号
     for data in left_frame.main_window.word_dic_datas.return_word_dic_list():  # 遍历词典数据
-        left_frame.show_word_dic.insert('', "end",  # 添加到表格中
-                                               values=(number, data.word_name, data.word_frequency, data.word_class))
+        left_frame.show_word_dic.insert('', "end", values=(number, data.word_name, data.word_frequency, data.word_class))  # 添加到表格中
         number += 1
     return True
 

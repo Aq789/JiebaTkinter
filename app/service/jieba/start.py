@@ -61,15 +61,4 @@ def check_word_sign(seg, seg_settings):
 
     isd = seg_settings.ignore_sign_data
     ied = seg_settings.ignore_english_data
-    if isd and ied: # 如果用户想要忽略符号，忽略英文
-        if not check_sign() and not check_english(): return True
-        else: return False
-    elif isd and not ied: # 忽略符号不忽略英文
-        if (not check_sign() and check_english()) or (not check_sign() and not check_english()): return True
-        else: return False
-    elif not isd and ied: # 不忽略符号忽略英文
-        if (check_sign() and not check_english()) or (not check_sign() and not check_english()): return True
-        else: return False
-    else:
-        if (check_sign() and check_english()) or (not check_sign() and not check_english()): return True
-        else: return False
+    return not ((isd and check_sign()) or (ied and check_english()))
