@@ -10,10 +10,17 @@ def get_user_config_path():
     config_dir.mkdir(parents=True, exist_ok=True)
     return config_dir
 
+# 保存分词配置
 def save_seg_settings(seg_settings):
     with open(f"{get_user_config_path()}/seg_settings.json", "w", encoding="utf-8") as f:
         json.dump(app.service.settings.seg_settings_to_dict(seg_settings), f, indent=4, ensure_ascii=False)
 
+# 保存窗口配置
+def save_window_settings(window_settings):
+    with open(f"{get_user_config_path()}/window_settings.json", "w", encoding="utf-8") as f:
+        json.dump(app.service.settings.window_settings_to_dict(window_settings), f, indent=4, ensure_ascii=False)
+
+# 加载分词配置
 def load_seg_settings():
     try:
         with open(f"{get_user_config_path()}/seg_settings.json", "r", encoding="utf-8") as f:
@@ -29,5 +36,17 @@ def load_seg_settings():
             "ignore_english_data": False,
             "dic_var_data": 0,
             "custom_path": ""
+        }
+    return data
+
+# 加载窗口配置
+def load_window_settings():
+    try:
+        with open(f"{get_user_config_path()}/window_settings.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = {
+            "window_weight_data": 800,
+            "window_height_data": 450
         }
     return data

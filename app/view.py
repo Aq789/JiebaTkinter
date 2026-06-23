@@ -14,6 +14,7 @@ import app.controllers.edit_toplevel.seg_result_toplevel
 import app.datas.word_seg_result
 import app.datas.word_dic
 import app.datas.seg_settings
+import app.datas.window_settings
 import app.datas.text
 
 import app.service.settings
@@ -37,23 +38,38 @@ class MainWindow:
 
         # 初始化数据集
         self.seg_settings_datas = app.datas.seg_settings.SegSettings(self.main_window) # 创建分词设置数据集
+        self.window_settings_datas = app.datas.window_settings.WindowSettings(self.main_window) # 创建窗口设置数据集
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
         self.text_datas = app.datas.text.Text(self.main_window) # 创建文本数据集
 
         # 加载配置文件
         app.service.settings.seg_settings_to_data(self) # 从磁盘中加载分词设置
+        app.service.settings.window_settings_to_data(self) # 从磁盘中加载窗口设置
+
+        # 主窗口应用配置
+        self.set_window_size(self.window_settings_datas.window_weight_data, self.window_settings_datas.window_height_data) # 初始化窗口大小
 
         # 加载模块
         self.menu = app.widget.menu.Menu(self) # 加载menu模块
         self.paned_window = app.widget.paned_window.PanedWindow(self) # 加载分隔条模块
         self.status_bar = app.widget.status_bar.StatusBar(self) # 加载底部状态栏模块
 
+    # 改变窗口大小
+    def set_window_size(self, weight, height):
+        self.main_window.geometry(f"{weight}x{height}")
+
+    # 获得当前窗口大小
+    def get_window_size(self):
+        return self.main_window.winfo_width(), self.main_window.winfo_height()
+
+    # 销毁窗口
     def destroy_window(self):
         if self.main_window:
             self.main_window.destroy()
 
-    def close_window(self): # 关闭窗口时触发的函数
+    # 关闭窗口时触发的函数
+    def close_window(self):
         """后续需要在这里添加关闭确认机制"""
         if len(MainWindow.windows) == 1: exit()
         else:

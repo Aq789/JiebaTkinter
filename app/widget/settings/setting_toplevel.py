@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 
 import app.widget.settings.seg_notebook
+import app.widget.settings.window_notebook
 import app.controllers.settings.setting_toplevel as c_sst
 
 class SettingsToplevel:
@@ -30,10 +31,11 @@ class SettingsToplevel:
         self.window_settings = ttk.Frame(self.settings_notebook) # 创建窗口设置标签页
 
         self.seg_notebook = app.widget.settings.seg_notebook.SegNotebook(self.seg_settings, self.main_window, self)
+        self.window_notebook = app.widget.settings.window_notebook.WindowNotebook(self.window_settings, self.main_window, self)
 
         # 加入notebook标签页中
-        self.settings_notebook.add(self.seg_settings, text=" 分词设置 ")
-        self.settings_notebook.add(self.window_settings, text=" 窗口设置 ")
+        self.settings_notebook.add(self.seg_settings, text=" 分词选项 ")
+        self.settings_notebook.add(self.window_settings, text=" 窗口选项 ")
 
         """底部内容"""
         self.bottom_frame = tk.Frame(self.settings_window)
@@ -56,3 +58,19 @@ class SettingsToplevel:
         self.settings_window.focus_set() # 子窗口获得焦点
 
         self.settings_window.wait_window() # 等待此窗口关闭
+
+    # 设置禁用方法
+    def apply_button_disabled(self):
+        self.apply_button.state(['disabled'])
+
+    def apply_button_enabled(self):
+        self.apply_button.state(['!disabled'])
+
+    # 检测所有标签页的状态
+    def has_changed(self):
+        if self.seg_notebook.saved and self.window_notebook.saved:
+            self.apply_button_disabled()
+            self.seg_notebook.saved = True
+            self.window_notebook.saved = True
+        else:
+            self.apply_button_enabled()

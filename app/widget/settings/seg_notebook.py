@@ -40,13 +40,17 @@ class SegNotebook:
                 self.custom_path_entry.insert('0', custom_file_path)
                 self.toplevel.apply_button.state(['!disabled'])
 
+        # 判断当前用户选项是否与之前选项相同，控制应用按钮的启动和禁用
         def has_changed():
-            if [self.seg_mode_data, self.auto_seg_result_frequency_data, self.auto_seg_result_class_data, self.hmm_data, self.chinese_word_class_data,
-                 self.ignore_sign_data, self.ignore_english_data, self.dic_var_data] != [self.seg_var.get(), self.auto_seg_result_frequency_var.get(), self.auto_seg_result_class_var.get(),
-                 self.hmm_var.get(), self.chinese_word_class_var.get(), self.ignore_sign_var.get(), self.ignore_english_var.get(), self.dic_var.get()]:
-                self.toplevel.apply_button.state(['!disabled'])
+            if ([self.seg_mode_data, self.auto_seg_result_frequency_data, self.auto_seg_result_class_data, self.hmm_data, self.chinese_word_class_data,
+                 self.ignore_sign_data, self.ignore_english_data, self.dic_var_data] !=
+                [self.seg_var.get(), self.auto_seg_result_frequency_var.get(), self.auto_seg_result_class_var.get(),self.hmm_var.get(),
+                 self.chinese_word_class_var.get(), self.ignore_sign_var.get(), self.ignore_english_var.get(), self.dic_var.get()]):
+                self.saved = False # 更新状态
+                self.toplevel.has_changed() # 刷新应用按钮状态
             else:
-                self.toplevel.apply_button.state(['disabled'])
+                self.saved = True
+                self.toplevel.has_changed()
 
         def dic_var_changed():
             self.toplevel.apply_button.state(['!disabled'])
@@ -148,4 +152,5 @@ class SegNotebook:
         self.custom_path_entry.bind('<Key>', self.on_refresh_entry) # 当在输入框输入任何内容时，触发函数
 
     def on_refresh_entry(self, event):
-        self.toplevel.apply_button.state(['!disabled'])
+        self.saved = False
+        self.toplevel.has_changed()
