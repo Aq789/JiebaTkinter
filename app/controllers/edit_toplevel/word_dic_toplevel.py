@@ -1,6 +1,7 @@
 # 编辑词典控制器
 from tkinter import messagebox
 import app.controllers.left_frame
+import app.datas.word_dic as d_wd
 
 # 方法控制保存状态
 def is_saved(word_dic_toplevel):
@@ -36,21 +37,41 @@ def refresh_list(word_dic_toplevel):
 
 # 将编辑词典窗口数据导出至词典数据
 def output_data(word_dic_toplevel):
+    # 检查词频方法
+    def check(string):
+        if string == "": return True
+        try: int(string)
+        except ValueError: return False
+        return True
+
+    show_word_dic_toplevel = word_dic_toplevel.show_word_dic_toplevel # 精简代码
+    word_dic_datas = word_dic_toplevel.main_window.word_dic_datas
+    temp_list = [] # 临时词典用来记录当前词典
+
     if not refresh_list(word_dic_toplevel):
         return False
 
-    word_dic_toplevel.main_window.word_dic_datas.delete_all_word_dic() # 首先删除data中全部元素
-    start_iid = word_dic_toplevel.show_word_dic_toplevel.insert('', 0)  # 先在开头创建一个元素，存到变量中
-    temp_iid = word_dic_toplevel.show_word_dic_toplevel.next(start_iid)  # 循环用到的变量，将开头元素赋值进去
-    word_dic_toplevel.show_word_dic_toplevel.delete(start_iid)  # 随后把开头元素删除
+    word_dic_datas.delete_all_word_dic() # 首先删除data中全部元素
+    start_iid = show_word_dic_toplevel.insert('', 0)  # 先在开头创建一个元素，存到变量中
+    temp_iid = show_word_dic_toplevel.next(start_iid)  # 循环用到的变量，将开头元素赋值进去
+    show_word_dic_toplevel.delete(start_iid)  # 随后把开头元素删除
     while temp_iid:
-        word_name = word_dic_toplevel.show_word_dic_toplevel.set(temp_iid, column="word_name") # 获取词名
-        word_frequency = word_dic_toplevel.show_word_dic_toplevel.set(temp_iid, column="word_frequency") # 获取词频
-        word_class = word_dic_toplevel.show_word_dic_toplevel.set(temp_iid, column="word_class") # 获取词性
-        word_dic_toplevel.main_window.word_dic_datas.add_word_dic(word_name, word_frequency, word_class) # 将数据传入分词结果data中
-        next_temp_iid = word_dic_toplevel.show_word_dic_toplevel.next(temp_iid)  # 利用当前元素iid找下一个元素的iid
+        word_name = show_word_dic_toplevel.set(temp_iid, column="word_name") # 获取词名
+        word_frequency = show_word_dic_toplevel.set(temp_iid, column="word_frequency") # 获取词频
+        word_class = show_word_dic_toplevel.set(temp_iid, column="word_class") # 获取词性
+
+        temp_dic = d_wd.WordDic(word_name, word_frequency, word_class) # 创建临时词典
+        if not check(word_frequency):
+            messagebox.showerror("错误", f"词名为“{word_name}”的词频不合法！")
+            return False
+        temp_list.append(temp_dic) # 将临时词典添加进列表中
+
+        next_temp_iid = show_word_dic_toplevel.next(temp_iid)  # 利用当前元素iid找下一个元素的iid
         temp_iid = next_temp_iid  # 开启下一个循环
     is_saved(word_dic_toplevel)
+
+    for temp in temp_list:
+        word_dic_datas.add_word_dic(temp.word_name, temp.word_frequency, temp.word_class)  # 将数据传入分词结果data中
 
     left_frame = word_dic_toplevel.main_window.paned_window.left_frame
     app.controllers.left_frame.input_dic_data(left_frame)
