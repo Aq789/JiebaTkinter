@@ -4,6 +4,7 @@ from tkinter import ttk
 
 import app.widget.settings.seg_notebook
 import app.widget.settings.window_notebook
+import app.widget.settings.font_notebook
 import app.controllers.settings.setting_toplevel as c_sst
 
 class SettingsToplevel:
@@ -14,8 +15,8 @@ class SettingsToplevel:
         self.settings_window.title("全局设置")
         self.settings_window.transient(window.main_window)  # 子窗口在父窗口之上
         self.settings_window.wm_attributes("-toolwindow", True)  # 只保留关闭按钮
-        self.settings_window.geometry("370x450+500+200")  # 窗口大小和初始位置
-        self.settings_window.wm_minsize(370, 450)  # 最小窗口大小
+        self.settings_window.geometry("400x450+500+200")  # 窗口大小和初始位置
+        self.settings_window.wm_minsize(400, 450)  # 最小窗口大小
 
         self.settings_window.grid_rowconfigure(0, weight=1)
         self.settings_window.grid_columnconfigure(0, weight=1)
@@ -29,13 +30,17 @@ class SettingsToplevel:
 
         self.seg_settings = ttk.Frame(self.settings_notebook) # 创建分词设置标签页
         self.window_settings = ttk.Frame(self.settings_notebook) # 创建窗口设置标签页
+        self.font_settings = ttk.Frame(self.settings_notebook) # 创建字体设置标签页
 
         self.seg_notebook = app.widget.settings.seg_notebook.SegNotebook(self.seg_settings, self.main_window, self)
         self.window_notebook = app.widget.settings.window_notebook.WindowNotebook(self.window_settings, self.main_window, self)
+        self.font_notebook = app.widget.settings.font_notebook.FontNotebook(self.font_settings, self.main_window, self)
 
         # 加入notebook标签页中
         self.settings_notebook.add(self.seg_settings, text=" 分词选项 ")
         self.settings_notebook.add(self.window_settings, text=" 窗口选项 ")
+        self.settings_notebook.add(self.font_settings, text=" 字体选项 ")
+
 
         """底部内容"""
         self.bottom_frame = tk.Frame(self.settings_window)

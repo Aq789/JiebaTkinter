@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.3&#10;功能更新&#10;- 添加窗口大小设置&#10;其他更新&#10;- 优化设置界面应用按钮逻辑&#10;- 新建窗口标签页&#10;- 初始化主窗口设置&#10;- 新建窗口数据集&#10;- 支持将窗口配置保存到磁盘&#10;- 优化部分代码">
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.3&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码">
+      <change afterPath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_python.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,34 +45,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.left_frame.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.menu.executor": "Run",
-    "Python.paned_window.executor": "Run",
-    "Python.right_frame.executor": "Run",
-    "Python.seg_result_toplevel.executor": "Run",
-    "Python.setting_toplevel.executor": "Run",
-    "Python.settings.executor": "Run",
-    "Python.start.executor": "Run",
-    "Python.test_python.executor": "Run",
-    "Python.view.executor": "Run",
-    "Python.word_class.executor": "Run",
-    "Python.word_frequency.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.left_frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.menu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.paned_window.executor&quot;: &quot;Run&quot;,
+    &quot;Python.right_frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.seg_result_toplevel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.setting_toplevel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.start.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_python.executor&quot;: &quot;Run&quot;,
+    &quot;Python.view.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word_class.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\project_Python\JiebaTkinter\app" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="JiebaTkinter" />
       <option name="ENV_FILES" value="" />
@@ -97,6 +97,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_python" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="JiebaTkinter" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_python.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_python" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -329,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782190770017</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="0.2.3&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码">
+      <option name="closed" value="true" />
+      <created>1782226902823</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1782226902823</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,8 +387,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.3&#10;- 为分词结果创建预览表格&#10;- 为词典创建预览表格&#10;- 更改左侧窗口大小" />
-    <MESSAGE value="0.0.4&#10;- 添加底部状态栏并在主界面加载" />
     <MESSAGE value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
     <MESSAGE value="0.0.6 -1&#10;- 完善编辑分词结果窗口界面" />
     <MESSAGE value="0.0.6&#10;- 完善编辑分词结果窗口界面&#10;- 完善编辑词典窗口界面&#10;- 删除测试窗口在主程序中的调用" />
@@ -376,6 +410,8 @@
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 菜单的编辑分词结果和编辑词典现已可用&#10;其他更新&#10;- 新建菜单目录控制器&#10;- 创建菜单相关按钮的触发逻辑&#10;- 优化部分代码&#10;- 优化代码回调" />
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 添加中文词性设置&#10;其他更新&#10;- 新建简写中文转换逻辑方法&#10;- 创建中文词性选项&#10;- 创建中文词性对应数据集、控制方法&#10;- 优化部分代码" />
     <MESSAGE value="0.2.3&#10;功能更新&#10;- 添加窗口大小设置&#10;其他更新&#10;- 优化设置界面应用按钮逻辑&#10;- 新建窗口标签页&#10;- 初始化主窗口设置&#10;- 新建窗口数据集&#10;- 支持将窗口配置保存到磁盘&#10;- 优化部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.3&#10;功能更新&#10;- 添加窗口大小设置&#10;其他更新&#10;- 优化设置界面应用按钮逻辑&#10;- 新建窗口标签页&#10;- 初始化主窗口设置&#10;- 新建窗口数据集&#10;- 支持将窗口配置保存到磁盘&#10;- 优化部分代码" />
+    <MESSAGE value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
+    <MESSAGE value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
   </component>
 </project>
