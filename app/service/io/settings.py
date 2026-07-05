@@ -20,6 +20,11 @@ def save_window_settings(window_settings):
     with open(f"{get_user_config_path()}/window_settings.json", "w", encoding="utf-8") as f:
         json.dump(app.service.settings.window_settings_to_dict(window_settings), f, indent=4, ensure_ascii=False)
 
+# 保存字体配置
+def save_font_settings(font_settings):
+    with open(f"{get_user_config_path()}/font_settings.json", "w", encoding="utf-8") as f:
+        json.dump(app.service.settings.font_settings_to_dict(font_settings), f, indent=4, ensure_ascii=False)
+
 # 加载分词配置
 def load_seg_settings():
     try:
@@ -48,5 +53,21 @@ def load_window_settings():
         data = {
             "window_weight_data": 800,
             "window_height_data": 450
+        }
+    return data
+
+# 加载字体配置
+def load_font_settings():
+    try:
+        with open(f"{get_user_config_path()}/font_settings.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        data = {
+            "font_data": "宋体",
+            "shape_data": "常规",
+            "size_data": 14,
+            "under_line_data": False,
+            "delete_line_data": False,
+            "color_data": "#000000"
         }
     return data

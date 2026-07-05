@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.3&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码">
-      <change afterPath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.4&#10;- 添加字体选项标签页&#10;- 绘制了字体标签页页面&#10;- 修改部分窗口参数&#10;- 优化部分代码">
+      <change afterPath="$PROJECT_DIR$/app/datas/font_settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/service/choose_font_shape.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/io/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/io/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/paned_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/paned_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/right_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/right_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/status_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/status_bar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_python.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -365,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782226902823</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="0.2.4&#10;- 添加字体选项标签页&#10;- 绘制了字体标签页页面&#10;- 修改部分窗口参数&#10;- 优化部分代码">
+      <option name="closed" value="true" />
+      <created>1783142461675</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1783142461675</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,7 +404,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.5&#10;- 添加编辑分词结果窗口&#10;- 添加编辑词典窗口&#10;- 优化主窗口与上述子窗口交互逻辑&#10;- 优化部分代码" />
     <MESSAGE value="0.0.6 -1&#10;- 完善编辑分词结果窗口界面" />
     <MESSAGE value="0.0.6&#10;- 完善编辑分词结果窗口界面&#10;- 完善编辑词典窗口界面&#10;- 删除测试窗口在主程序中的调用" />
     <MESSAGE value="0.0.7-1&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 在编辑分词结果窗口添加调用" />
@@ -412,6 +428,7 @@
     <MESSAGE value="0.2.3&#10;功能更新&#10;- 添加窗口大小设置&#10;其他更新&#10;- 优化设置界面应用按钮逻辑&#10;- 新建窗口标签页&#10;- 初始化主窗口设置&#10;- 新建窗口数据集&#10;- 支持将窗口配置保存到磁盘&#10;- 优化部分代码" />
     <MESSAGE value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
     <MESSAGE value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
+    <MESSAGE value="0.2.4&#10;- 添加字体选项标签页&#10;- 绘制了字体标签页页面&#10;- 修改部分窗口参数&#10;- 优化部分代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.4&#10;- 添加字体选项标签页&#10;- 绘制了字体标签页页面&#10;- 修改部分窗口参数&#10;- 优化部分代码" />
   </component>
 </project>

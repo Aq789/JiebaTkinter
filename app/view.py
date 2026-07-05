@@ -15,6 +15,7 @@ import app.datas.word_seg_result
 import app.datas.word_dic
 import app.datas.seg_settings
 import app.datas.window_settings
+import app.datas.font_settings
 import app.datas.text
 
 import app.service.settings
@@ -35,10 +36,13 @@ class MainWindow:
         self.main_window.title("中文分词工具")
         self.main_window.geometry("800x450")
         self.main_window.protocol("WM_DELETE_WINDOW", self.close_window)
+        self.main_window.grid_columnconfigure(0, weight=1)
+        self.main_window.grid_rowconfigure(0, weight=1)
 
         # 初始化数据集
         self.seg_settings_datas = app.datas.seg_settings.SegSettings(self.main_window) # 创建分词设置数据集
         self.window_settings_datas = app.datas.window_settings.WindowSettings(self.main_window) # 创建窗口设置数据集
+        self.font_settings_datas = app.datas.font_settings.FontSettings(self.main_window) # 创建字体设置数据集
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
         self.text_datas = app.datas.text.Text(self.main_window) # 创建文本数据集
@@ -46,6 +50,7 @@ class MainWindow:
         # 加载配置文件
         app.service.settings.seg_settings_to_data(self) # 从磁盘中加载分词设置
         app.service.settings.window_settings_to_data(self) # 从磁盘中加载窗口设置
+        app.service.settings.font_settings_to_data(self) # 从磁盘中加载字体设置
 
         # 主窗口应用配置
         self.set_window_size(self.window_settings_datas.window_weight_data, self.window_settings_datas.window_height_data) # 初始化窗口大小

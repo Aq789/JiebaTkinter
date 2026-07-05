@@ -24,6 +24,18 @@ def window_settings_to_dict(window_settings):
     }
     return window_settings_dic
 
+# 将字体配置转换为字典
+def font_settings_to_dict(font_settings):
+    font_settings_dic = {
+        "font_data": font_settings.font_data,
+        "shape_data": font_settings.shape_data,
+        "size_data": font_settings.size_data,
+        "under_line_data": font_settings.under_line_data,
+        "delete_line_data": font_settings.delete_line_data,
+        "color_data": font_settings.color_data
+    }
+    return font_settings_dic
+
 # 将字典转换为分词配置
 def seg_settings_to_data(window):
     data = s_is.load_seg_settings()
@@ -42,3 +54,13 @@ def window_settings_to_data(window):
     data = s_is.load_window_settings()
     window.window_settings_datas.window_weight_data = data["window_weight_data"]
     window.window_settings_datas.window_height_data = data["window_height_data"]
+
+# 将字典转换为字体配置
+def font_settings_to_data(window):
+    data = s_is.load_font_settings()
+    window.font_settings_datas.font_data = data["font_data"]
+    window.font_settings_datas.shape_data = data["shape_data"]
+    window.font_settings_datas.size_data = data["size_data"]
+    window.font_settings_datas.under_line_data = data["under_line_data"]
+    window.font_settings_datas.delete_line_data = data["delete_line_data"]
+    window.font_settings_datas.color_data = data["color_data"]

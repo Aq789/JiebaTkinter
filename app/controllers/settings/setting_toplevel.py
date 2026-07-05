@@ -7,12 +7,14 @@ from tkinter import messagebox
 def apply(settings_toplevel):
     seg_notebook = settings_toplevel.seg_notebook # 将数据集和界面的数据赋予到临时变量中
     window_notebook = settings_toplevel.window_notebook
+    font_notebook = settings_toplevel.font_notebook
 
     # 检查数据合法性
     if not check(settings_toplevel): return False
 
     seg_settings_datas = settings_toplevel.main_window.seg_settings_datas
     window_settings_datas = settings_toplevel.main_window.window_settings_datas
+    font_settings_datas = settings_toplevel.main_window.font_settings_datas
 
     ## 上传至数据集
     seg_settings_datas.seg_mode_data = seg_notebook.seg_var.get()
@@ -28,14 +30,30 @@ def apply(settings_toplevel):
     window_settings_datas.window_weight_data = window_notebook.window_weight.get()
     window_settings_datas.window_height_data = window_notebook.window_height.get()
 
+    font_settings_datas.font_data = font_notebook.font_entry.get()
+    font_settings_datas.shape_data = font_notebook.shape_entry.get()
+    font_settings_datas.size_data = int(font_notebook.size_entry.get())
+    font_settings_datas.under_line_data = font_notebook.under_line_var.get()
+    font_settings_datas.delete_line_data = font_notebook.delete_line_var.get()
+    font_settings_datas.color_data = font_notebook.font_color
+
     # 按钮回调
     settings_toplevel.apply_button_disabled()
 
     app.service.io.settings.save_seg_settings(seg_settings_datas) # 将分词设置转为json配置文件并保存
     app.service.io.settings.save_window_settings(window_settings_datas) # 将窗口设置转为json配置文件并保存
+    app.service.io.settings.save_font_settings(font_settings_datas) # 将字体设置转为json配置文件并保存
 
     # 现应用设置
     settings_toplevel.main_window.set_window_size(window_settings_datas.window_weight_data, window_settings_datas.window_height_data)
+    settings_toplevel.main_window.paned_window.right_frame.change_font(
+        font_settings_datas.font_data,
+        font_settings_datas.size_data,
+        font_settings_datas.shape_data,
+        font_settings_datas.under_line_data,
+        font_settings_datas.delete_line_data,
+        font_settings_datas.color_data
+    )
 
     return True
 
