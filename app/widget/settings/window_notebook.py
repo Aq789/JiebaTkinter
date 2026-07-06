@@ -11,6 +11,7 @@ class WindowNotebook:
         # 从数据集中加载数据
         self.window_weight_data = window.window_settings_datas.get_window_weight_data()
         self.window_height_data = window.window_settings_datas.get_window_height_data()
+        self.auto_enter_data = window.window_settings_datas.get_auto_enter_data()
 
         self.window_frame = tk.Frame(notebook)
         self.window_frame.pack(fill="both", expand=True)
@@ -41,8 +42,22 @@ class WindowNotebook:
         self.read_window_size = ttk.Button(self.frame2, text="读取当前窗口", command=self.get_window_size)
         self.read_window_size.grid(row=0, column=0, padx=3)
 
+        self.frame3 = tk.Frame(self.window_label_frame)
+        self.frame3.grid(row=2, column=0, sticky="nw", padx=10, pady=3)
+        self.auto_enter_var = tk.BooleanVar(value=self.auto_enter_data)
+        self.auto_enter = ttk.Checkbutton(self.frame3, text="默认开启自动换行", variable=self.auto_enter_var, command=self.has_changed)
+        self.auto_enter.grid(row=0, column=0, sticky="nw", padx=15, pady=3)
+
         self.window_height.bind('<Key>', self.on_refresh_entry)
         self.window_weight.bind('<Key>', self.on_refresh_entry)
+
+    def has_changed(self):
+        if [self.auto_enter_data] != [self.auto_enter_var.get()]:
+            self.saved = False
+            self.toplevel.has_changed()
+        else:
+            self.saved = True
+            self.toplevel.has_changed()
 
     def on_refresh_entry(self, event):
         self.saved = False

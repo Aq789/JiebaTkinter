@@ -11,6 +11,8 @@ class Menu:
         self.edit_seg_result_toplevel = None
         self.edit_dic_toplevel = None
 
+        self.auto_enter_data = window.window_settings_datas.auto_enter_data
+
         # 文件菜单 - file_menu
         self.file_menu = tk.Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="文件", menu=self.file_menu)
@@ -49,11 +51,13 @@ class Menu:
         self.edit_menu.add_checkbutton(label="编辑词典", onvalue=True, offvalue=False, variable=self.edit_dic_var, command=lambda :c_m.open_dic_toplevel(self))
 
         # 查看菜单
+        self.auto_enter_var = tk.BooleanVar(value=self.auto_enter_data)
+
         self.check_menu = tk.Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="查看", menu=self.check_menu)
         self.check_menu.add_command(label="字体")
         self.check_menu.add_command(label="隐藏状态栏")
-        self.check_menu.add_command(label="自动换行")
+        self.check_menu.add_checkbutton(label="自动换行", onvalue=True, offvalue=False, variable=self.auto_enter_var, command=lambda :c_m.auto_enter(self))
         self.check_menu.add_command(label="统计")
 
         # 设置菜单

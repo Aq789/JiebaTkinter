@@ -1,6 +1,7 @@
 # 右侧编辑文本模块
 import tkinter as tk
 from tkinter import font
+from tkinter import ttk
 
 import app.service.choose_font_shape as s_cfs
 
@@ -14,6 +15,7 @@ class RightFrame:
         self.under_line_data = window.font_settings_datas.under_line_data
         self.delete_line_data = window.font_settings_datas.delete_line_data
         self.color_data = window.font_settings_datas.color_data
+        self.auto_enter_data = window.window_settings_datas.auto_enter_data
 
         self.font = font.Font(family=self.font_data,
                               size=self.size_data,
@@ -32,14 +34,18 @@ class RightFrame:
         self.text.config(fg=self.color_data)
 
         # 创建纵向滚动条并与文本编辑框绑定
-        height_scroll = tk.Scrollbar(self.right_frame, orient="vertical", command=self.text.yview)
-        height_scroll.grid(row=0, column=1, sticky="ns")
-        self.text.config(yscrollcommand=height_scroll.set)
+        self.height_scroll = ttk.Scrollbar(self.right_frame, orient="vertical", command=self.text.yview)
+        self.height_scroll.grid(row=0, column=1, sticky="ns")
+        self.text.config(yscrollcommand=self.height_scroll.set)
 
         # 创建横向滚动条并与文本编辑框绑定
-        width_scroll = tk.Scrollbar(self.right_frame, orient="horizontal", command=self.text.xview)
-        width_scroll.grid(row=1, column=0, sticky="ew")
-        self.text.config(xscrollcommand=width_scroll.set)
+        self.width_scroll = ttk.Scrollbar(self.right_frame, orient="horizontal", command=self.text.xview)
+        self.width_scroll.grid(row=1, column=0, sticky="ew")
+        self.text.config(xscrollcommand=self.width_scroll.set)
+
+        # 初始化自动换行
+        if self.auto_enter_data: self.open_auto_enter()
+        else: self.close_auto_enter()
 
     def change_font(self, font_data, size_data, shape_data, under_line_data, delete_line_data, color_data):
         self.font = font.Font(family=font_data,
@@ -50,3 +56,12 @@ class RightFrame:
                               overstrike=delete_line_data)
         self.text.config(font=self.font)
         self.text.config(fg=color_data)
+
+    # 开启自动换行
+    def open_auto_enter(self):
+        self.text.config(wrap="char")
+        self.width_scroll.grid_remove()
+
+    def close_auto_enter(self):
+        self.text.config(wrap="none")
+        self.width_scroll.grid()

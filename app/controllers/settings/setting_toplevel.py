@@ -29,6 +29,7 @@ def apply(settings_toplevel):
 
     window_settings_datas.window_weight_data = window_notebook.window_weight.get()
     window_settings_datas.window_height_data = window_notebook.window_height.get()
+    window_settings_datas.auto_enter_data = window_notebook.auto_enter_var.get()
 
     font_settings_datas.font_data = font_notebook.font_entry.get()
     font_settings_datas.shape_data = font_notebook.shape_entry.get()

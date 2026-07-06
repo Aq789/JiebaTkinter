@@ -19,3 +19,12 @@ def open_dic_toplevel(menu):
 
 def create_settings_toplevel(menu):
     w_sst.SettingsToplevel(menu.main_window)
+
+# 自动换行开关
+def auto_enter(menu):
+    if menu.auto_enter_var.get():
+        menu.auto_enter_var.set(True)
+        menu.main_window.paned_window.right_frame.open_auto_enter()
+    else:
+        menu.auto_enter_var.set(False)
+        menu.main_window.paned_window.right_frame.close_auto_enter()

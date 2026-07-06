@@ -75,8 +75,5 @@ class SettingsToplevel:
     def has_changed(self):
         if self.seg_notebook.saved and self.window_notebook.saved and self.font_notebook.saved:
             self.apply_button_disabled()
-            self.seg_notebook.saved = True
-            self.window_notebook.saved = True
-            self.font_notebook.saved = True
         else:
             self.apply_button_enabled()

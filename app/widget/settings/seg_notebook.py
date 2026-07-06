@@ -65,33 +65,33 @@ class SegNotebook:
         self.label.grid(row=0, column=0)
         self.seg_var = tk.IntVar()
         self.seg_var.set(self.seg_mode_data) # 应用设置
-        self.full_mode = tk.Radiobutton(self.frame1, text="全模式", variable=self.seg_var, value=0, command=has_changed) # 全模式单选框
-        self.exact_mode = tk.Radiobutton(self.frame1, text="精确模式", variable=self.seg_var, value=1, command=has_changed) # 精确模式单选框
-        self.search_mode = tk.Radiobutton(self.frame1, text="搜索引擎模式", variable=self.seg_var, value=2, command=has_changed) # 搜索引擎模式单选框
+        self.full_mode = ttk.Radiobutton(self.frame1, text="全模式", variable=self.seg_var, value=0, command=has_changed) # 全模式单选框
+        self.exact_mode = ttk.Radiobutton(self.frame1, text="精确模式", variable=self.seg_var, value=1, command=has_changed) # 精确模式单选框
+        self.search_mode = ttk.Radiobutton(self.frame1, text="搜索引擎模式", variable=self.seg_var, value=2, command=has_changed) # 搜索引擎模式单选框
         self.full_mode.grid(row=0, column=1)
         self.exact_mode.grid(row=0, column=2)
         self.search_mode.grid(row=0, column=3)
 
         self.auto_seg_result_frequency_var = tk.BooleanVar()
-        self.auto_seg_result_frequency = tk.Checkbutton(self.seg_label_frame, text="是否统计词频", variable=self.auto_seg_result_frequency_var, onvalue=True, offvalue=False, command=has_changed)
+        self.auto_seg_result_frequency = ttk.Checkbutton(self.seg_label_frame, text="是否统计词频", variable=self.auto_seg_result_frequency_var, onvalue=True, offvalue=False, command=has_changed)
         if self.auto_seg_result_frequency_data: self.auto_seg_result_frequency_var.set(True)
         else: self.auto_seg_result_frequency_var.set(False)
         self.auto_seg_result_frequency.grid(row=1, column=0, sticky="nw", padx=15, pady=3)
 
         self.auto_seg_result_class_var = tk.BooleanVar()
-        self.auto_seg_result_class = tk.Checkbutton(self.seg_label_frame, text="是否进行词性标注", variable=self.auto_seg_result_class_var, onvalue=True, offvalue=False, command=has_changed)
+        self.auto_seg_result_class = ttk.Checkbutton(self.seg_label_frame, text="是否进行词性标注", variable=self.auto_seg_result_class_var, onvalue=True, offvalue=False, command=has_changed)
         if self.auto_seg_result_class_data: self.auto_seg_result_class_var.set(True)
         else: self.auto_seg_result_class_var.set(False)
         self.auto_seg_result_class.grid(row=2, column=0, sticky="nw", padx=15, pady=3)
 
         self.hmm_var = tk.BooleanVar()
-        self.hmm_button = tk.Checkbutton(self.seg_label_frame, text="是否开启HMM（可能增加耗时）", variable=self.hmm_var, onvalue=True, offvalue=False, command=has_changed)
+        self.hmm_button = ttk.Checkbutton(self.seg_label_frame, text="是否开启HMM（可能增加耗时）", variable=self.hmm_var, onvalue=True, offvalue=False, command=has_changed)
         if self.hmm_data: self.hmm_var.set(True)
         else: self.hmm_var.set(False)
         self.hmm_button.grid(row=3, column=0, sticky="nw", padx=15, pady=3)
 
         self.chinese_word_class_var = tk.BooleanVar()
-        self.chinese_word_class = tk.Checkbutton(self.seg_label_frame, text="显示中文词性", variable=self.chinese_word_class_var, onvalue=True, offvalue=False, command=has_changed)
+        self.chinese_word_class = ttk.Checkbutton(self.seg_label_frame, text="显示中文词性", variable=self.chinese_word_class_var, onvalue=True, offvalue=False, command=has_changed)
         if self.chinese_word_class_data: self.chinese_word_class_var.set(True)
         else: self.chinese_word_class_var.set(False)
         self.chinese_word_class.grid(row=4, column=0, sticky="nw", padx=15, pady=3)
@@ -102,13 +102,13 @@ class SegNotebook:
         self.label0.grid(row=0, column=0)
 
         self.ignore_sign_var = tk.BooleanVar()
-        self.ignore_sign_button = tk.Checkbutton(self.frame0, text="标点符号", variable=self.ignore_sign_var, onvalue=True, offvalue=False, command=has_changed)
+        self.ignore_sign_button = ttk.Checkbutton(self.frame0, text="标点符号", variable=self.ignore_sign_var, onvalue=True, offvalue=False, command=has_changed)
         if self.ignore_sign_data: self.ignore_sign_var.set(True)
         else: self.ignore_sign_var.set(False)
         self.ignore_sign_button.grid(row=0, column=1)
 
         self.ignore_english_var = tk.BooleanVar()
-        self.ignore_english_button = tk.Checkbutton(self.frame0, text="英文单词", variable=self.ignore_english_var, onvalue=True, offvalue=False, command=has_changed)
+        self.ignore_english_button = ttk.Checkbutton(self.frame0, text="英文单词", variable=self.ignore_english_var, onvalue=True, offvalue=False, command=has_changed)
         if self.ignore_english_data: self.ignore_english_var.set(True)
         else: self.ignore_english_var.set(False)
         self.ignore_english_button.grid(row=0, column=2)
@@ -122,8 +122,8 @@ class SegNotebook:
         self.label1.grid(row=1, column=0, sticky="nw", padx=10, pady=3)
 
         self.dic_var = tk.IntVar()
-        self.default_dic = tk.Radiobutton(self.dic_label_frame, text="默认词典", variable=self.dic_var, value=0, command=dic_path_radiobutton)
-        self.custom_path = tk.Radiobutton(self.dic_label_frame, text="自定义词典路径（不推荐）", variable=self.dic_var, value=1, command=dic_path_radiobutton)
+        self.default_dic = ttk.Radiobutton(self.dic_label_frame, text="默认词典", variable=self.dic_var, value=0, command=dic_path_radiobutton)
+        self.custom_path = ttk.Radiobutton(self.dic_label_frame, text="自定义词典路径（不推荐）", variable=self.dic_var, value=1, command=dic_path_radiobutton)
         self.default_dic.grid(row=2, column=0, sticky="nw", padx=15, pady=0)
         self.custom_path.grid(row=3, column=0, sticky="nw", padx=15, pady=0)
 

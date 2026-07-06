@@ -20,7 +20,8 @@ def seg_settings_to_dict(seg_settings):
 def window_settings_to_dict(window_settings):
     window_settings_dic = {
         "window_weight_data": window_settings.window_weight_data,
-        "window_height_data": window_settings.window_height_data
+        "window_height_data": window_settings.window_height_data,
+        "auto_enter_data": window_settings.auto_enter_data
     }
     return window_settings_dic
 
@@ -54,6 +55,7 @@ def window_settings_to_data(window):
     data = s_is.load_window_settings()
     window.window_settings_datas.window_weight_data = data["window_weight_data"]
     window.window_settings_datas.window_height_data = data["window_height_data"]
+    window.window_settings_datas.auto_enter_data = data["auto_enter_data"]
 
 # 将字典转换为字体配置
 def font_settings_to_data(window):

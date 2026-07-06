@@ -52,7 +52,8 @@ def load_window_settings():
     except (FileNotFoundError, json.JSONDecodeError):
         data = {
             "window_weight_data": 800,
-            "window_height_data": 450
+            "window_height_data": 450,
+            "auto_enter_data": True
         }
     return data
 

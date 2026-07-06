@@ -175,7 +175,7 @@ def search_result(seg_result_toplevel):
     search_result_select = [] # 列表，用来记录查找结果的iid
     while temp_iid:
         temp_result = seg_result_toplevel.show_word_seg_result_toplevel.item(temp_iid) # 返回当前元素item
-        if search_entry in temp_result['values'][1]: # 如果当前词名中含有搜索文本
+        if search_entry in str(temp_result['values'][1]): # 如果当前词名中含有搜索文本
             search_result_select.append(temp_iid) # 将对应iid加入列表
         next_temp_iid = seg_result_toplevel.show_word_seg_result_toplevel.next(temp_iid) # 利用当前元素iid找下一个元素的iid
         temp_iid = next_temp_iid # 开启下一个循环

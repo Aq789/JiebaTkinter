@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.5&#10;功能更新&#10;- 现已支持更改编辑栏字体&#10;其他更新&#10;- 主程序注册字体选项数据&#10;- 更改主界面放置方式&#10;- 添加字体配置转换函数&#10;- 添加字体配置保存函数&#10;- 优化应用按钮刷新逻辑&#10;- 添加右侧编辑框字体项&#10;- 添加字体设置数据集&#10;- 添加映射逻辑">
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.6&#10;- 添加重置按钮以及相关逻辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/seg_result_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/seg_result_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/datas/window_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/window_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/io/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/io/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/right_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/right_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/window_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/window_notebook.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,7 +389,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783260151475</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="0.2.6&#10;- 添加重置按钮以及相关逻辑">
+      <option name="closed" value="true" />
+      <created>1783323225647</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1783323225647</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -402,7 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.6&#10;- 完善编辑分词结果窗口界面&#10;- 完善编辑词典窗口界面&#10;- 删除测试窗口在主程序中的调用" />
     <MESSAGE value="0.0.7-1&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 在编辑分词结果窗口添加调用" />
     <MESSAGE value="0.0.7&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 编辑分词结果窗口&#10;-- 添加调用方法&#10;-- 添加移至最前方法&#10;-- 添加移至最后方法&#10;-- 添加向前移动方法&#10;-- 添加向后移动方法" />
     <MESSAGE value="0.0.8&#10;- 完善编辑分词结果控制器&#10;-- 添加导出分词结果数据方法&#10;-- 添加序号排序方法&#10;-- 添加删除所选元素方法&#10;-- 添加查找分词结果&#10;-- 优化部分代码&#10;- 完善编辑分词结果界面&#10;-- 完善关闭窗口方法逻辑&#10;-- 优化部分代码" />
@@ -427,6 +443,7 @@
     <MESSAGE value="0.2.4&#10;- 添加检查词频合法步骤&#10;- 添加检查全局设置用户输入步骤&#10;- 优化部分代码" />
     <MESSAGE value="0.2.4&#10;- 添加字体选项标签页&#10;- 绘制了字体标签页页面&#10;- 修改部分窗口参数&#10;- 优化部分代码" />
     <MESSAGE value="0.2.5&#10;功能更新&#10;- 现已支持更改编辑栏字体&#10;其他更新&#10;- 主程序注册字体选项数据&#10;- 更改主界面放置方式&#10;- 添加字体配置转换函数&#10;- 添加字体配置保存函数&#10;- 优化应用按钮刷新逻辑&#10;- 添加右侧编辑框字体项&#10;- 添加字体设置数据集&#10;- 添加映射逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.5&#10;功能更新&#10;- 现已支持更改编辑栏字体&#10;其他更新&#10;- 主程序注册字体选项数据&#10;- 更改主界面放置方式&#10;- 添加字体配置转换函数&#10;- 添加字体配置保存函数&#10;- 优化应用按钮刷新逻辑&#10;- 添加右侧编辑框字体项&#10;- 添加字体设置数据集&#10;- 添加映射逻辑" />
+    <MESSAGE value="0.2.6&#10;- 添加重置按钮以及相关逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.6&#10;- 添加重置按钮以及相关逻辑" />
   </component>
 </project>
