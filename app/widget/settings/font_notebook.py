@@ -113,6 +113,11 @@ class FontNotebook:
         self.label4 = tk.Label(self.label_frame2, text="示例文本AaBb", font=self.preview_font, bg="white", fg=self.color_data)
         self.label4.pack(anchor="center", fill="both", expand=True)
 
+        self.frame6 = tk.Frame(self.font_label_frame)
+        self.frame6.grid(row=2, column=2, padx=5, pady=5, sticky="ne")
+        self.reset_button = ttk.Button(self.frame6, text="重置默认值", command=self.reset)
+        self.reset_button.grid(row=0, column=0)
+
         self.font_listbox.bind("<<ListboxSelect>>", self.update_preview)
         self.shape_listbox.bind("<<ListboxSelect>>", self.update_preview)
         self.size_listbox.bind("<<ListboxSelect>>", self.update_preview)
@@ -138,6 +143,32 @@ class FontNotebook:
         except TclError:
             return
         self.has_changed()
+
+    def reset(self):
+        self.font_entry.config(state='normal')
+        self.font_entry.delete("0", "end")
+        self.font_entry.insert(0, "宋体")
+        self.font_entry.config(state='readonly')
+        self.shape_entry.config(state='normal')
+        self.shape_entry.delete("0", "end")
+        self.shape_entry.insert(0, "常规")
+        self.shape_entry.config(state='readonly')
+        self.size_entry.config(state='normal')
+        self.size_entry.delete("0", "end")
+        self.size_entry.insert(0, "14")
+        self.size_entry.config(state='readonly')
+        self.under_line_var.set(False)
+        self.delete_line_var.set(False)
+        self.font_color = "#000000"
+        self.preview_font.config(family="宋体",
+                                 size=14,
+                                 weight="normal",
+                                 slant="roman",
+                                 underline=False,
+                                 overstrike=False)
+        self.label4.config(fg="#000000")
+        self.toplevel.apply_button_enabled()
+
 
     def update_preview(self, event=None):
         # 获取字体名

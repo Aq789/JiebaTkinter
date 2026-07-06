@@ -15,8 +15,8 @@ class SettingsToplevel:
         self.settings_window.title("全局设置")
         self.settings_window.transient(window.main_window)  # 子窗口在父窗口之上
         self.settings_window.wm_attributes("-toolwindow", True)  # 只保留关闭按钮
-        self.settings_window.geometry("400x450+500+200")  # 窗口大小和初始位置
-        self.settings_window.wm_minsize(400, 450)  # 最小窗口大小
+        self.settings_window.geometry("400x500+500+180")  # 窗口大小和初始位置
+        self.settings_window.wm_minsize(400, 500)  # 最小窗口大小
 
         self.settings_window.grid_rowconfigure(0, weight=1)
         self.settings_window.grid_columnconfigure(0, weight=1)
