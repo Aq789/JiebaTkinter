@@ -58,7 +58,7 @@ class Menu:
         self.check_menu.add_command(label="字体")
         self.check_menu.add_command(label="隐藏状态栏")
         self.check_menu.add_checkbutton(label="自动换行", onvalue=True, offvalue=False, variable=self.auto_enter_var, command=lambda :c_m.auto_enter(self))
-        self.check_menu.add_command(label="统计")
+        self.check_menu.add_command(label="统计", command=lambda :c_m.create_statistic_toplevel(self))
 
         # 设置菜单
         self.settings_menu = tk.Menu(self.menubar, tearoff=0)

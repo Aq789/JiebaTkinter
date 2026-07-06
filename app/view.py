@@ -17,6 +17,7 @@ import app.datas.seg_settings
 import app.datas.window_settings
 import app.datas.font_settings
 import app.datas.text
+import app.datas.statistic
 
 import app.service.settings
 
@@ -46,6 +47,7 @@ class MainWindow:
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self.main_window)  # 创建分词结果数据集
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self.main_window) # 创建词典数据集
         self.text_datas = app.datas.text.Text(self.main_window) # 创建文本数据集
+        self.statistic_datas = app.datas.statistic.Statistic(self.main_window) # 创建统计信息数据集
 
         # 加载配置文件
         app.service.settings.seg_settings_to_data(self) # 从磁盘中加载分词设置

@@ -1,5 +1,6 @@
 # 菜单栏控制器
 import app.widget.settings.setting_toplevel as w_sst
+import app.widget.statistic_toplevel as w_st
 
 # 打开编辑分词结果窗口
 def open_seg_result_toplevel(menu):
@@ -19,6 +20,9 @@ def open_dic_toplevel(menu):
 
 def create_settings_toplevel(menu):
     w_sst.SettingsToplevel(menu.main_window)
+
+def create_statistic_toplevel(menu):
+    w_st.StatisticToplevel(menu.main_window)
 
 # 自动换行开关
 def auto_enter(menu):

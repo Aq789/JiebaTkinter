@@ -25,7 +25,9 @@ def start(seg_settings, text_datas, word_dic_datas, word_seg_result_datas):
         if seg_settings.hmm_data: seg_result = jieba.cut_for_search(text_datas.get_text_data(), HMM=True)
         else: seg_result = jieba.cut_for_search(text_datas.get_text_data(), HMM=False)
 
-    seg_dict = s_jwf.word_stat(seg_result)
+    seg_list = list(seg_result)
+    word_seg_result_datas.set_text_result_list(seg_list)
+    seg_dict = s_jwf.word_stat(seg_list)
     sf = seg_settings.auto_seg_result_frequency_data
     sc = seg_settings.auto_seg_result_class_data
     if sf and sc:
