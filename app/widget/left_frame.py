@@ -12,8 +12,12 @@ class LeftFrame:
         self.main_window = window
 
         self.left_frame = tk.Frame(paned_window) # 创建左侧模块实例
+        self.left_frame.pack(fill="both", expand=True)
+        self.left_frame.grid_rowconfigure(0, weight=1)
+        self.left_frame.grid_columnconfigure(0, weight=1)
+
         self.notebook = ttk.Notebook(self.left_frame) # 创建notebook标签页
-        self.notebook.pack(fill="both", expand=True) # 放置标签页
+        self.notebook.grid(row=0, column=0, sticky="nsew") # 放置标签页
 
         self.tab_word_seg_result = ttk.Frame(self.notebook) # 创建分词结果标签页
         self.tab_word_dic = ttk.Frame(self.notebook) # 创建字典标签页

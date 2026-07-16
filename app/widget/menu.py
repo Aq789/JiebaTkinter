@@ -49,14 +49,18 @@ class Menu:
         self.edit_menu.add_separator()
         self.edit_menu.add_checkbutton(label="编辑分词结果", onvalue=True, offvalue=False, variable=self.edit_seg_result_var, command=lambda :c_m.open_seg_result_toplevel(self))
         self.edit_menu.add_checkbutton(label="编辑词典", onvalue=True, offvalue=False, variable=self.edit_dic_var, command=lambda :c_m.open_dic_toplevel(self))
+        self.edit_menu.add_separator()
+        self.edit_menu.add_command(label="开始分词", command=lambda :c_m.start_menu(self))
 
         # 查看菜单
+        self.visible_status_bar_var = tk.BooleanVar(value=False)
+        self.visible_left_frame_var = tk.BooleanVar(value=False)
         self.auto_enter_var = tk.BooleanVar(value=self.auto_enter_data)
 
         self.check_menu = tk.Menu(self.menubar, tearoff=0)
         self.menubar.add_cascade(label="查看", menu=self.check_menu)
-        self.check_menu.add_command(label="字体")
-        self.check_menu.add_command(label="隐藏状态栏")
+        self.check_menu.add_checkbutton(label="隐藏状态栏", onvalue=True, offvalue=False, variable=self.visible_status_bar_var, command=lambda :c_m.visible_status_bar(self))
+        self.check_menu.add_checkbutton(label="隐藏预览窗口", onvalue=True, offvalue=False, variable=self.visible_left_frame_var, command=lambda :c_m.visible_left_frame(self))
         self.check_menu.add_checkbutton(label="自动换行", onvalue=True, offvalue=False, variable=self.auto_enter_var, command=lambda :c_m.auto_enter(self))
         self.check_menu.add_command(label="统计", command=lambda :c_m.create_statistic_toplevel(self))
 

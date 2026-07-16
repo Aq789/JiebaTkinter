@@ -16,3 +16,14 @@ class PanedWindow:
 
         self.paned_window.add(self.left_frame.left_frame, minsize=20, width=240) # 放置左侧内容
         self.paned_window.add(self.right_frame.right_frame, minsize=50) # 放置右侧内容
+
+        self.save_left_frame_width = 240 # 记录左侧窗口宽度
+
+    # 隐藏左侧预览窗口
+    def invisible_left_frame(self):
+        self.save_left_frame_width = self.paned_window.sash_coord(0)
+        self.paned_window.forget(self.left_frame.left_frame)
+
+    # 显示左侧预览窗口
+    def visible_left_frame(self):
+        self.paned_window.add(self.left_frame.left_frame, before=self.right_frame.right_frame, minsize=20, width=self.save_left_frame_width[0])
