@@ -1,6 +1,7 @@
 # 编辑词典控制器
 from tkinter import messagebox
-import app.controllers.left_frame
+import app.controllers.left_frame as c_lf
+import app.controllers.status_bar as c_sb
 import app.datas.word_dic as d_wd
 
 # 方法控制保存状态
@@ -35,7 +36,7 @@ def refresh_list(word_dic_toplevel):
         temp_iid = next_temp_iid  # 开启下一个循环
     return True
 
-# 将编辑词典窗口数据导出至词典数据
+# 将编辑词典窗口数据导出至词典数据（点击保存后的逻辑）
 def output_data(word_dic_toplevel):
     # 检查词频方法
     def check(string):
@@ -71,10 +72,11 @@ def output_data(word_dic_toplevel):
     is_saved(word_dic_toplevel)
 
     for temp in temp_list:
-        word_dic_datas.add_word_dic(temp.word_name, temp.word_frequency, temp.word_class)  # 将数据传入分词结果data中
+        word_dic_datas.add_word_dic(temp.word_name, temp.word_frequency, temp.word_class)  # 将数据传入词典数据集中
 
     left_frame = word_dic_toplevel.main_window.paned_window.left_frame
-    app.controllers.left_frame.input_dic_data(left_frame)
+    c_lf.input_dic_data(left_frame) # 更新到左侧预览中
+    c_sb.refresh_custom_dict_count(word_dic_toplevel.main_window.status_bar) # 更新到状态栏中
     return True
 
 # 对序号进行排序

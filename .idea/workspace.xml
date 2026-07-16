@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.7&#10;功能更新：&#10;- 现已支持自动换行并设置默认进行自动换行&#10;其他更新：&#10;- 在数据集中添加自动换行数据并添加自动换行数据的读写&#10;- 优化部分界面控件&#10;- 实现自动换行初始化&#10;- 在菜单中加入打开关闭自动换行选项&#10;- 优化删除部分冗余代码">
-      <change afterPath="$PROJECT_DIR$/app/controllers/statistic_toplevel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/datas/statistic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/statistic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widget/statistic_toplevel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/datas/word_seg_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/word_seg_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/jieba/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/jieba/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.8&#10;功能更新：&#10;- 现已支持统计文本&#10;其他更新：&#10;- 添加分词结果列表参数数据集&#10;- 创建统计窗口和有关控制器&#10;- 创建统计有关数据集&#10;- 将统计数据集注册到主线&#10;- 创建字符串统计方法&#10;- 优化开始分词相关代码&#10;- 将统计注册到目录">
+      <change afterPath="$PROJECT_DIR$/app/controllers/status_bar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/left_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/datas/word_dic.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/word_dic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/left_frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/status_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/status_bar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,30 +49,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.left_frame.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.menu.executor": "Run",
-    "Python.paned_window.executor": "Run",
-    "Python.right_frame.executor": "Run",
-    "Python.seg_result_toplevel.executor": "Run",
-    "Python.setting_toplevel.executor": "Run",
-    "Python.settings.executor": "Run",
-    "Python.start.executor": "Run",
-    "Python.statistic.executor": "Run",
-    "Python.statistic_toplevel.executor": "Debug",
-    "Python.test_python.executor": "Run",
-    "Python.view.executor": "Run",
-    "Python.word_class.executor": "Run",
-    "Python.word_frequency.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.left_frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.menu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.paned_window.executor&quot;: &quot;Run&quot;,
+    &quot;Python.right_frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.seg_result_toplevel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.setting_toplevel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.start.executor&quot;: &quot;Run&quot;,
+    &quot;Python.statistic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.statistic_toplevel.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.test_python.executor&quot;: &quot;Run&quot;,
+    &quot;Python.view.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word_class.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\project_Python\JiebaTkinter\app" />
@@ -428,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783328382953</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="0.2.8&#10;功能更新：&#10;- 现已支持统计文本&#10;其他更新：&#10;- 添加分词结果列表参数数据集&#10;- 创建统计窗口和有关控制器&#10;- 创建统计有关数据集&#10;- 将统计数据集注册到主线&#10;- 创建字符串统计方法&#10;- 优化开始分词相关代码&#10;- 将统计注册到目录">
+      <option name="closed" value="true" />
+      <created>1783352188301</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1783352188301</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -450,7 +457,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.7&#10;- 创建控制器包&#10;- 创建编辑分词结果控制器&#10;- 创建全局数据包&#10;- 创建分词结果全局数据&#10;- 创建初始数值方便测试&#10;- 编辑分词结果窗口&#10;-- 添加调用方法&#10;-- 添加移至最前方法&#10;-- 添加移至最后方法&#10;-- 添加向前移动方法&#10;-- 添加向后移动方法" />
     <MESSAGE value="0.0.8&#10;- 完善编辑分词结果控制器&#10;-- 添加导出分词结果数据方法&#10;-- 添加序号排序方法&#10;-- 添加删除所选元素方法&#10;-- 添加查找分词结果&#10;-- 优化部分代码&#10;- 完善编辑分词结果界面&#10;-- 完善关闭窗口方法逻辑&#10;-- 优化部分代码" />
     <MESSAGE value="0.0.9-1&#10;- 添加了左侧窗口模块控制器&#10;- 优化主窗口代码逻辑&#10;- 优化分词结果数据集结构&#10;- 对所有模块加入了传入主窗口的逻辑&#10;- 添加分词结果测试数据" />
     <MESSAGE value="0.0.9-2&#10;- 添加了左侧窗口模块控制器&#10;- 优化主窗口代码逻辑&#10;- 优化分词结果数据集结构&#10;- 添加分词结果测试数据&#10;- 对绝大多数模块代码结构进行了重构&#10;- 修复了当打开多个界面时，编辑分词结果只修改最后一个窗口的bug" />
@@ -475,6 +481,7 @@
     <MESSAGE value="0.2.5&#10;功能更新&#10;- 现已支持更改编辑栏字体&#10;其他更新&#10;- 主程序注册字体选项数据&#10;- 更改主界面放置方式&#10;- 添加字体配置转换函数&#10;- 添加字体配置保存函数&#10;- 优化应用按钮刷新逻辑&#10;- 添加右侧编辑框字体项&#10;- 添加字体设置数据集&#10;- 添加映射逻辑" />
     <MESSAGE value="0.2.6&#10;- 添加重置按钮以及相关逻辑" />
     <MESSAGE value="0.2.7&#10;功能更新：&#10;- 现已支持自动换行并设置默认进行自动换行&#10;其他更新：&#10;- 在数据集中添加自动换行数据并添加自动换行数据的读写&#10;- 优化部分界面控件&#10;- 实现自动换行初始化&#10;- 在菜单中加入打开关闭自动换行选项&#10;- 优化删除部分冗余代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.7&#10;功能更新：&#10;- 现已支持自动换行并设置默认进行自动换行&#10;其他更新：&#10;- 在数据集中添加自动换行数据并添加自动换行数据的读写&#10;- 优化部分界面控件&#10;- 实现自动换行初始化&#10;- 在菜单中加入打开关闭自动换行选项&#10;- 优化删除部分冗余代码" />
+    <MESSAGE value="0.2.8&#10;功能更新：&#10;- 现已支持统计文本&#10;其他更新：&#10;- 添加分词结果列表参数数据集&#10;- 创建统计窗口和有关控制器&#10;- 创建统计有关数据集&#10;- 将统计数据集注册到主线&#10;- 创建字符串统计方法&#10;- 优化开始分词相关代码&#10;- 将统计注册到目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.8&#10;功能更新：&#10;- 现已支持统计文本&#10;其他更新：&#10;- 添加分词结果列表参数数据集&#10;- 创建统计窗口和有关控制器&#10;- 创建统计有关数据集&#10;- 将统计数据集注册到主线&#10;- 创建字符串统计方法&#10;- 优化开始分词相关代码&#10;- 将统计注册到目录" />
   </component>
 </project>

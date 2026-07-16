@@ -68,9 +68,9 @@ class SegNotebook:
         self.full_mode = ttk.Radiobutton(self.frame1, text="全模式", variable=self.seg_var, value=0, command=has_changed) # 全模式单选框
         self.exact_mode = ttk.Radiobutton(self.frame1, text="精确模式", variable=self.seg_var, value=1, command=has_changed) # 精确模式单选框
         self.search_mode = ttk.Radiobutton(self.frame1, text="搜索引擎模式", variable=self.seg_var, value=2, command=has_changed) # 搜索引擎模式单选框
-        self.full_mode.grid(row=0, column=1)
-        self.exact_mode.grid(row=0, column=2)
-        self.search_mode.grid(row=0, column=3)
+        self.full_mode.grid(row=0, column=1, padx=5)
+        self.exact_mode.grid(row=0, column=2, padx=5)
+        self.search_mode.grid(row=0, column=3, padx=5)
 
         self.auto_seg_result_frequency_var = tk.BooleanVar()
         self.auto_seg_result_frequency = ttk.Checkbutton(self.seg_label_frame, text="是否统计词频", variable=self.auto_seg_result_frequency_var, onvalue=True, offvalue=False, command=has_changed)
@@ -105,13 +105,13 @@ class SegNotebook:
         self.ignore_sign_button = ttk.Checkbutton(self.frame0, text="标点符号", variable=self.ignore_sign_var, onvalue=True, offvalue=False, command=has_changed)
         if self.ignore_sign_data: self.ignore_sign_var.set(True)
         else: self.ignore_sign_var.set(False)
-        self.ignore_sign_button.grid(row=0, column=1)
+        self.ignore_sign_button.grid(row=0, column=1, padx=5)
 
         self.ignore_english_var = tk.BooleanVar()
         self.ignore_english_button = ttk.Checkbutton(self.frame0, text="英文单词", variable=self.ignore_english_var, onvalue=True, offvalue=False, command=has_changed)
         if self.ignore_english_data: self.ignore_english_var.set(True)
         else: self.ignore_english_var.set(False)
-        self.ignore_english_button.grid(row=0, column=2)
+        self.ignore_english_button.grid(row=0, column=2, padx=5)
 
         """词典选项标签栏"""
         self.dic_label_frame = tk.LabelFrame(self.seg_frame, text="词典选项", labelanchor="nw", relief="groove")
@@ -124,8 +124,8 @@ class SegNotebook:
         self.dic_var = tk.IntVar()
         self.default_dic = ttk.Radiobutton(self.dic_label_frame, text="默认词典", variable=self.dic_var, value=0, command=dic_path_radiobutton)
         self.custom_path = ttk.Radiobutton(self.dic_label_frame, text="自定义词典路径（不推荐）", variable=self.dic_var, value=1, command=dic_path_radiobutton)
-        self.default_dic.grid(row=2, column=0, sticky="nw", padx=15, pady=0)
-        self.custom_path.grid(row=3, column=0, sticky="nw", padx=15, pady=0)
+        self.default_dic.grid(row=2, column=0, sticky="nw", padx=15, pady=3)
+        self.custom_path.grid(row=3, column=0, sticky="nw", padx=15, pady=3)
 
         self.frame2 = tk.Frame(self.dic_label_frame)
         self.frame2.grid(row=4, column=0, sticky="new", padx=38, pady=0)

@@ -12,24 +12,24 @@ class LeftFrame:
         self.main_window = window
 
         self.left_frame = tk.Frame(paned_window) # 创建左侧模块实例
-        notebook = ttk.Notebook(self.left_frame) # 创建notebook标签页
-        notebook.pack(fill="both", expand=True) # 放置标签页
+        self.notebook = ttk.Notebook(self.left_frame) # 创建notebook标签页
+        self.notebook.pack(fill="both", expand=True) # 放置标签页
 
-        tab_word_seg_result = ttk.Frame(notebook) # 创建分词结果标签页
-        tab_word_dic = ttk.Frame(notebook) # 创建字典标签页
+        self.tab_word_seg_result = ttk.Frame(self.notebook) # 创建分词结果标签页
+        self.tab_word_dic = ttk.Frame(self.notebook) # 创建字典标签页
 
-        tab_word_seg_result.grid_rowconfigure(0, weight=1)
-        tab_word_seg_result.grid_columnconfigure(0, weight=1)
-        tab_word_dic.grid_rowconfigure(0, weight=1)
-        tab_word_dic.grid_columnconfigure(0, weight=1)
+        self.tab_word_seg_result.grid_rowconfigure(0, weight=1)
+        self.tab_word_seg_result.grid_columnconfigure(0, weight=1)
+        self.tab_word_dic.grid_rowconfigure(0, weight=1)
+        self.tab_word_dic.grid_columnconfigure(0, weight=1)
 
         # 加入notebook标签页中
-        notebook.add(tab_word_seg_result, text="分词结果")
-        notebook.add(tab_word_dic, text="词典")
+        self.notebook.add(self.tab_word_seg_result, text="分词结果")
+        self.notebook.add(self.tab_word_dic, text="词典")
 
         """分词结果"""
         # 开始创建新表格
-        self.show_word_seg_result = ttk.Treeview(tab_word_seg_result, columns=("id", "word_name", "word_frequency", "word_class"), show="headings")
+        self.show_word_seg_result = ttk.Treeview(self.tab_word_seg_result, columns=("id", "word_name", "word_frequency", "word_class"), show="headings")
 
         # 定义每一列的标题
         self.show_word_seg_result.heading("id", text="序号")
@@ -45,18 +45,18 @@ class LeftFrame:
 
         self.show_word_seg_result.grid(row=0, column=0, sticky="nsew", pady=10, padx=10) # 放置表格
 
-        height_scroll_seg_result = tk.Scrollbar(tab_word_seg_result, orient="vertical", command=self.show_word_seg_result.yview) # 创建纵向滚动条
-        height_scroll_seg_result.grid(row=0, column=1, sticky="ns")
-        self.show_word_seg_result.config(yscrollcommand=height_scroll_seg_result.set)
+        self.height_scroll_seg_result = tk.Scrollbar(self.tab_word_seg_result, orient="vertical", command=self.show_word_seg_result.yview) # 创建纵向滚动条
+        self.height_scroll_seg_result.grid(row=0, column=1, sticky="ns")
+        self.show_word_seg_result.config(yscrollcommand=self.height_scroll_seg_result.set)
 
-        self.edit_word_seg_result = ttk.Button(tab_word_seg_result, text="编辑分词结果", command=self.create_seg_result_toplevel) # 按钮绑定上方方法
+        self.edit_word_seg_result = ttk.Button(self.tab_word_seg_result, text="编辑分词结果", command=self.create_seg_result_toplevel) # 按钮绑定上方方法
         self.edit_word_seg_result.grid(row=1, column=0, sticky="e", pady=5, padx=10)
 
-        start_word_seg_result = ttk.Button(tab_word_seg_result, text="开始分词", command=lambda :c_lf.start_seg_word(self))
-        start_word_seg_result.grid(row=1, column=0, sticky="w", pady=5, padx=10)
+        self.start_word_seg_result = ttk.Button(self.tab_word_seg_result, text="开始分词", command=lambda :c_lf.start_seg_word(self))
+        self.start_word_seg_result.grid(row=1, column=0, sticky="w", pady=5, padx=10)
 
         """词典"""
-        self.show_word_dic = ttk.Treeview(tab_word_dic, columns=("id", "word_name", "word_frequency", "word_class"), show="headings")
+        self.show_word_dic = ttk.Treeview(self.tab_word_dic, columns=("id", "word_name", "word_frequency", "word_class"), show="headings")
 
         # 定义每一列的标题
         self.show_word_dic.heading("id", text="序号")
@@ -72,12 +72,12 @@ class LeftFrame:
 
         self.show_word_dic.grid(row=0, column=0, sticky="nsew", pady=10, padx=10)  # 放置表格
 
-        height_scroll_word_dic = tk.Scrollbar(tab_word_dic, orient="vertical",
+        self.height_scroll_word_dic = tk.Scrollbar(self.tab_word_dic, orient="vertical",
                                                 command=self.show_word_dic.yview)  # 创建纵向滚动条
-        height_scroll_word_dic.grid(row=0, column=1, sticky="ns")
-        self.show_word_dic.config(yscrollcommand=height_scroll_word_dic.set)
+        self.height_scroll_word_dic.grid(row=0, column=1, sticky="ns")
+        self.show_word_dic.config(yscrollcommand=self.height_scroll_word_dic.set)
 
-        self.edit_word_dic = ttk.Button(tab_word_dic, text="编辑词典", command=self.create_word_dic_toplevel)
+        self.edit_word_dic = ttk.Button(self.tab_word_dic, text="编辑词典", command=self.create_word_dic_toplevel)
         self.edit_word_dic.grid(row=1, column=0, sticky="e", pady=5, padx=10)
 
         # 初始状态：将分词结果数据传入模块中

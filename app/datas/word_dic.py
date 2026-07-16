@@ -21,3 +21,6 @@ class WordDicDatas:
 
     def return_word_dic_list(self):
         return self.word_dic_list
+
+    def return_len_word_dic_list(self):
+        return len(self.word_dic_list)
