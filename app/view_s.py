@@ -23,10 +23,10 @@ class MainWindow:
         self.window.show()
 
         # 加载模块
-        app.widget_s.menu.Menu(self)
-        app.widget_s.dock_widget.DockWidget(self)
-        app.widget_s.central_widget.CentralWidget(self)
-        app.widget_s.status_widget.StatusWidget(self)
+        self.menu = app.widget_s.menu.Menu(self)
+        self.central_widget = app.widget_s.central_widget.CentralWidget(self)
+        self.dock_widget = app.widget_s.dock_widget.DockWidget(self)
+        self.status_widget = app.widget_s.status_widget.StatusWidget(self)
 
     # 销毁窗口
     def destroy_window(self):

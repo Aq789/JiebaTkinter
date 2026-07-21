@@ -9,6 +9,6 @@ class StatusWidget:
 
         self.status_bar = self.window.statusBar()
 
-        self.status_label = QLabel("准备就绪")
+        self.status_label = QLabel("就绪")
         self.status_label.setContentsMargins(12, 2, 12, 2)
         self.status_bar.addWidget(self.status_label)
