@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.2.9&#10;功能更新：&#10;- 状态栏现已可用&#10;其他更新：&#10;- 调整部分界面布局&#10;- 添加状态栏控制器&#10;- 添加开始分词计时信息&#10;- 添加状态栏显示信息和有关方法&#10;- 添加返回自定义词典数据集方法&#10;- 优化部分代码">
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.0&#10;功能更新：&#10;- 可以隐藏左侧侧边栏和状态栏&#10;- 将开始分词添加到菜单中&#10;其他更新：&#10;- 添加左侧窗口显示隐藏方法&#10;- 添加开始分词菜单选项&#10;- 添加状态栏显示开关方法&#10;- 添加开始分词菜单方法&#10;- 优化部分界面布局">
+      <change afterPath="$PROJECT_DIR$/app/view_s.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/central_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/dock_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/menu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/status_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_s.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_window_s.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/left_frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/left_frame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/paned_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/paned_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_python.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +56,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.left_frame.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main_s.executor&quot;: &quot;Run&quot;,
     &quot;Python.menu.executor&quot;: &quot;Run&quot;,
     &quot;Python.paned_window.executor&quot;: &quot;Run&quot;,
     &quot;Python.right_frame.executor&quot;: &quot;Run&quot;,
@@ -65,9 +71,10 @@
     &quot;Python.word_class.executor&quot;: &quot;Run&quot;,
     &quot;Python.word_frequency.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -75,7 +82,7 @@
       <recent name="E:\project_Python\JiebaTkinter\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.main_s">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="JiebaTkinter" />
       <option name="ENV_FILES" value="" />
@@ -100,7 +107,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="statistic_toplevel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main_s" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="JiebaTkinter" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -109,12 +116,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/controllers" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/controllers/statistic_toplevel.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_s.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,7 +155,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.statistic_toplevel" />
+        <item itemvalue="Python.main_s" />
         <item itemvalue="Python.test_python" />
       </list>
     </recent_temporary>
@@ -440,7 +447,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784208203115</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="0.3.0&#10;功能更新：&#10;- 可以隐藏左侧侧边栏和状态栏&#10;- 将开始分词添加到菜单中&#10;其他更新：&#10;- 添加左侧窗口显示隐藏方法&#10;- 添加开始分词菜单选项&#10;- 添加状态栏显示开关方法&#10;- 添加开始分词菜单方法&#10;- 优化部分界面布局">
+      <option name="closed" value="true" />
+      <created>1784214853088</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1784214853088</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -462,7 +477,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.0.9-1&#10;- 添加了左侧窗口模块控制器&#10;- 优化主窗口代码逻辑&#10;- 优化分词结果数据集结构&#10;- 对所有模块加入了传入主窗口的逻辑&#10;- 添加分词结果测试数据" />
     <MESSAGE value="0.0.9-2&#10;- 添加了左侧窗口模块控制器&#10;- 优化主窗口代码逻辑&#10;- 优化分词结果数据集结构&#10;- 添加分词结果测试数据&#10;- 对绝大多数模块代码结构进行了重构&#10;- 修复了当打开多个界面时，编辑分词结果只修改最后一个窗口的bug" />
     <MESSAGE value="0.0.9&#10;- 添加了左侧窗口模块控制器&#10;- 优化主窗口代码逻辑&#10;- 优化分词结果数据集结构&#10;- 添加分词结果测试数据&#10;- 对绝大多数模块代码结构进行了重构&#10;- 修复了当打开多个界面时，编辑分词结果只修改最后一个窗口的bug&#10;- 修改了编辑分词结果和编辑词典的主窗口传入" />
     <MESSAGE value="0.1.0&#10;- 为词典添加数据导入&#10;- 修改了词典界面部分代码&#10;- 添加了词典数据结构&#10;- 添加了编辑词典控制器&#10;- 为编辑词典类添加了新的属性&#10;- 优化部分代码" />
@@ -487,6 +501,7 @@
     <MESSAGE value="0.2.7&#10;功能更新：&#10;- 现已支持自动换行并设置默认进行自动换行&#10;其他更新：&#10;- 在数据集中添加自动换行数据并添加自动换行数据的读写&#10;- 优化部分界面控件&#10;- 实现自动换行初始化&#10;- 在菜单中加入打开关闭自动换行选项&#10;- 优化删除部分冗余代码" />
     <MESSAGE value="0.2.8&#10;功能更新：&#10;- 现已支持统计文本&#10;其他更新：&#10;- 添加分词结果列表参数数据集&#10;- 创建统计窗口和有关控制器&#10;- 创建统计有关数据集&#10;- 将统计数据集注册到主线&#10;- 创建字符串统计方法&#10;- 优化开始分词相关代码&#10;- 将统计注册到目录" />
     <MESSAGE value="0.2.9&#10;功能更新：&#10;- 状态栏现已可用&#10;其他更新：&#10;- 调整部分界面布局&#10;- 添加状态栏控制器&#10;- 添加开始分词计时信息&#10;- 添加状态栏显示信息和有关方法&#10;- 添加返回自定义词典数据集方法&#10;- 优化部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.9&#10;功能更新：&#10;- 状态栏现已可用&#10;其他更新：&#10;- 调整部分界面布局&#10;- 添加状态栏控制器&#10;- 添加开始分词计时信息&#10;- 添加状态栏显示信息和有关方法&#10;- 添加返回自定义词典数据集方法&#10;- 优化部分代码" />
+    <MESSAGE value="0.3.0&#10;功能更新：&#10;- 可以隐藏左侧侧边栏和状态栏&#10;- 将开始分词添加到菜单中&#10;其他更新：&#10;- 添加左侧窗口显示隐藏方法&#10;- 添加开始分词菜单选项&#10;- 添加状态栏显示开关方法&#10;- 添加开始分词菜单方法&#10;- 优化部分界面布局" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.3.0&#10;功能更新：&#10;- 可以隐藏左侧侧边栏和状态栏&#10;- 将开始分词添加到菜单中&#10;其他更新：&#10;- 添加左侧窗口显示隐藏方法&#10;- 添加开始分词菜单选项&#10;- 添加状态栏显示开关方法&#10;- 添加开始分词菜单方法&#10;- 优化部分界面布局" />
   </component>
 </project>

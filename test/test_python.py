@@ -1,20 +1,13 @@
-import tkinter as tk
-from tkinter import ttk
+from PySide6.QtWidgets import QApplication, QTableView
+from PySide6.QtGui import QStandardItemModel, QStandardItem
 
-def on_slide(val):
-    label.config(text=f"数值: {int(float(val))}")
+app = QApplication([])
+model = QStandardItemModel(3, 2)
+model.setHorizontalHeaderLabels(["商品", "价格"])
+model.setItem(0, 0, QStandardItem("苹果"))
+model.setItem(0, 1, QStandardItem("5.5"))
 
-root = tk.Tk()
-root.title("现代化滑块示例")
-
-# 使用 clam 主题以获得更好看的扁平化外观（可选，但很好）
-style = ttk.Style()
-
-scale = ttk.Scale(root, from_=0, to_=100, orient="horizontal",
-                  command=on_slide, length=300)
-scale.pack(pady=20)
-
-label = ttk.Label(root, text="数值: 0", font=("Arial", 14))
-label.pack()
-
-root.mainloop()
+view = QTableView()
+view.setModel(model)
+view.show()
+app.exec()
