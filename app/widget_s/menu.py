@@ -1,6 +1,8 @@
 # 菜单栏
 from PySide6.QtGui import QAction
 
+import app.controllers_s.menu as c_m
+
 class Menu:
     def __init__(self, main_window):
         self.main_window = main_window
@@ -38,7 +40,7 @@ class Menu:
         self.statistic_action = QAction("统计", self.window)
 
         # 设置项
-        self.settings_action = QAction("设置", self.window)
+        self.settings_action = QAction("全局设置", self.window)
 
         # 帮助项
         self.welcome_action = QAction("欢迎", self.window)
@@ -72,3 +74,6 @@ class Menu:
         self.help_menu.addSeparator()
         self.help_menu.addAction(self.help_action)
         self.help_menu.addAction(self.about_action)
+
+        # 绑定信号槽
+        self.settings_action.triggered.connect(lambda :c_m.create_settings_widget(self))

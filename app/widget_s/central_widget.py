@@ -15,16 +15,3 @@ class CentralWidget:
         self.central_widget.setLayout(self.central_layout)
 
         self.window.setCentralWidget(self.central_widget)
-
-        """QSS样式表"""
-        self.text_edit.setStyleSheet("""
-                QTextEdit {
-                    border: 0px solid #cccccc;
-                    border-radius: 4px;
-                    padding: 4px;
-                }
-                QTextEdit:focus {
-                    border: 0px solid #cccccc;
-                    outline: none;
-                }
-            """)

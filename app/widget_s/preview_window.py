@@ -1,6 +1,7 @@
 # 侧边栏——预览窗口
 from PySide6.QtWidgets import QTabWidget, QTableWidget
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHeaderView
+import app.controllers_s.preview_window as c_pw
 
 class PreviewWindow:
     def __init__(self, main_window, dock_widget):
@@ -12,7 +13,7 @@ class PreviewWindow:
 
         self.tab_widget = QTabWidget(self.preview_window)  # 创建标签页
         self.preview_window_layout = QVBoxLayout()
-        self.preview_window_layout.setContentsMargins(0, 0, 0, 0)
+        self.preview_window_layout.setContentsMargins(5, 0, 5, 0)
         self.preview_window_layout.setSpacing(0)
         self.preview_window_layout.addWidget(self.tab_widget)
 
@@ -31,7 +32,7 @@ class PreviewWindow:
         self.seg_result_header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
 
         self.seg_result_layout.addWidget(self.seg_result_table) # 将表添加至标签页中
-        self.seg_result_layout.setContentsMargins(0, 0, 0, 0) # 控制间距为0
+        self.seg_result_layout.setContentsMargins(2, 2, 2, 2) # 控制间距为0
         self.seg_result_tab.setLayout(self.seg_result_layout)
 
         # 词典标签
@@ -49,7 +50,7 @@ class PreviewWindow:
         self.dic_header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
 
         self.dic_layout.addWidget(self.dic_table) # 将表添加至标签页中
-        self.dic_layout.setContentsMargins(0, 0, 0, 0) # 控制间距为0
+        self.dic_layout.setContentsMargins(2, 2, 2, 2) # 控制间距为0
         self.dic_tab.setLayout(self.dic_layout)
 
         self.dock_widget.setWidget(self.preview_window)

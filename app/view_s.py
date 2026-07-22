@@ -5,6 +5,10 @@ import app.widget_s.dock_widget
 import app.widget_s.central_widget
 import app.widget_s.status_widget
 
+import app.datas.word_seg_result
+import app.datas.word_dic
+import app.datas.text
+
 def create_new_window(): # 创建窗口实例方法
     new_window = MainWindow() # 创建窗口实例
     MainWindow.windows.append(new_window) # 添加窗口到列表
@@ -12,15 +16,19 @@ def create_new_window(): # 创建窗口实例方法
 def delete_new_window(): # 删除窗口实例方法
     last_window = MainWindow.windows.pop() # 将列表中最后一个窗口去掉并记录下来
 
-
 class MainWindow:
     windows = []
 
     def __init__(self):
         self.window = QMainWindow()
         self.window.setWindowTitle("中文分词工具")
-        self.window.resize(800, 450)
+        self.window.resize(1000, 600)
         self.window.show()
+
+        # 初始化数据集
+        self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self)
+        self.word_dic_datas = app.datas.word_dic.WordDicDatas(self)
+        self.text_datas = app.datas.text.Text(self)
 
         # 加载模块
         self.menu = app.widget_s.menu.Menu(self)
