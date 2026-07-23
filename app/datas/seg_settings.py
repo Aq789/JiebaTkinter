@@ -15,68 +15,50 @@ class SegSettings:
         self.custom_path = ""
 
     # 分词模式
-    def set_seg_mode_data(self, mode):
-        self.seg_mode_data = mode
+    def set_seg_mode_data(self, data):
+        self.seg_mode_data = data
 
     def get_seg_mode_data(self):
         return self.seg_mode_data
 
     # 自动统计词频
-    def open_auto_seg_result_frequency_data(self):
-        self.auto_seg_result_frequency_data = True
-
-    def close_auto_seg_result_frequency_data(self):
-        self.auto_seg_result_frequency_data = False
+    def set_auto_seg_result_frequency_data(self, data):
+        self.auto_seg_result_frequency_data = data
 
     def get_auto_seg_result_frequency_data(self):
         return self.auto_seg_result_frequency_data
 
     # 自动进行词性标注
-    def open_auto_seg_result_class_data(self):
-        self.auto_seg_result_class_data = True
-
-    def close_auto_seg_result_class_data(self):
-        self.auto_seg_result_class_data = False
+    def set_auto_seg_result_class_data(self, data):
+        self.auto_seg_result_class_data = data
 
     def get_auto_seg_result_class_data(self):
         return self.auto_seg_result_class_data
 
     # 开启HMM
-    def open_hmm_data(self):
-        self.hmm_data = True
-
-    def close_hmm_data(self):
-        self.hmm_data = False
+    def set_hmm_data(self, data):
+        self.hmm_data = data
 
     def get_hmm_data(self):
         return self.hmm_data
 
     # 开启中文词性
-    def open_chinese_word_class_data(self):
-        self.chinese_word_class_data = True
-
-    def close_chinese_word_class_data(self):
-        self.chinese_word_class_data = False
+    def set_chinese_word_class_data(self, data):
+        self.chinese_word_class_data = data
 
     def get_chinese_word_class_data(self):
         return self.chinese_word_class_data
 
     # 忽略标点符号
-    def open_ignore_sign_data(self):
-        self.ignore_sign_data = True
-
-    def close_ignore_sign_data(self):
-        self.ignore_sign_data = False
+    def set_ignore_sign_data(self, data):
+        self.ignore_sign_data = data
 
     def get_ignore_sign_data(self):
         return self.ignore_sign_data
 
     # 忽略英文单词
-    def open_ignore_english_data(self):
-        self.ignore_english_data = True
-
-    def close_ignore_english_data(self):
-        self.ignore_english_data = False
+    def set_ignore_english_data(self, data):
+        self.ignore_english_data = data
 
     def get_ignore_english_data(self):
         return self.ignore_english_data

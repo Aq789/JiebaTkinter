@@ -3,8 +3,8 @@ class WindowSettings:
     def __init__(self, main_window):
         self.main_window = main_window
 
-        self.window_weight_data = 800
-        self.window_height_data = 450
+        self.window_weight_data = 1000
+        self.window_height_data = 600
         self.auto_enter_data = True
 
     # 窗口宽度
@@ -22,11 +22,8 @@ class WindowSettings:
         self.window_height_data = data
 
     # 自动换行
-    def open_auto_enter_data(self):
-        self.auto_enter_data = True
-
-    def close_auto_enter_data(self):
-        self.auto_enter_data = False
+    def set_auto_enter_data(self, data):
+        self.auto_enter_data = data
 
     def get_auto_enter_data(self):
         return self.auto_enter_data

@@ -2,10 +2,18 @@
 from PySide6.QtWidgets import QWidget, QGroupBox, QVBoxLayout, QCheckBox, QHBoxLayout, QRadioButton, QLabel, QSizePolicy, QLineEdit, QPushButton, QSpinBox
 
 class WindowTab:
-    def __init__(self, main_window, window_settings_tab):
+    def __init__(self, main_window, window_settings_tab, settings_widget):
         self.main_window = main_window
         self.window = self.main_window.window
+        self.saved = True
         self.window_settings_tab = window_settings_tab
+        self.settings_widget = settings_widget
+        self.window_settings_datas = self.main_window.window_settings_datas
+
+        # 从数据集中加载数据
+        self.window_weight_data = self.window_settings_datas.get_window_weight_data()
+        self.window_height_data = self.window_settings_datas.get_window_height_data()
+        self.auto_enter_data = self.window_settings_datas.get_auto_enter_data()
 
         self.window_settings_layout = QVBoxLayout()
 
@@ -24,12 +32,10 @@ class WindowTab:
         self.label2 = QLabel("宽度")
         self.window_weight = QSpinBox()
         self.window_weight.setRange(1, 3000)
-        self.window_weight.setFixedWidth(80)
         self.label3 = QLabel("高度")
         self.label3.setContentsMargins(10, 0, 0, 0)
         self.window_height = QSpinBox()
         self.window_height.setRange(1, 2000)
-        self.window_height.setFixedWidth(80)
         self.window_size_layout.addWidget(self.label1)
         self.window_size_layout.addWidget(self.label2)
         self.window_size_layout.addWidget(self.window_weight)
@@ -53,3 +59,45 @@ class WindowTab:
         self.main_settings_group.setLayout(self.main_layout)
 
         self.window_settings_tab.setLayout(self.window_settings_layout)
+        self.init_window_tab_data()
+
+        # 信号槽
+        self.read_window_size.clicked.connect(self.get_window_size)
+        self.window_weight.valueChanged.connect(self.state_has_changed)
+        self.window_height.valueChanged.connect(self.state_has_changed)
+        self.read_window_size.clicked.connect(self.state_has_changed)
+        self.auto_enter.clicked.connect(self.state_has_changed)
+
+    # 初始化控件方法
+    def init_window_tab_data(self):
+        self.window_weight.setValue(self.window_weight_data) # 窗口宽度
+        self.window_height.setValue(self.window_height_data) # 窗口高度
+
+        # 自动换行
+        if self.auto_enter_data: self.auto_enter.setChecked(True)
+        else: self.auto_enter.setChecked(False)
+
+    # 获取窗口大小并更改信息
+    def get_window_size(self):
+        window_weight, window_height = self.main_window.get_window_size()
+        self.window_weight.setValue(window_weight)
+        self.window_height.setValue(window_height)
+
+    # 状态变化函数
+    def state_has_changed(self):
+        data_state = [
+            self.window_weight_data,
+            self.window_height_data,
+            self.auto_enter_data
+        ]
+        current_state = [
+            self.window_weight.value(),
+            self.window_height.value(),
+            self.auto_enter.isChecked()
+        ]
+        if data_state != current_state:
+            self.saved = False
+            self.settings_widget.state_has_changed()
+        else:
+            self.saved = True
+            self.settings_widget.state_has_changed()

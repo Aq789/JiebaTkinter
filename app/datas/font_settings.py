@@ -32,21 +32,15 @@ class FontSettings:
         return self.size_data
 
     # 下划线
-    def open_under_line_data(self):
-        self.under_line_data = True
-
-    def close_under_line_data(self):
-        self.under_line_data = False
+    def set_under_line_data(self, data):
+        self.under_line_data = data
 
     def get_under_line_data(self):
         return self.under_line_data
 
     # 删除线
-    def open_delete_line_data(self):
-        self.delete_line_data = True
-
-    def close_delete_line_data(self):
-        self.delete_line_data = False
+    def set_delete_line_data(self, data):
+        self.delete_line_data = data
 
     def get_delete_line_data(self):
         return self.delete_line_data
