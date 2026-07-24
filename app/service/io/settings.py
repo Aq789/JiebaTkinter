@@ -51,8 +51,8 @@ def load_window_settings():
             data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         data = {
-            "window_weight_data": 800,
-            "window_height_data": 450,
+            "window_weight_data": 1000,
+            "window_height_data": 600,
             "auto_enter_data": True
         }
     return data

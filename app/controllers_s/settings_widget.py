@@ -42,6 +42,11 @@ def apply(settings_widget):
     s_is.save_window_settings(window_settings_datas)
     s_is.save_font_settings(font_settings_datas)
 
+    # 重新在每个页面加载数据
+    seg_tab.read_seg_settings_datas()
+    window_tab.read_window_settings_datas()
+    font_tab.read_font_settings_datas()
+
     # 应用设置
     settings_widget.main_window.central_widget.change_font()
     settings_widget.main_window.set_window_size()

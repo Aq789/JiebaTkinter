@@ -4,6 +4,8 @@ import app.widget_s.menu
 import app.widget_s.dock_widget
 import app.widget_s.central_widget
 import app.widget_s.status_widget
+import app.widget_s.edit_widget.word_seg_result_widget
+import app.widget_s.edit_widget.word_dic_widget
 
 import app.datas.word_seg_result
 import app.datas.word_dic
@@ -66,3 +68,11 @@ class MainWindow:
         weight = self.window_settings_datas.get_window_weight_data()
         height = self.window_settings_datas.get_window_height_data()
         self.window.resize(weight, height)
+
+    # 创建编辑分词结果窗口
+    def create_word_seg_result_widget(self):
+        return app.widget_s.edit_widget.word_seg_result_widget.WordSegResultWidget(self)
+
+    # 创建编辑词典窗口
+    def create_word_dic_widget(self):
+        return app.widget_s.edit_widget.word_dic_widget.WordDicWidget(self)

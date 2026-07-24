@@ -9,6 +9,9 @@ class Menu:
         self.window = self.main_window.window
         self.menubar = self.main_window.window.menuBar()
 
+        self.word_seg_result_widget = None
+        self.word_dic_widget = None
+
         # 菜单栏项
         self.file_menu = self.menubar.addMenu("文件(&F)")
         self.edit_menu = self.menubar.addMenu("编辑(&E)")
@@ -30,13 +33,19 @@ class Menu:
         self.paste_action = QAction("粘贴", self.window)
         self.find_action = QAction("查找", self.window)
         self.edit_seg_result_action = QAction("编辑分词结果", self.window)
+        self.edit_seg_result_action.setCheckable(True)
+        self.edit_seg_result_action.setChecked(False)
         self.edit_dic_action = QAction("编辑词典", self.window)
+        self.edit_dic_action.setCheckable(True)
+        self.edit_dic_action.setChecked(False)
         self.start_seg_action = QAction("开始分词", self.window)
 
         # 查看项
         self.status_bar_hidden_action = QAction("隐藏状态栏", self.window)
         self.preview_window_hidden_action = QAction("隐藏预览窗口", self.window)
         self.auto_enter_action = QAction("自动换行", self.window)
+        self.auto_enter_action.setCheckable(True)
+        self.auto_enter_action.setChecked(True)
         self.statistic_action = QAction("统计", self.window)
 
         # 设置项
@@ -77,3 +86,7 @@ class Menu:
 
         # 绑定信号槽
         self.settings_action.triggered.connect(lambda :c_m.create_settings_widget(self))
+        self.start_seg_action.triggered.connect(lambda :c_m.start_menu(self))
+        self.auto_enter_action.toggled.connect(lambda :c_m.auto_enter(self))
+        self.edit_seg_result_action.toggled.connect(lambda :c_m.word_seg_result_widget(self))
+        self.edit_dic_action.toggled.connect(lambda :c_m.word_dic_widget(self))

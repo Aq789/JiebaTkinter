@@ -1,6 +1,6 @@
 # 工作区
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QTextEdit
 from PySide6.QtGui import QTextCursor, QTextCharFormat, QFont
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QPlainTextEdit
 
 
 class CentralWidget:
@@ -10,8 +10,7 @@ class CentralWidget:
         self.central_widget = QWidget(self.window)
         self.central_layout = QVBoxLayout()
 
-        self.text_edit = QTextEdit()
-        self.text_edit.setAcceptRichText(False)
+        self.text_edit = QPlainTextEdit()
         self.central_layout.addWidget(self.text_edit)
         self.central_widget.setLayout(self.central_layout)
 
@@ -26,22 +25,17 @@ class CentralWidget:
     # 字体应用函数
     def change_font(self):
         font_settings_datas = self.main_window.font_settings_datas # 传入数据
-        font = QTextCharFormat() # 构建QTextCharFormat对象
-        font.setFontFamily(font_settings_datas.get_font_data())
-        font.setFontPointSize(font_settings_datas.get_size_data())
-        font.setFontWeight(self.shape_font(font_settings_datas.get_shape_data())[0])
-        font.setFontItalic(self.shape_font(font_settings_datas.get_shape_data())[1])
-        font.setFontUnderline(font_settings_datas.get_under_line_data())
-        font.setFontStrikeOut(font_settings_datas.get_delete_line_data())
+        font = QFont()
+        font.setFamily(font_settings_datas.get_font_data())
+        font.setPointSize(font_settings_datas.get_size_data())
 
-        cursor = self.text_edit.textCursor() # 获取当前坐标
-        cursor.select(QTextCursor.SelectionType.Document) # 全选
-        cursor.setCharFormat(font) # 应用格式
-        cursor.clearSelection() # 取消全选
-        self.text_edit.setTextCursor(cursor) # 更新光标到编辑器
-        cursor = self.text_edit.textCursor() # 重新获取
-        cursor.setCharFormat(font) # 设置当前光标格式
-        self.text_edit.setTextCursor(cursor) # 更新编辑器光标
+        weight, italic = self.shape_font(font_settings_datas.get_shape_data())
+        font.setWeight(weight)
+        font.setItalic(italic)
+        font.setUnderline(font_settings_datas.get_under_line_data())
+        font.setStrikeOut(font_settings_datas.get_delete_line_data())
+
+        self.text_edit.setFont(font)
 
     # 字形处理函数
     @staticmethod

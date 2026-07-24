@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.3-s&#10;重要进程&#10;- 迁移了主窗口，侧边栏，菜单栏，状态栏，工作区，全局设置窗口&#10;其他更新&#10;1. central_widget.py添加文本控制器&#10;2. central_widget.py删除QSS样式表&#10;3. font_tab.py添加字体全局设置标签页&#10;4. menu.py添加菜单栏控制器并添加部分函数&#10;5. preview_window.py添加侧边栏预览窗口控制器并与数据集联动&#10;6. preview_window.py优化界面逻辑&#10;7. seg_tab.py添加分词全局设置标签页&#10;8. settings_widget.py添加设置窗口&#10;9. view_s.py现已支持加载对应数据集&#10;10. window_tab.py添加窗口全局设置标签页">
-      <change afterPath="$PROJECT_DIR$/app/controllers_s/settings_widget.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.4-s&#10;重要进程&#10;- 迁移了全局设置的功能，包括更改设置，应用设置等&#10;其他更新&#10;1. central_widget.py添加了字体应用方法&#10;2. font_settings.py修改了字体设置setter方法&#10;3. font_tab.py现可以读取数据，初始化控件，更改字体等&#10;4. seg_settings.py修改了分词设置setter方法&#10;5. seg_tab.py现可以读取数据，初始化控件，自定义词典路径等&#10;6. settings_widget.py添加了设置总窗口控制器&#10;7. settings_widget.py修改了部分新建类的参数，并且为按钮添加功能&#10;8. view_s.py添加了初始化数据集、加载配置文件和主窗口应用配置等&#10;9. window_settings.py修改部分初始化参数，修改了部分窗口设置setter方法&#10;10. window_tab.py现可以读取数据，初始化控件，更改主窗口大小等">
+      <change afterPath="$PROJECT_DIR$/app/service/pyside6/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/service/pyside6/numeric_table_item.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/edit_widget/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/edit_widget/word_dic_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/edit_widget/word_seg_result_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/datas/font_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/font_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/datas/seg_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/seg_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/datas/window_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/window_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/central_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/settings_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/settings_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/io/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/io/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/view_s.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view_s.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget_s/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/central_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/preview_window.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget_s/settings/font_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/settings/font_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget_s/settings/seg_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/settings/seg_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget_s/settings/settings_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/settings/settings_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget_s/settings/window_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/settings/window_tab.py" afterDir="false" />
     </list>
     <list id="1ae1c057-ab9d-48f2-8415-b28af8e1567f" name="新建更改列表" comment="" />
@@ -483,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784722760212</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="0.3.4-s&#10;重要进程&#10;- 迁移了全局设置的功能，包括更改设置，应用设置等&#10;其他更新&#10;1. central_widget.py添加了字体应用方法&#10;2. font_settings.py修改了字体设置setter方法&#10;3. font_tab.py现可以读取数据，初始化控件，更改字体等&#10;4. seg_settings.py修改了分词设置setter方法&#10;5. seg_tab.py现可以读取数据，初始化控件，自定义词典路径等&#10;6. settings_widget.py添加了设置总窗口控制器&#10;7. settings_widget.py修改了部分新建类的参数，并且为按钮添加功能&#10;8. view_s.py添加了初始化数据集、加载配置文件和主窗口应用配置等&#10;9. window_settings.py修改部分初始化参数，修改了部分窗口设置setter方法&#10;10. window_tab.py现可以读取数据，初始化控件，更改主窗口大小等">
+      <option name="closed" value="true" />
+      <created>1784810547127</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1784810547127</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.1.1&#10;- 删除测试数据&#10;- 完善编辑词典功能&#10;- 优化部分代码" />
     <MESSAGE value="0.1.2&#10;- 修改部分代码" />
     <MESSAGE value="0.1.3&#10;- 在目录中添加了设置&#10;- 添加了设置窗口&#10;- 添加了分词设置" />
     <MESSAGE value="0.1.4&#10;- 添加分词设置数据集&#10;- 将分词设置数据集注册至主程序总线&#10;- 初始化设置界面控制器" />
@@ -530,6 +544,7 @@
     <MESSAGE value="0.3.1-s&#10;重要进程&#10;- 由tkinter作为GUI核心迁移至PySide6&#10;其他更新&#10;1. 创建对应PySide6版本的根程序main_s.py&#10;2. 创建对应PySide6版本的主窗口view_s.py&#10;3. 创建对应PySide6版本的测试窗口test_window_s.py&#10;4. 创建QMainWindow中的状态栏status_widget.py&#10;5. 创建QMainWindow中的菜单栏menu.py&#10;6. 创建QMainWindow中的侧边栏dock_widget.py&#10;7. 创建QMainWindow中的工作区central_widget.py" />
     <MESSAGE value="0.3.2-s&#10;重要进程&#10;- 由tkinter作为GUI核心迁移至PySide6&#10;其他更新&#10;1. view_s.py为加载模块存入变量&#10;2. status_widget.py更改状态栏名字&#10;3. preview_window.py创建预览窗口&#10;4. main_s.py暂时运行测试窗口&#10;5. dock_widget.py设定初始默认侧边栏宽度&#10;6. central_widget.py为中心区添加编辑框，并添加样式" />
     <MESSAGE value="0.3.3-s&#10;重要进程&#10;- 迁移了主窗口，侧边栏，菜单栏，状态栏，工作区，全局设置窗口&#10;其他更新&#10;1. central_widget.py添加文本控制器&#10;2. central_widget.py删除QSS样式表&#10;3. font_tab.py添加字体全局设置标签页&#10;4. menu.py添加菜单栏控制器并添加部分函数&#10;5. preview_window.py添加侧边栏预览窗口控制器并与数据集联动&#10;6. preview_window.py优化界面逻辑&#10;7. seg_tab.py添加分词全局设置标签页&#10;8. settings_widget.py添加设置窗口&#10;9. view_s.py现已支持加载对应数据集&#10;10. window_tab.py添加窗口全局设置标签页" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.3.3-s&#10;重要进程&#10;- 迁移了主窗口，侧边栏，菜单栏，状态栏，工作区，全局设置窗口&#10;其他更新&#10;1. central_widget.py添加文本控制器&#10;2. central_widget.py删除QSS样式表&#10;3. font_tab.py添加字体全局设置标签页&#10;4. menu.py添加菜单栏控制器并添加部分函数&#10;5. preview_window.py添加侧边栏预览窗口控制器并与数据集联动&#10;6. preview_window.py优化界面逻辑&#10;7. seg_tab.py添加分词全局设置标签页&#10;8. settings_widget.py添加设置窗口&#10;9. view_s.py现已支持加载对应数据集&#10;10. window_tab.py添加窗口全局设置标签页" />
+    <MESSAGE value="0.3.4-s&#10;重要进程&#10;- 迁移了全局设置的功能，包括更改设置，应用设置等&#10;其他更新&#10;1. central_widget.py添加了字体应用方法&#10;2. font_settings.py修改了字体设置setter方法&#10;3. font_tab.py现可以读取数据，初始化控件，更改字体等&#10;4. seg_settings.py修改了分词设置setter方法&#10;5. seg_tab.py现可以读取数据，初始化控件，自定义词典路径等&#10;6. settings_widget.py添加了设置总窗口控制器&#10;7. settings_widget.py修改了部分新建类的参数，并且为按钮添加功能&#10;8. view_s.py添加了初始化数据集、加载配置文件和主窗口应用配置等&#10;9. window_settings.py修改部分初始化参数，修改了部分窗口设置setter方法&#10;10. window_tab.py现可以读取数据，初始化控件，更改主窗口大小等" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.3.4-s&#10;重要进程&#10;- 迁移了全局设置的功能，包括更改设置，应用设置等&#10;其他更新&#10;1. central_widget.py添加了字体应用方法&#10;2. font_settings.py修改了字体设置setter方法&#10;3. font_tab.py现可以读取数据，初始化控件，更改字体等&#10;4. seg_settings.py修改了分词设置setter方法&#10;5. seg_tab.py现可以读取数据，初始化控件，自定义词典路径等&#10;6. settings_widget.py添加了设置总窗口控制器&#10;7. settings_widget.py修改了部分新建类的参数，并且为按钮添加功能&#10;8. view_s.py添加了初始化数据集、加载配置文件和主窗口应用配置等&#10;9. window_settings.py修改部分初始化参数，修改了部分窗口设置setter方法&#10;10. window_tab.py现可以读取数据，初始化控件，更改主窗口大小等" />
   </component>
 </project>

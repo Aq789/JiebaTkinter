@@ -10,10 +10,7 @@ class WindowTab:
         self.settings_widget = settings_widget
         self.window_settings_datas = self.main_window.window_settings_datas
 
-        # 从数据集中加载数据
-        self.window_weight_data = self.window_settings_datas.get_window_weight_data()
-        self.window_height_data = self.window_settings_datas.get_window_height_data()
-        self.auto_enter_data = self.window_settings_datas.get_auto_enter_data()
+        self.read_window_settings_datas()
 
         self.window_settings_layout = QVBoxLayout()
 
@@ -76,6 +73,12 @@ class WindowTab:
         # 自动换行
         if self.auto_enter_data: self.auto_enter.setChecked(True)
         else: self.auto_enter.setChecked(False)
+
+    # 读取数据方法
+    def read_window_settings_datas(self):
+        self.window_weight_data = self.window_settings_datas.get_window_weight_data()
+        self.window_height_data = self.window_settings_datas.get_window_height_data()
+        self.auto_enter_data = self.window_settings_datas.get_auto_enter_data()
 
     # 获取窗口大小并更改信息
     def get_window_size(self):

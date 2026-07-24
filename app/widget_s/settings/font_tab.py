@@ -16,13 +16,7 @@ class FontTab:
         self.settings_widget = settings_widget
         self.font_settings_datas = self.main_window.font_settings_datas
 
-        # 读取数据
-        self.font_data = self.font_settings_datas.get_font_data()
-        self.shape_data = self.font_settings_datas.get_shape_data()
-        self.size_data = self.font_settings_datas.get_size_data()
-        self.under_line_data = self.font_settings_datas.get_under_line_data()
-        self.delete_line_data = self.font_settings_datas.get_delete_line_data()
-        self.color_data = self.font_settings_datas.get_color_data()
+        self.read_font_settings_datas()
 
         self.font_settings_layout = QVBoxLayout()
 
@@ -152,6 +146,15 @@ class FontTab:
                                   int(self.sizes_line.text()),
                                   self.underline.isChecked(),
                                   self.over_strike.isChecked())
+
+    # 读取数据方法
+    def read_font_settings_datas(self):
+        self.font_data = self.font_settings_datas.get_font_data()
+        self.shape_data = self.font_settings_datas.get_shape_data()
+        self.size_data = self.font_settings_datas.get_size_data()
+        self.under_line_data = self.font_settings_datas.get_under_line_data()
+        self.delete_line_data = self.font_settings_datas.get_delete_line_data()
+        self.color_data = self.font_settings_datas.get_color_data()
 
     # 重置字体方法
     def reset_font(self):

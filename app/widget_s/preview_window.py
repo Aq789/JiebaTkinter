@@ -1,7 +1,7 @@
 # 侧边栏——预览窗口
 from PySide6.QtWidgets import QTabWidget, QTableWidget
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHeaderView
-import app.controllers_s.preview_window as c_pw
+
 
 class PreviewWindow:
     def __init__(self, main_window, dock_widget):
@@ -24,6 +24,7 @@ class PreviewWindow:
 
         self.seg_result_table = QTableWidget(self.seg_result_tab) # 创建表
         self.seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
+        self.seg_result_table.setSortingEnabled(True) # 可排序
         self.seg_result_table.setColumnCount(3) # 设置列数
         self.seg_result_table.setHorizontalHeaderLabels(["词名", "词频", "词性"]) # 设置表头
         self.seg_result_header = self.seg_result_table.horizontalHeader() # 表头拉伸

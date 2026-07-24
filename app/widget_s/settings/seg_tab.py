@@ -11,16 +11,7 @@ class SegTab:
         self.settings_widget = settings_widget
         self.seg_settings_datas = self.main_window.seg_settings_datas
 
-        # 读取分词设置数据
-        self.seg_mode_data = self.seg_settings_datas.get_seg_mode_data()
-        self.auto_seg_result_frequency_data = self.seg_settings_datas.get_auto_seg_result_frequency_data()
-        self.auto_seg_result_class_data = self.seg_settings_datas.get_auto_seg_result_class_data()
-        self.hmm_data = self.seg_settings_datas.get_hmm_data()
-        self.chinese_word_class_data = self.seg_settings_datas.get_chinese_word_class_data()
-        self.ignore_sign_data = self.seg_settings_datas.get_ignore_sign_data()
-        self.ignore_english_data = self.seg_settings_datas.get_ignore_english_data()
-        self.dic_var_data = self.seg_settings_datas.get_dic_var_data()
-        self.custom_path_data = self.seg_settings_datas.get_custom_path()
+        self.read_seg_settings_datas()
 
         self.seg_settings_layout = QVBoxLayout()
 
@@ -165,6 +156,18 @@ class SegTab:
 
         self.custom_path_entry.setText(self.custom_path_data) # 自定义路径
         self.custom_state_change()
+
+    # 读取数据方法
+    def read_seg_settings_datas(self):
+        self.seg_mode_data = self.seg_settings_datas.get_seg_mode_data()
+        self.auto_seg_result_frequency_data = self.seg_settings_datas.get_auto_seg_result_frequency_data()
+        self.auto_seg_result_class_data = self.seg_settings_datas.get_auto_seg_result_class_data()
+        self.hmm_data = self.seg_settings_datas.get_hmm_data()
+        self.chinese_word_class_data = self.seg_settings_datas.get_chinese_word_class_data()
+        self.ignore_sign_data = self.seg_settings_datas.get_ignore_sign_data()
+        self.ignore_english_data = self.seg_settings_datas.get_ignore_english_data()
+        self.dic_var_data = self.seg_settings_datas.get_dic_var_data()
+        self.custom_path_data = self.seg_settings_datas.get_custom_path()
 
     # 默认词典和自定义词典选择函数
     def custom_state_change(self):
