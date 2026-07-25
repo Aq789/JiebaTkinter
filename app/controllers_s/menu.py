@@ -20,12 +20,13 @@ def auto_enter(menu):
         c_cw.close_auto_enter(central_widget)
 
 # 编辑分词结果开关
-def word_seg_result_widget(menu):
-    if menu.word_seg_result_widget is not None:
-        menu.word_seg_result_widget.word_seg_result_widget.close()
-        menu.word_seg_result_widget = None
+def word_seg_result_widget(menu, checked):
+    if checked:
+        if menu.word_seg_result_widget is None:
+            menu.word_seg_result_widget = menu.main_window.create_word_seg_result_widget()
     else:
-        menu.word_seg_result_widget = menu.main_window.create_word_seg_result_widget()
+        if menu.word_seg_result_widget is not None:
+            menu.word_seg_result_widget.word_seg_result_widget.close()
 
 # 编辑词典开关
 def word_dic_widget(menu):

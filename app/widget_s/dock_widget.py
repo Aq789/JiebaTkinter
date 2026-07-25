@@ -13,4 +13,4 @@ class DockWidget:
         self.preview_window = w_pw.PreviewWindow(self.main_window, self.dock_widget)
 
         self.window.addDockWidget(Qt.DockWidgetArea.LeftDockWidgetArea, self.dock_widget)
-        self.window.resizeDocks([self.dock_widget], [200], Qt.Orientation.Horizontal)
+        self.window.resizeDocks([self.dock_widget], [250], Qt.Orientation.Horizontal)
