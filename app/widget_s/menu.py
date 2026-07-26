@@ -42,7 +42,9 @@ class Menu:
 
         # 查看项
         self.status_bar_hidden_action = QAction("隐藏状态栏", self.window)
+        self.status_bar_hidden_action.setCheckable(True)
         self.preview_window_hidden_action = QAction("隐藏预览窗口", self.window)
+        self.preview_window_hidden_action.setCheckable(True)
         self.auto_enter_action = QAction("自动换行", self.window)
         self.auto_enter_action.setCheckable(True)
         self.auto_enter_action.setChecked(True)
@@ -91,3 +93,5 @@ class Menu:
         self.edit_seg_result_action.toggled.connect(lambda checked :c_m.word_seg_result_widget(self, checked))
         self.edit_dic_action.toggled.connect(lambda checked :c_m.word_dic_widget(self, checked))
         self.statistic_action.triggered.connect(lambda :c_m.create_statistic_widget(self))
+        self.status_bar_hidden_action.toggled.connect(lambda :c_m.toggle_statusbar(self))
+        self.preview_window_hidden_action.toggled.connect(lambda checked :c_m.on_checkbox_toggled(self, checked))

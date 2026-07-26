@@ -2,6 +2,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QDockWidget
 import app.widget_s.preview_window as w_pw
+import app.controllers_s.menu as c_m
 
 class DockWidget:
     def __init__(self, main_window):
@@ -14,3 +15,5 @@ class DockWidget:
 
         self.window.addDockWidget(Qt.DockWidgetArea.LeftDockWidgetArea, self.dock_widget)
         self.window.resizeDocks([self.dock_widget], [250], Qt.Orientation.Horizontal)
+
+        self.dock_widget.visibilityChanged.connect(lambda visible : c_m.on_dock_visibility_changed(self.main_window.menu, visible))

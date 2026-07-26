@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用">
-      <change afterPath="$PROJECT_DIR$/app/controllers_s/statistic_widget.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widget_s/statistic_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers_s/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/central_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_dic_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers_s/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/datas/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/statistic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/jieba/dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/jieba/dictionary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/statistic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view_s.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view_s.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/status_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/status_bar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget_s/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget_s/preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/preview_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget_s/status_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/status_widget.py" afterDir="false" />
-    </list>
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法" />
     <list id="1ae1c057-ab9d-48f2-8415-b28af8e1567f" name="新建更改列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +16,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -78,7 +68,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "tkinter",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "settings.extract.method.addTypeAnnotations": "false"
   }
@@ -518,10 +508,41 @@
       <option name="project" value="LOCAL" />
       <updated>1785031144827</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="0.3.7-s&#10;重要进程&#10;- 迁移了统计窗口和状态栏信息&#10;其他更新&#10;1. central_widget.py为开始分词提供计时&#10;2. dictionary.py优化加载用户词典方法&#10;3. menu.py写入创建统计窗口逻辑&#10;4. preview_window.py将预览窗口中词典表格设为可排序&#10;5. statistic.py加入接受列表写入数据集方法并优化算法&#10;6. statistic_widget.py添加统计窗口并其控制器&#10;7. status_widget.py添加部分状态栏信息及方法&#10;8. view_s.py可以在主线中注册数据集&#10;9. word_dic_widget.py添加导出方法中的状态栏更新，并优化方法">
+      <option name="closed" value="true" />
+      <created>1785067145645</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1785067145645</updated>
+    </task>
+    <task id="LOCAL-00044" summary="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法">
+      <option name="closed" value="true" />
+      <created>1785080642422</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1785080642422</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -533,6 +554,17 @@
                   <entry key="Table.Default.Date.ColumnIdWidth" value="114" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -540,8 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.1.5&#10;- 分词设置现在可以读取数据集数据&#10;- 优化代码逻辑&#10;- 添加应用按钮状态逻辑" />
-    <MESSAGE value="0.1.6&#10;- 优化部分代码逻辑&#10;- 添加总窗口控制器&#10;- 完善设置窗口功能" />
     <MESSAGE value="0.1.7&#10;- 创建文件读写流软件包&#10;- 创建服务软件包&#10;- 添加配置文件并保存在磁盘里&#10;- 实现设置本地化&#10;- 将加载配置文件注册至总线" />
     <MESSAGE value="0.2.0&#10;核心功能更新&#10;- 支持开始分词，可以读取分词设置和词典进行分词&#10;其他更新&#10;- 开始分词按钮现已可用&#10;- 创建服务算法软件包&#10;- 添加开始分词相关算法&#10;- 添加词典读取算法&#10;- 添加词性标注算法&#10;- 添加词频统计算法&#10;- 添加文本数据集并添加至主线&#10;- 添加测试代码&#10;- 优化分词结果数据集方法判断条件&#10;- 优化部分代码&#10;- 更正部分文本错误" />
     <MESSAGE value="0.2.1&#10;功能更新&#10;- 分词过程中可以选择忽略标点符号和英文&#10;其他更新&#10;- 删除设置界面冗余选项&#10;- 添加忽略标点和英文选项&#10;- 添加对应的数据集和方法&#10;- 添加检查符号和英文方法&#10;- 优化部分代码" />
@@ -565,6 +595,8 @@
     <MESSAGE value="0.3.5-s&#10;重要进程&#10;- 迁移了分词核心算法，迁移了编辑分词结果界面以及编辑词典界面&#10;其他更新&#10;1. central_widget.py添加开始分词控制器以及自动换行开关&#10;2. central_widget.py更改了文本框类型&#10;3. font_tab.py抽离了读取数据方法&#10;4. menu.py添加了部分菜单栏索引方法&#10;5. menu.py添加了编辑窗口载体以及修改了部分项&#10;6. numeric_table_item.py添加了表格数字比较重写类&#10;7. preview_window.py添加了中文词性标注&#10;8. preview_window.py使预览表格可排序&#10;9. seg_tab.py抽离了读取数据方法&#10;10. settings.py修改了默认数据&#10;11. settings_widget.py修复了排序后重新分词词频词类不显示bug&#10;12. view_s.py创建编辑窗口方法&#10;13. window_tab.py抽离了读取数据方法&#10;14. word_dic_widget.py新建编辑词典窗口&#10;15. word_seg_result_widget新建编辑分词结果窗口.py" />
     <MESSAGE value="0.3.6.1-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用" />
     <MESSAGE value="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用" />
+    <MESSAGE value="0.3.7-s&#10;重要进程&#10;- 迁移了统计窗口和状态栏信息&#10;其他更新&#10;1. central_widget.py为开始分词提供计时&#10;2. dictionary.py优化加载用户词典方法&#10;3. menu.py写入创建统计窗口逻辑&#10;4. preview_window.py将预览窗口中词典表格设为可排序&#10;5. statistic.py加入接受列表写入数据集方法并优化算法&#10;6. statistic_widget.py添加统计窗口并其控制器&#10;7. status_widget.py添加部分状态栏信息及方法&#10;8. view_s.py可以在主线中注册数据集&#10;9. word_dic_widget.py添加导出方法中的状态栏更新，并优化方法" />
+    <MESSAGE value="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法" />
   </component>
 </project>

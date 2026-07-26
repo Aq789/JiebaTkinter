@@ -41,3 +41,16 @@ def word_dic_widget(menu, checked):
     else:
         if menu.word_dic_widget is not None:
             menu.word_dic_widget.word_dic_widget.close()
+
+# 状态栏隐藏开关
+def toggle_statusbar(menu):
+    menu.main_window.status_widget.toggle_statusbar()
+
+# 侧边栏开关
+def on_dock_visibility_changed(menu, visible):
+    menu.preview_window_hidden_action.setChecked(not visible)
+
+# 侧边栏隐藏函数
+def on_checkbox_toggled(menu, checked):
+    dock_widget = menu.main_window.dock_widget.dock_widget
+    dock_widget.setVisible(not checked)

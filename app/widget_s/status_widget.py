@@ -56,3 +56,12 @@ class StatusWidget:
     # 状态设置
     def set_ready_status(self, message):
         self.state.setText(message)
+
+    # 状态栏隐藏方法
+    def toggle_statusbar(self):
+        if self.window.statusBar().isVisible():
+            self.status_bar.hide()
+            self.main_window.menu.status_bar_hidden_action.setChecked(True)
+        else:
+            self.status_bar.show()
+            self.main_window.menu.status_bar_hidden_action.setChecked(False)
