@@ -1,14 +1,23 @@
 # 测试窗口的打开和关闭
-import tkinter as tk
-import app.view
-test_window_root = None
+from PySide6.QtWidgets import QWidget, QPushButton, QVBoxLayout
+import app.view as a_v
 
 def create_test_window():
-    global test_window_root
-    root = test_window_root
-    test_window = tk.Toplevel(root)
-    test_window.title("测试窗口")
-    test_window.geometry("400x300")
+    test_window = QWidget()
+    test_window.setWindowTitle("测试窗口")
+    test_window.resize(400, 300)
 
-    tk.Button(test_window, text="点击新建窗口", command=lambda :app.view.create_new_window(root)).pack()
-    tk.Button(test_window, text="点击删除窗口", command=app.view.delete_new_window).pack()
+    new_button = QPushButton("点击新建窗口")
+    delete_button = QPushButton("点击删除窗口")
+
+    new_button.clicked.connect(a_v.create_new_window)
+    delete_button.clicked.connect(a_v.delete_new_window)
+
+    t_layout = QVBoxLayout()
+    t_layout.addWidget(new_button)
+    t_layout.addWidget(delete_button)
+
+    test_window.setLayout(t_layout)
+    test_window.show()
+
+    return test_window

@@ -1,81 +1,97 @@
 # 菜单栏
-import tkinter as tk
+from PySide6.QtGui import QAction
 
 import app.controllers.menu as c_m
 
 class Menu:
-    def __init__(self, window):
-        self.main_window = window
-        self.menubar = tk.Menu(window.main_window)
+    def __init__(self, main_window):
+        self.main_window = main_window
+        self.window = self.main_window.window
+        self.menubar = self.main_window.window.menuBar()
 
-        self.edit_seg_result_toplevel = None
-        self.edit_dic_toplevel = None
+        self.word_seg_result_widget = None
+        self.word_dic_widget = None
 
-        self.auto_enter_data = window.window_settings_datas.auto_enter_data
+        # 菜单栏项
+        self.file_menu = self.menubar.addMenu("文件(&F)")
+        self.edit_menu = self.menubar.addMenu("编辑(&E)")
+        self.check_menu = self.menubar.addMenu("查看(&V)")
+        self.settings_menu = self.menubar.addMenu("设置(&S)")
+        self.help_menu = self.menubar.addMenu("帮助(&H)")
 
-        # 文件菜单 - file_menu
-        self.file_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="文件", menu=self.file_menu)
-        self.file_menu.add_command(label="新建")
-        self.file_menu.add_command(label="打开")
-        self.file_menu.add_command(label="保存")
-        self.file_menu.add_command(label="另存为")
-        self.file_menu.add_separator()
+        # 文件项
+        self.new_action = QAction("新建", self.window)
+        self.open_action = QAction("打开", self.window)
+        self.save_action = QAction("保存", self.window)
+        self.other_save_action = QAction("另存为", self.window)
 
-        self.import_file = tk.Menu(self.file_menu, tearoff=0)
-        self.file_menu.add_cascade(label="导入...", menu=self.import_file)
-        self.import_file.add_command(label="导入文本文件")
-        self.import_file.add_command(label="导入字典文件")
+        # 编辑项
+        self.undo_action = QAction("撤销", self.window)
+        self.redo_action = QAction("恢复", self.window)
+        self.copy_action = QAction("复制", self.window)
+        self.cut_action = QAction("剪切", self.window)
+        self.paste_action = QAction("粘贴", self.window)
+        self.find_action = QAction("查找", self.window)
+        self.edit_seg_result_action = QAction("编辑分词结果", self.window)
+        self.edit_seg_result_action.setCheckable(True)
+        self.edit_seg_result_action.setChecked(False)
+        self.edit_dic_action = QAction("编辑词典", self.window)
+        self.edit_dic_action.setCheckable(True)
+        self.edit_dic_action.setChecked(False)
+        self.start_seg_action = QAction("开始分词", self.window)
 
-        self.export_file = tk.Menu(self.file_menu, tearoff=0)
-        self.file_menu.add_cascade(label="导出...", menu=self.export_file)
-        self.export_file.add_command(label="导出文本文件")
-        self.export_file.add_command(label="导出字典文件")
-        self.export_file.add_command(label="导出分词结果")
+        # 查看项
+        self.status_bar_hidden_action = QAction("隐藏状态栏", self.window)
+        self.status_bar_hidden_action.setCheckable(True)
+        self.preview_window_hidden_action = QAction("隐藏预览窗口", self.window)
+        self.preview_window_hidden_action.setCheckable(True)
+        self.auto_enter_action = QAction("自动换行", self.window)
+        self.auto_enter_action.setCheckable(True)
+        self.auto_enter_action.setChecked(True)
+        self.statistic_action = QAction("统计", self.window)
 
-        # 编辑菜单
-        self.edit_seg_result_var = tk.BooleanVar(value=False)
-        self.edit_dic_var = tk.BooleanVar(value=False)
+        # 设置项
+        self.settings_action = QAction("全局设置", self.window)
 
-        self.edit_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="编辑", menu=self.edit_menu)
-        self.edit_menu.add_command(label="撤销")
-        self.edit_menu.add_command(label="恢复")
-        self.edit_menu.add_separator()
-        self.edit_menu.add_command(label="复制")
-        self.edit_menu.add_command(label="剪切")
-        self.edit_menu.add_command(label="粘贴")
-        self.edit_menu.add_command(label="查找")
-        self.edit_menu.add_separator()
-        self.edit_menu.add_checkbutton(label="编辑分词结果", onvalue=True, offvalue=False, variable=self.edit_seg_result_var, command=lambda :c_m.open_seg_result_toplevel(self))
-        self.edit_menu.add_checkbutton(label="编辑词典", onvalue=True, offvalue=False, variable=self.edit_dic_var, command=lambda :c_m.open_dic_toplevel(self))
-        self.edit_menu.add_separator()
-        self.edit_menu.add_command(label="开始分词", command=lambda :c_m.start_menu(self))
+        # 帮助项
+        self.welcome_action = QAction("欢迎", self.window)
+        self.help_action = QAction("帮助", self.window)
+        self.about_action = QAction("关于...", self.window)
 
-        # 查看菜单
-        self.visible_status_bar_var = tk.BooleanVar(value=False)
-        self.visible_left_frame_var = tk.BooleanVar(value=False)
-        self.auto_enter_var = tk.BooleanVar(value=self.auto_enter_data)
+        # 开始创建
+        self.file_menu.addAction(self.new_action)
+        self.file_menu.addAction(self.open_action)
+        self.file_menu.addAction(self.save_action)
+        self.file_menu.addAction(self.other_save_action)
+        self.file_menu.addSeparator()
+        self.edit_menu.addAction(self.undo_action)
+        self.edit_menu.addAction(self.redo_action)
+        self.edit_menu.addSeparator()
+        self.edit_menu.addAction(self.copy_action)
+        self.edit_menu.addAction(self.cut_action)
+        self.edit_menu.addAction(self.paste_action)
+        self.edit_menu.addAction(self.find_action)
+        self.edit_menu.addSeparator()
+        self.edit_menu.addAction(self.edit_seg_result_action)
+        self.edit_menu.addAction(self.edit_dic_action)
+        self.edit_menu.addSeparator()
+        self.edit_menu.addAction(self.start_seg_action)
+        self.check_menu.addAction(self.status_bar_hidden_action)
+        self.check_menu.addAction(self.preview_window_hidden_action)
+        self.check_menu.addAction(self.auto_enter_action)
+        self.check_menu.addAction(self.statistic_action)
+        self.settings_menu.addAction(self.settings_action)
+        self.help_menu.addAction(self.welcome_action)
+        self.help_menu.addSeparator()
+        self.help_menu.addAction(self.help_action)
+        self.help_menu.addAction(self.about_action)
 
-        self.check_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="查看", menu=self.check_menu)
-        self.check_menu.add_checkbutton(label="隐藏状态栏", onvalue=True, offvalue=False, variable=self.visible_status_bar_var, command=lambda :c_m.visible_status_bar(self))
-        self.check_menu.add_checkbutton(label="隐藏预览窗口", onvalue=True, offvalue=False, variable=self.visible_left_frame_var, command=lambda :c_m.visible_left_frame(self))
-        self.check_menu.add_checkbutton(label="自动换行", onvalue=True, offvalue=False, variable=self.auto_enter_var, command=lambda :c_m.auto_enter(self))
-        self.check_menu.add_command(label="统计", command=lambda :c_m.create_statistic_toplevel(self))
-
-        # 设置菜单
-        self.settings_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="设置", menu=self.settings_menu)
-        self.settings_menu.add_command(label="全局设置", command=lambda :c_m.create_settings_toplevel(self))
-        self.settings_menu.add_separator()
-
-        # 帮助菜单
-        self.help_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="帮助", menu=self.help_menu)
-        self.help_menu.add_command(label="欢迎")
-        self.help_menu.add_separator()
-        self.help_menu.add_command(label="帮助")
-        self.help_menu.add_command(label="关于...")
-
-        window.main_window.config(menu=self.menubar)
+        # 绑定信号槽
+        self.settings_action.triggered.connect(lambda :c_m.create_settings_widget(self))
+        self.start_seg_action.triggered.connect(lambda :c_m.start_menu(self))
+        self.auto_enter_action.toggled.connect(lambda :c_m.auto_enter(self))
+        self.edit_seg_result_action.toggled.connect(lambda checked :c_m.word_seg_result_widget(self, checked))
+        self.edit_dic_action.toggled.connect(lambda checked :c_m.word_dic_widget(self, checked))
+        self.statistic_action.triggered.connect(lambda :c_m.create_statistic_widget(self))
+        self.status_bar_hidden_action.toggled.connect(lambda :c_m.toggle_statusbar(self))
+        self.preview_window_hidden_action.toggled.connect(lambda checked :c_m.on_checkbox_toggled(self, checked))

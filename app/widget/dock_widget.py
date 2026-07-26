@@ -1,8 +1,8 @@
 # 侧边栏
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QDockWidget
-import app.widget_s.preview_window as w_pw
-import app.controllers_s.menu as c_m
+import app.widget.preview_window as w_pw
+import app.controllers.menu as c_m
 
 class DockWidget:
     def __init__(self, main_window):

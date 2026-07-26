@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QTableWidget, Q
 from app.service.pyside6.int_with_validation_delegate import IntWithValidationDelegate
 from app.service.pyside6.string_non_empty_delegate import StringNonEmptyDelegate
 
-import app.controllers_s.edit_widget.word_dic_widget as c_ewwdw
+import app.controllers.edit_widget.word_dic_widget as c_ewwdw
 
 class WordDicWidget:
     def __init__(self, main_window):

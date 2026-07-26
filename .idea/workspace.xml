@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.4.0&#10;核心功能更新&#10;- GUI核心已从 Tkinter 成功迁移至 PySide6&#10;其他更新&#10;1. 更改表格样式">
+      <change beforePath="$PROJECT_DIR$/.idea/JiebaTkinter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JiebaTool.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_widget/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/seg_result_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_toplevel/word_dic_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/left_frame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/right_frame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_widget/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/settings/setting_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/statistic_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/status_bar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/central_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/edit_widget/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_widget/word_dic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_seg_result_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_widget/word_seg_result_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/menu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/settings_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/settings_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/statistic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/statistic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view_s.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/seg_result_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/edit_toplevel/word_dic_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/left_frame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/paned_window.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/right_frame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/font_notebook.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/seg_notebook.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/setting_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/settings/window_notebook.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/statistic_toplevel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/status_bar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/central_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/dock_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/dock_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/edit_widget/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_widget/word_dic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/edit_widget/word_seg_result_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_widget/word_seg_result_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/menu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/settings/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/settings/font_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/font_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/settings/seg_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/seg_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/settings/settings_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/settings_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/settings/window_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/settings/window_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/statistic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/statistic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/status_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/status_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_s.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_window_s.py" beforeDir="false" />
+    </list>
     <list id="1ae1c057-ab9d-48f2-8415-b28af8e1567f" name="新建更改列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +126,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "tkinter",
+    "git-widget-placeholder": "master",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "settings.extract.method.addTypeAnnotations": "false"
   }
@@ -79,8 +137,8 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main_s">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="JiebaTkinter" />
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="JiebaTool" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -88,13 +146,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.12 (JiebaTkinter)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -103,8 +160,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main_s" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="JiebaTkinter" />
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="JiebaTool" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,7 +174,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_s.py" />
+      <option name="SCRIPT_NAME" value="E:\project_Python\JiebaTkinter\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -127,7 +184,7 @@
       <method v="2" />
     </configuration>
     <configuration name="test_python" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="JiebaTkinter" />
+      <module name="JiebaTool" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -149,9 +206,93 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="JiebaTool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="JiebaTool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="JiebaTool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="JiebaTool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="JiebaTool" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_s" />
         <item itemvalue="Python.test_python" />
       </list>
     </recent_temporary>

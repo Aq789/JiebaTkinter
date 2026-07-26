@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JiebaTkinter.iml" filepath="$PROJECT_DIR$/.idea/JiebaTkinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JiebaTool.iml" filepath="$PROJECT_DIR$/.idea/JiebaTool.iml" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,5 @@
 # 窗口全局设置
-from PySide6.QtWidgets import QWidget, QGroupBox, QVBoxLayout, QCheckBox, QHBoxLayout, QRadioButton, QLabel, QSizePolicy, QLineEdit, QPushButton, QSpinBox
+from PySide6.QtWidgets import QWidget, QGroupBox, QVBoxLayout, QCheckBox, QHBoxLayout, QLabel, QSizePolicy, QPushButton, QSpinBox
 
 class WindowTab:
     def __init__(self, main_window, window_settings_tab, settings_widget):

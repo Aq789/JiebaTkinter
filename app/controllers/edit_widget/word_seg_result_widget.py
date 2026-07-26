@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QTableWidgetItem, QMessageBox, QInputDialog
 
 from service.pyside6.numeric_table_item import NumericTableItem
 import app.service.word_class_name as s_wcn
-import app.controllers_s.preview_window as c_pw
+import app.controllers.preview_window as c_pw
 
 
 # 导入新行函数

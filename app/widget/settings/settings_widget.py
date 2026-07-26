@@ -1,9 +1,9 @@
 # 设置窗口
 from PySide6.QtWidgets import QMessageBox, QDialog, QVBoxLayout, QTabWidget, QWidget, QHBoxLayout, QPushButton
-import app.controllers_s.settings_widget as c_sw
-import app.widget_s.settings.seg_tab as w_sst
-import app.widget_s.settings.window_tab as w_swt
-import app.widget_s.settings.font_tab as w_sft
+import app.controllers.settings_widget as c_sw
+import app.widget.settings.seg_tab as w_sst
+import app.widget.settings.window_tab as w_swt
+import app.widget.settings.font_tab as w_sft
 
 class SettingsWidget:
     def __init__(self, main_window):

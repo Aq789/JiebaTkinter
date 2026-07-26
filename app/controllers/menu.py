@@ -1,68 +1,56 @@
 # 菜单栏控制器
-import app.widget.settings.setting_toplevel as w_sst
-import app.widget.statistic_toplevel as w_st
-import app.controllers.left_frame as c_lf
-
-# 打开编辑分词结果窗口
-def open_seg_result_toplevel(menu):
-    left_frame = menu.main_window.paned_window.left_frame
-    if not menu.edit_seg_result_var.get():
-        menu.edit_seg_result_toplevel.on_close()
-    else:
-        menu.edit_seg_result_toplevel = left_frame.create_seg_result_toplevel()
-
-# 打开编辑词典窗口
-def open_dic_toplevel(menu):
-    left_frame = menu.main_window.paned_window.left_frame
-    if not menu.edit_dic_var.get():
-        menu.edit_dic_toplevel.on_close()
-    else:
-        menu.edit_dic_toplevel = left_frame.create_word_dic_toplevel()
+import app.widget.settings.settings_widget as w_ssw
+import app.widget.statistic_widget as w_sw
+import app.controllers.central_widget as c_cw
 
 # 创建设置窗口
-def create_settings_toplevel(menu):
-    w_sst.SettingsToplevel(menu.main_window)
+def create_settings_widget(menu):
+    w_ssw.SettingsWidget(menu.main_window)
 
 # 创建统计窗口
-def create_statistic_toplevel(menu):
-    w_st.StatisticToplevel(menu.main_window)
-
-# 自动换行开关
-def auto_enter(menu):
-    if menu.auto_enter_var.get():
-        menu.auto_enter_var.set(True)
-        menu.main_window.paned_window.right_frame.open_auto_enter()
-    else:
-        menu.auto_enter_var.set(False)
-        menu.main_window.paned_window.right_frame.close_auto_enter()
-
-# 状态栏显示开关
-def visible_status_bar(menu):
-    if menu.visible_status_bar_var.get():
-        menu.visible_status_bar_var.set(True)
-        status_bar = menu.main_window.status_bar
-        status_bar.bottom_status_bar.grid_remove()
-    else:
-        menu.visible_status_bar_var.set(False)
-        status_bar = menu.main_window.status_bar
-        status_bar.bottom_status_bar.grid()
-
-# 左侧预览窗口显示开关
-def visible_left_frame(menu):
-    if menu.visible_left_frame_var.get():
-        menu.visible_left_frame_var.set(True)
-        paned_window = menu.main_window.paned_window
-        paned_window.invisible_left_frame()
-    else:
-        menu.visible_left_frame_var.set(False)
-        paned_window = menu.main_window.paned_window
-        paned_window.visible_left_frame()
+def create_statistic_widget(menu):
+    w_sw.StatisticWidget(menu.main_window)
 
 # 开始分词
 def start_menu(menu):
-    paned_window = menu.main_window.paned_window
-    left_frame = paned_window.left_frame
+    central_widget = menu.main_window.central_widget
+    c_cw.start_seg_word(central_widget)
 
-    menu.visible_left_frame_var.set(False)  # 调整菜单状态
-    paned_window.visible_left_frame()
-    c_lf.start_seg_word(left_frame) # 调用侧边栏开始分词
+# 换行开关
+def auto_enter(menu):
+    central_widget = menu.main_window.central_widget
+    if menu.auto_enter_action.isChecked():
+        c_cw.open_auto_enter(central_widget)
+    else:
+        c_cw.close_auto_enter(central_widget)
+
+# 编辑分词结果开关
+def word_seg_result_widget(menu, checked):
+    if checked:
+        if menu.word_seg_result_widget is None:
+            menu.word_seg_result_widget = menu.main_window.create_word_seg_result_widget()
+    else:
+        if menu.word_seg_result_widget is not None:
+            menu.word_seg_result_widget.word_seg_result_widget.close()
+
+# 编辑词典开关
+def word_dic_widget(menu, checked):
+    if checked:
+        if menu.word_dic_widget is None:
+            menu.word_dic_widget = menu.main_window.create_word_dic_widget()
+    else:
+        if menu.word_dic_widget is not None:
+            menu.word_dic_widget.word_dic_widget.close()
+
+# 状态栏隐藏开关
+def toggle_statusbar(menu):
+    menu.main_window.status_widget.toggle_statusbar()
+
+# 侧边栏开关
+def on_dock_visibility_changed(menu, visible):
+    menu.preview_window_hidden_action.setChecked(not visible)
+
+# 侧边栏隐藏函数
+def on_checkbox_toggled(menu, checked):
+    dock_widget = menu.main_window.dock_widget.dock_widget
+    dock_widget.setVisible(not checked)

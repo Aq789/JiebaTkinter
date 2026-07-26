@@ -2,7 +2,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QPushButton, QLabel, QDialog, QGroupBox, QGridLayout
 
-import app.controllers_s.statistic_widget as c_sw
+import app.controllers.statistic_widget as c_sw
 
 class StatisticWidget:
     def __init__(self, main_window):

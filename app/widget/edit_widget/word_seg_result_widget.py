@@ -3,7 +3,7 @@ from PySide6.QtCore import Qt, QSignalBlocker
 from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderView, QWidget, QHBoxLayout, QLabel, QAbstractItemView
 from PySide6.QtGui import QAction
 
-import app.controllers_s.edit_widget.word_seg_result_widget as c_ewwsrw
+import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
 
 class WordSegResultWidget:
     def __init__(self, main_window):

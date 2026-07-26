@@ -1,5 +1,5 @@
 # 侧边栏——预览窗口
-from PySide6.QtWidgets import QTabWidget, QTableWidget
+from PySide6.QtWidgets import QTabWidget, QTableWidget, QAbstractItemView
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHeaderView
 
 
@@ -24,6 +24,7 @@ class PreviewWindow:
 
         self.seg_result_table = QTableWidget(self.seg_result_tab) # 创建表
         self.seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
+        self.seg_result_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.seg_result_table.setSortingEnabled(True) # 可排序
         self.seg_result_table.setColumnCount(3) # 设置列数
         self.seg_result_table.setHorizontalHeaderLabels(["词名", "词频", "词性"]) # 设置表头
@@ -43,6 +44,7 @@ class PreviewWindow:
 
         self.dic_table = QTableWidget(self.dic_tab) # 创建表
         self.dic_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
+        self.dic_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.dic_table.setSortingEnabled(True) # 可排序
         self.dic_table.setColumnCount(3) # 设置列数
         self.dic_table.setHorizontalHeaderLabels(["词名", "词频", "词性"]) # 设置表头
@@ -58,3 +60,22 @@ class PreviewWindow:
         self.dock_widget.setWidget(self.preview_window)
 
         self.preview_window.setLayout(self.preview_window_layout)
+
+        # 表格样式
+        self.seg_result_table.setStyleSheet(
+            """
+                QTableWidget::item:selected {
+                    background-color: palette(highlight);
+                    color: palette(highlighted-text);
+                }
+            """
+        )
+        # 表格样式
+        self.dic_table.setStyleSheet(
+            """
+                QTableWidget::item:selected {
+                    background-color: palette(highlight);
+                    color: palette(highlighted-text);
+                }
+            """
+        )

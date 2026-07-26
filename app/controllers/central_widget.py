@@ -1,8 +1,8 @@
 # 文本框控制器
 from PySide6.QtWidgets import QPlainTextEdit
 
-import app.controllers_s.preview_window as c_pw
-import app.controllers_s.edit_widget.word_seg_result_widget as c_ewwsrw
+import app.controllers.preview_window as c_pw
+import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
 import app.service.jieba.start as s_js
 import time
 

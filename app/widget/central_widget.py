@@ -1,5 +1,5 @@
 # 工作区
-from PySide6.QtGui import QTextCursor, QTextCharFormat, QFont
+from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPlainTextEdit
 
 
