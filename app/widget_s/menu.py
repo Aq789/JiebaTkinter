@@ -89,4 +89,4 @@ class Menu:
         self.start_seg_action.triggered.connect(lambda :c_m.start_menu(self))
         self.auto_enter_action.toggled.connect(lambda :c_m.auto_enter(self))
         self.edit_seg_result_action.toggled.connect(lambda checked :c_m.word_seg_result_widget(self, checked))
-        self.edit_dic_action.toggled.connect(lambda :c_m.word_dic_widget(self))
+        self.edit_dic_action.toggled.connect(lambda checked :c_m.word_dic_widget(self, checked))

@@ -29,9 +29,10 @@ def word_seg_result_widget(menu, checked):
             menu.word_seg_result_widget.word_seg_result_widget.close()
 
 # 编辑词典开关
-def word_dic_widget(menu):
-    if menu.word_dic_widget is not None:
-        menu.word_dic_widget.word_dic_widget.close()
-        menu.word_dic_widget = None
+def word_dic_widget(menu, checked):
+    if checked:
+        if menu.word_dic_widget is None:
+            menu.word_dic_widget = menu.main_window.create_word_dic_widget()
     else:
-        menu.word_dic_widget = menu.main_window.create_word_dic_widget()
+        if menu.word_dic_widget is not None:
+            menu.word_dic_widget.word_dic_widget.close()

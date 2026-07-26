@@ -12,7 +12,7 @@ class WordSegResultWidget:
         self.saved = True
         self.word_seg_result_widget = QMainWindow(self.window)
         self.word_seg_result_widget.setWindowTitle("编辑分词结果")
-        self.word_seg_result_widget.resize(600, 450)
+        self.word_seg_result_widget.setMinimumSize(400, 450)
         self.word_seg_result_widget.setAttribute(Qt.WA_DeleteOnClose)
 
         self.toolbar = self.word_seg_result_widget.addToolBar("主工具栏")
@@ -31,7 +31,6 @@ class WordSegResultWidget:
         self.central_widget = QWidget()
         self.central_layout = QHBoxLayout()
         self.word_seg_result_table = QTableWidget()
-        self.word_seg_result_table.setFixedWidth(400)
         self.word_seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)
         self.word_seg_result_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.word_seg_result_table.setSortingEnabled(True)
@@ -41,9 +40,7 @@ class WordSegResultWidget:
         self.word_seg_result_header.setSectionResizeMode(0, QHeaderView.Stretch)
         self.word_seg_result_header.setSectionResizeMode(1, QHeaderView.Stretch)
         self.word_seg_result_header.setSectionResizeMode(2, QHeaderView.Stretch)
-        self.central_layout.addStretch()
         self.central_layout.addWidget(self.word_seg_result_table)
-        self.central_layout.addStretch()
         self.central_widget.setLayout(self.central_layout)
         self.word_seg_result_widget.setCentralWidget(self.central_widget)
 

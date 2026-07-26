@@ -80,7 +80,7 @@ def delete_current_row(word_seg_result_widget):
     else:
         for row in sorted(selected_rows, reverse=True):
             table.removeRow(row)
-        widget.statusBar().showMessage(f"成功删除 {len(selected_rows)}项", 2000)
+        widget.statusBar().showMessage(f"成功删除 {len(selected_rows)} 项", 2000)
         save_refresh(word_seg_result_widget, False)
         status_refresh(word_seg_result_widget)
         return True
