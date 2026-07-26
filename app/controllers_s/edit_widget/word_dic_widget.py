@@ -37,20 +37,22 @@ def input_dic_data(word_dic_widget):
 # 将表格中的数据导出至数据集中
 def output_dic_data(word_dic_widget):
     table = word_dic_widget.word_dic_table
+    status = word_dic_widget.main_window.status_widget
     word_dic_datas = word_dic_widget.main_window.word_dic_datas
 
     row_count = table.rowCount()
 
     word_dic_datas.delete_all_word_dic()
     for row in range(row_count):
-        word_name = table.item(row, 0).text()
-        word_frequency = int(table.item(row, 1).text())
-        word_class = table.item(row, 2).text()
+        word_name = table.item(row, 0).text().strip() if table.item(row, 0) else ""
+        word_frequency = table.item(row, 1).text().strip() if table.item(row, 1) else ""
+        word_class = table.item(row, 2).text().strip() if table.item(row, 2) else ""
         word_dic_datas.add_word_dic(word_name, word_frequency, word_class)
 
     status_refresh(word_dic_widget)
     save_refresh(word_dic_widget, True)
     c_pw.input_dic_data(word_dic_widget.main_window.dock_widget.preview_window)
+    status.refresh_custom_dict_count()
 
 # 在表格中添加数据方法
 def new_row(table, row):

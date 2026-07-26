@@ -16,11 +16,8 @@ def add_user_dict(word_name, word_frequency, word_class):
 # 从数据集中加载用户词典
 def load_user_dict(word_dic_datas):
     for word_dic in word_dic_datas.word_dic_list:
-        if word_dic.word_frequency == "":
-            add_user_dict(word_dic.word_name, 10000, word_dic.word_class)
-            s_jwf.suggest_word_frequency(word_dic.word_frequency)
-        else:
-            add_user_dict(word_dic.word_name, word_dic.word_frequency, word_dic.word_class)
+        frequency = int(word_dic.word_frequency) if word_dic.word_frequency.strip() else 10000
+        add_user_dict(word_dic.word_name, frequency, word_dic.word_class)
 
 # 从数据集中加载主词典目录
 def load_main_dict(seg_settings):

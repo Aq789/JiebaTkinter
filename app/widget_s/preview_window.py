@@ -43,6 +43,7 @@ class PreviewWindow:
 
         self.dic_table = QTableWidget(self.dic_tab) # 创建表
         self.dic_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
+        self.dic_table.setSortingEnabled(True) # 可排序
         self.dic_table.setColumnCount(3) # 设置列数
         self.dic_table.setHorizontalHeaderLabels(["词名", "词频", "词性"]) # 设置表头
         self.dic_header = self.dic_table.horizontalHeader() # 表头拉伸

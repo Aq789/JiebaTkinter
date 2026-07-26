@@ -13,6 +13,7 @@ import app.datas.text
 import app.datas.seg_settings
 import app.datas.window_settings
 import app.datas.font_settings
+import app.datas.statistic
 
 import app.service.settings
 
@@ -39,6 +40,7 @@ class MainWindow:
         self.word_seg_result_datas = app.datas.word_seg_result.WordSegResultDatas(self)
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self)
         self.text_datas = app.datas.text.Text(self)
+        self.statistic_datas = app.datas.statistic.Statistic(self)
 
         # 加载配置文件
         app.service.settings.seg_settings_to_data(self)

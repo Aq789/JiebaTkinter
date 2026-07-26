@@ -75,3 +75,15 @@ class Statistic:
 
     def get_line_count_data(self):
         return self.line_count_data
+
+    # 接收列表加入统计中
+    def set_all_datas(self, ls):
+        self.set_chinese_char_count_data(ls[0])
+        self.set_char_count_no_space_data(ls[1])
+        self.set_char_count_with_space_data(ls[2])
+        self.set_chinese_word_count_frame_data(ls[3])
+        self.set_seg_result_count_only_chinese_data(ls[4])
+        self.set_seg_result_count_all_data(ls[5])
+        self.set_custom_dict_size_data(ls[6])
+        self.set_english_word_count_data(ls[7])
+        self.set_line_count_data(ls[8])

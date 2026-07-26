@@ -13,7 +13,7 @@ def first_statistic(text):
     chinese_count = 0
     char_no_space = 0
     char_with_space = 0
-    line_count = 0
+    line_count = 1
 
     for ch in text:
         if ch != "\n":

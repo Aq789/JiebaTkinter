@@ -1,10 +1,15 @@
 # 菜单栏控制器
 import app.widget_s.settings.settings_widget as w_ssw
+import app.widget_s.statistic_widget as w_sw
 import app.controllers_s.central_widget as c_cw
 
 # 创建设置窗口
 def create_settings_widget(menu):
     w_ssw.SettingsWidget(menu.main_window)
+
+# 创建统计窗口
+def create_statistic_widget(menu):
+    w_sw.StatisticWidget(menu.main_window)
 
 # 开始分词
 def start_menu(menu):

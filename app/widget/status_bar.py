@@ -1,6 +1,5 @@
 # 底部状态栏
 import tkinter as tk
-from tkinter import ttk
 import _tkinter
 
 import app.service.statistic as s_s

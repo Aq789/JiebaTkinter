@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.6.1-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用">
-      <change afterPath="$PROJECT_DIR$/app/service/pyside6/int_with_validation_delegate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/pyside6/string_non_empty_delegate.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用">
+      <change afterPath="$PROJECT_DIR$/app/controllers_s/statistic_widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/widget_s/statistic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers_s/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/central_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_dic_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_seg_result_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/edit_widget/word_seg_result_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers_s/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers_s/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget_s/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/edit_widget/word_dic_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget_s/edit_widget/word_seg_result_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/edit_widget/word_seg_result_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/datas/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/datas/statistic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/jieba/dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/jieba/dictionary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/statistic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/view_s.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/view_s.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget/status_bar.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/status_bar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget_s/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/preview_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/preview_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widget_s/status_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget_s/status_widget.py" afterDir="false" />
     </list>
     <list id="1ae1c057-ab9d-48f2-8415-b28af8e1567f" name="新建更改列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,33 +56,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.left_frame.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_s.executor&quot;: &quot;Run&quot;,
-    &quot;Python.menu.executor&quot;: &quot;Run&quot;,
-    &quot;Python.paned_window.executor&quot;: &quot;Run&quot;,
-    &quot;Python.right_frame.executor&quot;: &quot;Run&quot;,
-    &quot;Python.seg_result_toplevel.executor&quot;: &quot;Run&quot;,
-    &quot;Python.setting_toplevel.executor&quot;: &quot;Run&quot;,
-    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.start.executor&quot;: &quot;Run&quot;,
-    &quot;Python.statistic.executor&quot;: &quot;Run&quot;,
-    &quot;Python.statistic_toplevel.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.test_python.executor&quot;: &quot;Run&quot;,
-    &quot;Python.view.executor&quot;: &quot;Run&quot;,
-    &quot;Python.word_class.executor&quot;: &quot;Run&quot;,
-    &quot;Python.word_frequency.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;settings.extract.method.addTypeAnnotations&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.left_frame.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main_s.executor": "Run",
+    "Python.menu.executor": "Run",
+    "Python.paned_window.executor": "Run",
+    "Python.right_frame.executor": "Run",
+    "Python.seg_result_toplevel.executor": "Run",
+    "Python.setting_toplevel.executor": "Run",
+    "Python.settings.executor": "Run",
+    "Python.start.executor": "Run",
+    "Python.statistic.executor": "Run",
+    "Python.statistic_toplevel.executor": "Debug",
+    "Python.test_python.executor": "Run",
+    "Python.view.executor": "Run",
+    "Python.word_class.executor": "Run",
+    "Python.word_frequency.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.extract.method.addTypeAnnotations": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\project_Python\JiebaTkinter\app" />
@@ -504,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784951733137</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用">
+      <option name="closed" value="true" />
+      <created>1785031144827</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1785031144827</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -526,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.1.4&#10;- 添加分词设置数据集&#10;- 将分词设置数据集注册至主程序总线&#10;- 初始化设置界面控制器" />
     <MESSAGE value="0.1.5&#10;- 分词设置现在可以读取数据集数据&#10;- 优化代码逻辑&#10;- 添加应用按钮状态逻辑" />
     <MESSAGE value="0.1.6&#10;- 优化部分代码逻辑&#10;- 添加总窗口控制器&#10;- 完善设置窗口功能" />
     <MESSAGE value="0.1.7&#10;- 创建文件读写流软件包&#10;- 创建服务软件包&#10;- 添加配置文件并保存在磁盘里&#10;- 实现设置本地化&#10;- 将加载配置文件注册至总线" />
@@ -551,6 +564,7 @@
     <MESSAGE value="0.3.4-s&#10;重要进程&#10;- 迁移了全局设置的功能，包括更改设置，应用设置等&#10;其他更新&#10;1. central_widget.py添加了字体应用方法&#10;2. font_settings.py修改了字体设置setter方法&#10;3. font_tab.py现可以读取数据，初始化控件，更改字体等&#10;4. seg_settings.py修改了分词设置setter方法&#10;5. seg_tab.py现可以读取数据，初始化控件，自定义词典路径等&#10;6. settings_widget.py添加了设置总窗口控制器&#10;7. settings_widget.py修改了部分新建类的参数，并且为按钮添加功能&#10;8. view_s.py添加了初始化数据集、加载配置文件和主窗口应用配置等&#10;9. window_settings.py修改部分初始化参数，修改了部分窗口设置setter方法&#10;10. window_tab.py现可以读取数据，初始化控件，更改主窗口大小等" />
     <MESSAGE value="0.3.5-s&#10;重要进程&#10;- 迁移了分词核心算法，迁移了编辑分词结果界面以及编辑词典界面&#10;其他更新&#10;1. central_widget.py添加开始分词控制器以及自动换行开关&#10;2. central_widget.py更改了文本框类型&#10;3. font_tab.py抽离了读取数据方法&#10;4. menu.py添加了部分菜单栏索引方法&#10;5. menu.py添加了编辑窗口载体以及修改了部分项&#10;6. numeric_table_item.py添加了表格数字比较重写类&#10;7. preview_window.py添加了中文词性标注&#10;8. preview_window.py使预览表格可排序&#10;9. seg_tab.py抽离了读取数据方法&#10;10. settings.py修改了默认数据&#10;11. settings_widget.py修复了排序后重新分词词频词类不显示bug&#10;12. view_s.py创建编辑窗口方法&#10;13. window_tab.py抽离了读取数据方法&#10;14. word_dic_widget.py新建编辑词典窗口&#10;15. word_seg_result_widget新建编辑分词结果窗口.py" />
     <MESSAGE value="0.3.6.1-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.3.6.1-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用" />
+    <MESSAGE value="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.3.6-s&#10;重要进程&#10;- 迁移了编辑分词结果控制器方法&#10;- 迁移了编辑词典控制器方法&#10;其他更新&#10;1. central_widget.py添加了编辑分词窗口同步逻辑&#10;2. dock_widget.py更改侧边栏大小&#10;3. menu.py优化编辑分词结果开关逻辑&#10;4. word_seg_result_widget.py新建编辑分词结果控制器&#10;5. word_seg_result_widget.py修改状态栏逻辑，编辑界面现已可用&#10;6. int_with_validation_delegate.py添加限制单元格输入数字重写类&#10;7. string_non_empty_delegate.py添加限制单元格不为空重写类&#10;8. word_dic_widget.py新建编辑词典控制器&#10;9. word_dic_widget.py修改状态栏逻辑，编辑界面现已可用" />
   </component>
 </project>
