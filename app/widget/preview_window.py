@@ -1,7 +1,7 @@
 # 侧边栏——预览窗口
 from PySide6.QtWidgets import QTabWidget, QTableWidget, QAbstractItemView
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHeaderView
-
+from app.service.pyside6.table_widget import CustomTable
 
 class PreviewWindow:
     def __init__(self, main_window, dock_widget):
@@ -22,7 +22,7 @@ class PreviewWindow:
         self.tab_widget.addTab(self.seg_result_tab, "分词结果")
         self.seg_result_layout = QVBoxLayout()
 
-        self.seg_result_table = QTableWidget(self.seg_result_tab) # 创建表
+        self.seg_result_table = CustomTable(self.seg_result_tab, 3) # 创建表
         self.seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
         self.seg_result_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.seg_result_table.setSortingEnabled(True) # 可排序

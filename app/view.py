@@ -1,5 +1,5 @@
 # 主窗口创建
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QApplication, QPlainTextEdit, QTableWidget
 import app.widget.menu
 import app.widget.dock_widget
 import app.widget.central_widget
@@ -79,3 +79,13 @@ class MainWindow:
     # 创建编辑词典窗口
     def create_word_dic_widget(self):
         return app.widget.edit_widget.word_dic_widget.WordDicWidget(self)
+
+    # 获取窗口焦点
+    @staticmethod
+    def get_focus():
+        widget = QApplication.focusWidget()
+        if isinstance(widget, QPlainTextEdit): # 当焦点在编辑框时
+            return 0
+        if isinstance(widget, QTableWidget): # 当焦点在表格时
+            return 1
+        return -1

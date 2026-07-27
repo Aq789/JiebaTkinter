@@ -86,6 +86,10 @@ class Menu:
         self.help_menu.addAction(self.help_action)
         self.help_menu.addAction(self.about_action)
 
+        self.copy_action.setShortcut("Ctrl+C")
+        self.cut_action.setShortcut("Ctrl+X")
+        self.paste_action.setShortcut("Ctrl+V")
+
         # 绑定信号槽
         self.settings_action.triggered.connect(lambda :c_m.create_settings_widget(self))
         self.start_seg_action.triggered.connect(lambda :c_m.start_menu(self))
@@ -95,3 +99,6 @@ class Menu:
         self.statistic_action.triggered.connect(lambda :c_m.create_statistic_widget(self))
         self.status_bar_hidden_action.toggled.connect(lambda :c_m.toggle_statusbar(self))
         self.preview_window_hidden_action.toggled.connect(lambda checked :c_m.on_checkbox_toggled(self, checked))
+        self.copy_action.triggered.connect(lambda :c_m.on_copy(self))
+        self.cut_action.triggered.connect(lambda :c_m.on_cut(self))
+        self.paste_action.triggered.connect(lambda :c_m.on_paste(self))

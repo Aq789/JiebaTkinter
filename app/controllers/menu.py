@@ -1,4 +1,6 @@
 # 菜单栏控制器
+from PySide6.QtCore import Qt
+
 import app.widget.settings.settings_widget as w_ssw
 import app.widget.statistic_widget as w_sw
 import app.controllers.central_widget as c_cw
@@ -48,9 +50,28 @@ def toggle_statusbar(menu):
 
 # 侧边栏开关
 def on_dock_visibility_changed(menu, visible):
+    if menu.main_window.window.windowState() & Qt.WindowMinimized: return
     menu.preview_window_hidden_action.setChecked(not visible)
 
 # 侧边栏隐藏函数
 def on_checkbox_toggled(menu, checked):
     dock_widget = menu.main_window.dock_widget.dock_widget
     dock_widget.setVisible(not checked)
+
+# 复制操作
+def on_copy(menu):
+    editor = menu.main_window.get_focus()
+    if editor == 0:
+        menu.main_window.central_widget.copy()
+    elif editor == 1:
+        menu.main_window.dock_widget.preview_window.seg_result_table.copy_rows_as_custom_string()
+    else:
+        return
+
+#  剪切操作
+def on_cut(menu):
+    menu.main_window.central_widget.cut()
+
+# 粘贴操作
+def on_paste(menu):
+    menu.main_window.central_widget.paste()

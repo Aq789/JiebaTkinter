@@ -46,5 +46,5 @@ def simple_word_class(string):
     try:
         simple_result = simple_word[string]
     except KeyError:
-        simple_result = ""
+        simple_result = string
     return simple_result

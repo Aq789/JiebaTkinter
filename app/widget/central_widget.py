@@ -43,3 +43,13 @@ class CentralWidget:
         style_map = {"常规": (QFont.Normal, False), "粗体": (QFont.Bold, False), "斜体": (QFont.Normal, True), "粗斜体": (QFont.Bold, True)}
         weight, italic = style_map.get(style, (QFont.Normal, False))
         return weight, italic
+
+    # 复制方法
+    def copy(self):
+        self.text_edit.copy()
+
+    def cut(self):
+        self.text_edit.cut()
+
+    def paste(self):
+        self.text_edit.paste()
