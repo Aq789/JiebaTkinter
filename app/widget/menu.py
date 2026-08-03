@@ -104,3 +104,5 @@ class Menu:
         self.cut_action.triggered.connect(lambda :c_m.on_cut(self))
         self.paste_action.triggered.connect(lambda :c_m.on_paste(self))
         self.find_action.triggered.connect(lambda :c_m.check_widget(self))
+        self.undo_action.triggered.connect(lambda :c_m.undo(self))
+        self.redo_action.triggered.connect(lambda :c_m.redo(self))

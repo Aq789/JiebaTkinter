@@ -83,3 +83,11 @@ def on_cut(menu):
 # 粘贴操作
 def on_paste(menu):
     menu.main_window.central_widget.paste()
+
+# 撤销操作
+def undo(menu):
+    menu.main_window.central_widget.undo()
+
+# 恢复操作
+def redo(menu):
+    menu.main_window.central_widget.redo()

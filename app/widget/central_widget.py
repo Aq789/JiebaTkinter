@@ -53,3 +53,9 @@ class CentralWidget:
 
     def paste(self):
         self.text_edit.paste()
+
+    def undo(self):
+        self.text_edit.undo()
+
+    def redo(self):
+        self.text_edit.redo()
