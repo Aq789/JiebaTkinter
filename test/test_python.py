@@ -1,13 +1,7 @@
-from PySide6.QtWidgets import QApplication, QTableView
-from PySide6.QtGui import QStandardItemModel, QStandardItem
 
-app = QApplication([])
-model = QStandardItemModel(3, 2)
-model.setHorizontalHeaderLabels(["商品", "价格"])
-model.setItem(0, 0, QStandardItem("苹果"))
-model.setItem(0, 1, QStandardItem("5.5"))
+# 字符串转为可读取的列表
+def string_to_list(string):
+    enter = string.split("\n")
+    print(enter)
 
-view = QTableView()
-view.setModel(model)
-view.show()
-app.exec()
+string_to_list("人工智能 150 n")

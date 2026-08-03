@@ -68,7 +68,7 @@ def on_copy(menu):
     else:
         return
 
-#  剪切操作
+# 剪切操作
 def on_cut(menu):
     menu.main_window.central_widget.cut()
 

@@ -1,8 +1,10 @@
-from PySide6.QtWidgets import QTableWidget, QApplication
+from PySide6.QtWidgets import QTableWidget, QApplication, QTableWidgetItem
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QKeySequence
 
 import app.service.word_class_name as s_wcn
+from service.pyside6.numeric_table_item import NumericTableItem
+
 
 class CustomTable(QTableWidget):
     def __init__(self, rows, cols, parent=None):
@@ -20,7 +22,7 @@ class CustomTable(QTableWidget):
     def copy_rows_as_custom_string(self):
 
         if not self.selectedIndexes():
-            return
+            return None
 
         rows = sorted({index.row() for index in self.selectedIndexes()}) # 提取所有选中的行（去重）
 
@@ -37,6 +39,71 @@ class CustomTable(QTableWidget):
         final_text = "\n".join(row_strings)
         QApplication.clipboard().setText(final_text)
 
+        return rows
+
+    # 获取选中的行，转换成特定字符串并复制到剪贴板
+    def cut_rows_as_custom_string(self):
+        rows = self.copy_rows_as_custom_string()
+
+        if not rows:
+            return
+
+        for row in sorted(rows, reverse=True):
+            self.removeRow(row)
+
+    # 获取剪贴板中的内容，转换成表格内容
+    def paste_rows_as_custom_string(self):
+        clipboard = QApplication.clipboard().text()
+        clip_list = clipboard.splitlines()
+        temp_list = []
+
+        for line in clip_list:
+            line = line.strip()
+
+            if not line or line.startswith("#"):
+                continue
+
+            line = line.split('#', 1)[0].rstrip()
+            try:
+                parts = line.split()
+                if len(parts) == 0:
+                    continue
+                elif len(parts) == 1:
+                    temp_list.append([parts[0], "", ""])
+                elif len(parts) == 2:
+                    if not parts[1].isdigit():
+                        raise ValueError
+                    temp_list.append([parts[0], int(parts[1]), ""])
+                else:
+                    if not parts[1].isdigit():
+                        raise ValueError
+                    temp_list.append([parts[0], int(parts[1]), parts[2]])
+            except ValueError:
+                return False
+
+        for row in temp_list:
+            self.create_dic_data(row[0], row[1], row[2])
+        return True
+
+    # 在表格中添加数据方法
+    def new_row(self, row, word_name, word_frequency, word_class):
+        self.insertRow(row)
+        self.setItem(row, 0, QTableWidgetItem(str(word_name)))
+        self.setItem(row, 1, NumericTableItem(str(word_frequency)))
+        self.setItem(row, 2, QTableWidgetItem(str(word_class)))
+
+    # 新建数据方法
+    def create_dic_data(self, word_name, word_frequency, word_class):
+        selected_rows = set()
+        for index in self.selectedIndexes():
+            selected_rows.add(index.row())
+
+        if len(selected_rows) == 1:
+            selected_row = next(iter(selected_rows))
+            self.new_row(selected_row + 1, word_name, word_frequency, word_class)
+        else:
+            self.new_row(self.rowCount(), word_name, word_frequency, word_class)
+
     @staticmethod
     def format_row(row_index, data_list):
-        return f"{data_list[0]} {s_wcn.simple_word_class(data_list[2])} {data_list[1]}"
+        return f"{data_list[0]} {data_list[1]} {s_wcn.simple_word_class(data_list[2])}"

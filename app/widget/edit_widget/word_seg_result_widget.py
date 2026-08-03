@@ -2,7 +2,7 @@
 from PySide6.QtCore import Qt, QSignalBlocker
 from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderView, QWidget, QHBoxLayout, QLabel, QAbstractItemView
 from PySide6.QtGui import QAction
-
+from app.service.pyside6.table_widget import CustomTable
 import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
 
 class WordSegResultWidget:
@@ -21,16 +21,20 @@ class WordSegResultWidget:
         self.check_action.setStatusTip("通过关键信息查找分词结果项")
         self.delete_action = QAction("删除", self.word_seg_result_widget)
         self.delete_action.setStatusTip("删除部分分词结果项")
+        self.copy_action = QAction("复制", self.word_seg_result_widget)
+        self.copy_action.setStatusTip("复制所选表格内容到剪贴板")
         self.save_action = QAction("保存", self.word_seg_result_widget)
         self.save_action.setStatusTip("保存修改后的分词结果项")
         self.toolbar.addAction(self.check_action)
         self.toolbar.addAction(self.delete_action)
         self.toolbar.addSeparator()
+        self.toolbar.addAction(self.copy_action)
+        self.toolbar.addSeparator()
         self.toolbar.addAction(self.save_action)
 
         self.central_widget = QWidget()
         self.central_layout = QHBoxLayout()
-        self.word_seg_result_table = QTableWidget()
+        self.word_seg_result_table = CustomTable(self.central_widget, 3)
         self.word_seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)
         self.word_seg_result_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.word_seg_result_table.setSortingEnabled(True)
@@ -64,6 +68,7 @@ class WordSegResultWidget:
         self.save_action.triggered.connect(lambda :c_ewwsrw.output_seg_result_data(self))
         self.word_seg_result_table.horizontalHeader().sortIndicatorChanged.connect(lambda :c_ewwsrw.save_refresh(self, False))
         self.word_seg_result_table.itemSelectionChanged.connect(lambda :c_ewwsrw.status_refresh(self))
+        self.copy_action.triggered.connect(self.copy)
 
         # 表格样式
         self.word_seg_result_table.setStyleSheet(
@@ -96,3 +101,7 @@ class WordSegResultWidget:
             event.ignore()
             with QSignalBlocker(self.menu_action):
                 self.menu_action.setChecked(True)
+
+    # 复制方法
+    def copy(self):
+        self.word_seg_result_table.copy_rows_as_custom_string()

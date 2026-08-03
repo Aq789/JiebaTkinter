@@ -5,6 +5,7 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QTableWidget, Q
     QAbstractItemView
 from app.service.pyside6.int_with_validation_delegate import IntWithValidationDelegate
 from app.service.pyside6.string_non_empty_delegate import StringNonEmptyDelegate
+from app.service.pyside6.table_widget import CustomTable
 
 import app.controllers.edit_widget.word_dic_widget as c_ewwdw
 
@@ -23,6 +24,12 @@ class WordDicWidget:
         self.new_action.setStatusTip("新建词典项")
         self.delete_action = QAction("删除", self.word_dic_widget)
         self.delete_action.setStatusTip("删除部分词典项")
+        self.copy_action = QAction("复制", self.word_dic_widget)
+        self.copy_action.setStatusTip("复制所选表格内容到剪贴板")
+        self.cut_action = QAction("剪切", self.word_dic_widget)
+        self.cut_action.setStatusTip("剪切所选表格内容到剪贴板")
+        self.paste_action = QAction("粘贴", self.word_dic_widget)
+        self.paste_action.setStatusTip("粘贴剪贴板内容到表格（需对应格式）")
         self.check_action = QAction("查找", self.word_dic_widget)
         self.check_action.setCheckable(True)
         self.check_action.setStatusTip("通过关键信息查找词典项")
@@ -32,11 +39,15 @@ class WordDicWidget:
         self.toolbar.addAction(self.delete_action)
         self.toolbar.addAction(self.check_action)
         self.toolbar.addSeparator()
+        self.toolbar.addAction(self.copy_action)
+        self.toolbar.addAction(self.cut_action)
+        self.toolbar.addAction(self.paste_action)
+        self.toolbar.addSeparator()
         self.toolbar.addAction(self.save_action)
 
         self.central_widget = QWidget()
         self.central_layout = QHBoxLayout()
-        self.word_dic_table = QTableWidget()
+        self.word_dic_table = CustomTable(self.word_dic_widget, 3)
         self.word_dic_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.word_dic_table.setSortingEnabled(True)
         self.word_dic_table.setColumnCount(3)
@@ -78,6 +89,9 @@ class WordDicWidget:
         self.word_dic_table.itemSelectionChanged.connect(lambda :c_ewwdw.status_refresh(self))
         self.word_dic_table.cellChanged.connect(lambda :c_ewwdw.save_refresh(self, False))
         self.new_action.triggered.connect(lambda :c_ewwdw.create_dic_data(self))
+        self.copy_action.triggered.connect(self.copy)
+        self.paste_action.triggered.connect(self.paste)
+        self.cut_action.triggered.connect(self.cut)
 
         # 表格样式
         self.word_dic_table.setStyleSheet(
@@ -110,3 +124,18 @@ class WordDicWidget:
             event.ignore()
             with QSignalBlocker(self.menu_action):
                 self.menu_action.setChecked(True)
+
+    # 复制方法
+    def copy(self):
+        self.word_dic_table.copy_rows_as_custom_string()
+
+    # 粘贴方法
+    def paste(self):
+        if self.word_dic_table.paste_rows_as_custom_string():
+            return
+        else:
+            QMessageBox.warning(self.word_dic_widget, "提示", "粘贴失败，请检查词典格式后重试！")
+
+    # 剪切方法
+    def cut(self):
+        self.word_dic_table.cut_rows_as_custom_string()
