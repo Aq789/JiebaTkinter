@@ -24,3 +24,17 @@ def statistic_start(statistic_widget):
     statistic_widget.custom_dict_size.message.setText(str(statistic_list[6]))
     statistic_widget.english_word_count.message.setText(str(statistic_list[7]))
     statistic_widget.line_count.message.setText(str(statistic_list[8]))
+
+# 主窗口统计方法
+def statistic_start_main(main_window):
+    text = main_window.central_widget.text_edit.toPlainText()
+    seg_list = main_window.word_seg_result_datas.get_text_result_list()
+    seg_result_list = main_window.word_seg_result_datas.return_word_seg_result_list()
+    word_dic_datas = main_window.word_dic_datas
+    statistic_datas = main_window.statistic_datas
+
+    # 开始计算
+    statistic_list = s_s.start_statistic(text, seg_list, seg_result_list, word_dic_datas)
+
+    # 保存至统计信息数据集
+    statistic_datas.set_all_datas(statistic_list)

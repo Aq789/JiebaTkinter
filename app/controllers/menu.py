@@ -4,6 +4,7 @@ from PySide6.QtCore import Qt
 import app.widget.settings.settings_widget as w_ssw
 import app.widget.statistic_widget as w_sw
 import app.controllers.central_widget as c_cw
+import app.controllers.file as c_f
 
 # 创建设置窗口
 def create_settings_widget(menu):
@@ -91,3 +92,7 @@ def undo(menu):
 # 恢复操作
 def redo(menu):
     menu.main_window.central_widget.redo()
+
+# 保存操作
+def save(menu):
+    c_f.save_file(menu.main_window)

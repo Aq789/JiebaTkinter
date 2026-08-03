@@ -15,8 +15,11 @@ import app.datas.seg_settings
 import app.datas.window_settings
 import app.datas.font_settings
 import app.datas.statistic
+import app.datas.file
 
 import app.service.settings
+
+import app.controllers.file as c_f
 
 def create_new_window(): # 创建窗口实例方法
     new_window = MainWindow() # 创建窗口实例
@@ -43,6 +46,7 @@ class MainWindow:
         self.word_dic_datas = app.datas.word_dic.WordDicDatas(self)
         self.text_datas = app.datas.text.Text(self)
         self.statistic_datas = app.datas.statistic.Statistic(self)
+        self.file_datas = app.datas.file.File(self)
 
         # 加载配置文件
         app.service.settings.seg_settings_to_data(self)
@@ -51,12 +55,15 @@ class MainWindow:
 
         # 主窗口应用配置
         self.set_window_size()
+        self.change_window_title("未命名")
 
         # 加载模块
         self.menu = app.widget.menu.Menu(self)
         self.central_widget = app.widget.central_widget.CentralWidget(self)
         self.dock_widget = app.widget.dock_widget.DockWidget(self)
         self.status_widget = app.widget.status_widget.StatusWidget(self)
+
+        self.window.closeEvent = self.close_event
 
     # 销毁窗口
     def destroy_window(self):
@@ -84,6 +91,25 @@ class MainWindow:
     # 创建查找窗口
     def create_check_widget(self):
         return app.widget.check_widget.CheckWidget(self)
+
+    # 修改标题栏
+    def change_window_title(self, text):
+        self.window.setWindowTitle(f"{text}  -  中文分词工具")
+
+    # 关闭窗口事件
+    def close_event(self, event):
+        c_f.close_event(self, event)
+
+    # 保存状态更改
+    def change_saved(self, state):
+        if state:
+            self.status_widget.saved.setText("已保存")
+            self.file_datas.set_filed_saved_data(True)
+            self.file_datas.set_is_filed_data(True)
+            self.change_window_title(self.file_datas.get_file_name_data())
+        else:
+            self.status_widget.saved.setText("未保存")
+            self.file_datas.set_filed_saved_data(False)
 
     # 获取窗口焦点
     @staticmethod

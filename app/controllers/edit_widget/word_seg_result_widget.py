@@ -60,6 +60,7 @@ def output_seg_result_data(word_seg_result_widget):
     status_refresh(word_seg_result_widget)
     save_refresh(word_seg_result_widget, True)
     c_pw.input_seg_result_data(word_seg_result_widget.main_window.dock_widget.preview_window)
+    word_seg_result_widget.main_window.change_saved(False)
 
 # 删除数据方法
 def delete_current_row(word_seg_result_widget):

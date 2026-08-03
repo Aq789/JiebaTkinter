@@ -26,6 +26,7 @@ def start_seg_word(central_widget):
     c_pw.input_seg_result_data(central_widget.main_window.dock_widget.preview_window)
     if word_seg_result_widget is not None:
         c_ewwsrw.input_seg_result_data(word_seg_result_widget)
+    central_widget.main_window.change_saved(False)
     end_time = time.perf_counter()
 
     total_time = (end_time - start_time) * 1000

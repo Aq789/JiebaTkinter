@@ -106,3 +106,4 @@ class Menu:
         self.find_action.triggered.connect(lambda :c_m.check_widget(self))
         self.undo_action.triggered.connect(lambda :c_m.undo(self))
         self.redo_action.triggered.connect(lambda :c_m.redo(self))
+        self.save_action.triggered.connect(lambda :c_m.save(self))

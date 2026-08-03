@@ -1,13 +1,20 @@
 # 根程序开始
 import sys
-import app.view as a_v
-import test.test_window as t_tw
+from PySide6.QtCore import QTranslator, QLibraryInfo
 from PySide6.QtWidgets import QApplication
+
+import app.view as a_v
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
+    # 中文包加载
+    translator = QTranslator()
+    if translator.load("qt_zh_CN", QLibraryInfo.path(QLibraryInfo.LibraryPath.TranslationsPath)):
+        app.installTranslator(translator)
+    else:
+        pass
+
     a_v.create_new_window()
-    #test_win = t_tw.create_test_window()
 
     app.exec()

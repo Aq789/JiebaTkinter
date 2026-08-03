@@ -18,6 +18,9 @@ class CentralWidget:
 
         self.init_central_widget()
 
+        # 信号槽
+        self.text_edit.textChanged.connect(self.text_changed)
+
     # 初始化工作区方法
     def init_central_widget(self):
         self.change_font()
@@ -43,6 +46,10 @@ class CentralWidget:
         style_map = {"常规": (QFont.Normal, False), "粗体": (QFont.Bold, False), "斜体": (QFont.Normal, True), "粗斜体": (QFont.Bold, True)}
         weight, italic = style_map.get(style, (QFont.Normal, False))
         return weight, italic
+
+    # 文字更改状态函数
+    def text_changed(self):
+        self.main_window.change_saved(False)
 
     # 复制方法
     def copy(self):

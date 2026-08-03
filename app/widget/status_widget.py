@@ -12,20 +12,24 @@ class StatusWidget:
         self.status_bar = self.window.statusBar()
 
         self.point_label = QLabel("当前位置：行0, 列0")
-        self.point_label.setContentsMargins(12, 0, 12, 0)
+        self.point_label.setContentsMargins(6, 0, 12, 0)
         self.status_bar.addWidget(self.point_label)
 
         self.chinese_char_count = QLabel("总字数：0")
-        self.chinese_char_count.setContentsMargins(12, 0, 12, 0)
+        self.chinese_char_count.setContentsMargins(6, 0, 12, 0)
         self.status_bar.addWidget(self.chinese_char_count)
 
         self.custom_dict_count = QLabel("自定义词典数：")
-        self.custom_dict_count.setContentsMargins(12, 0, 12, 0)
+        self.custom_dict_count.setContentsMargins(6, 0, 12, 0)
         self.status_bar.addWidget(self.custom_dict_count)
 
         self.state = QLabel("就绪")
-        self.state.setContentsMargins(12, 0, 12, 0)
+        self.state.setContentsMargins(12, 0, 6, 0)
         self.status_bar.addPermanentWidget(self.state)
+
+        self.saved = QLabel("未保存")
+        self.saved.setContentsMargins(12, 0, 6, 0)
+        self.status_bar.addPermanentWidget(self.saved)
 
         self.refresh_custom_dict_count()
 

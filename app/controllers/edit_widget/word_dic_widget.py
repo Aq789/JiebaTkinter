@@ -53,6 +53,7 @@ def output_dic_data(word_dic_widget):
     save_refresh(word_dic_widget, True)
     c_pw.input_dic_data(word_dic_widget.main_window.dock_widget.preview_window)
     status.refresh_custom_dict_count()
+    word_dic_widget.main_window.change_saved(False)
 
 # 在表格中添加数据方法
 def new_row(table, row):
