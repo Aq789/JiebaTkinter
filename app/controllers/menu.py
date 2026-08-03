@@ -26,6 +26,14 @@ def auto_enter(menu):
     else:
         c_cw.close_auto_enter(central_widget)
 
+# 创建查找窗口
+def check_widget(menu):
+    if menu.check_widget is None:
+        menu.check_widget = menu.main_window.create_check_widget()
+    else:
+        menu.check_widget.check_widget.close()
+        menu.check_widget = None
+
 # 编辑分词结果开关
 def word_seg_result_widget(menu, checked):
     if checked:

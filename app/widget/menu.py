@@ -11,6 +11,7 @@ class Menu:
 
         self.word_seg_result_widget = None
         self.word_dic_widget = None
+        self.check_widget = None
 
         # 菜单栏项
         self.file_menu = self.menubar.addMenu("文件(&F)")
@@ -102,3 +103,4 @@ class Menu:
         self.copy_action.triggered.connect(lambda :c_m.on_copy(self))
         self.cut_action.triggered.connect(lambda :c_m.on_cut(self))
         self.paste_action.triggered.connect(lambda :c_m.on_paste(self))
+        self.find_action.triggered.connect(lambda :c_m.check_widget(self))

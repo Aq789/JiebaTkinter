@@ -6,6 +6,7 @@ import app.widget.central_widget
 import app.widget.status_widget
 import app.widget.edit_widget.word_seg_result_widget
 import app.widget.edit_widget.word_dic_widget
+import app.widget.check_widget
 
 import app.datas.word_seg_result
 import app.datas.word_dic
@@ -79,6 +80,10 @@ class MainWindow:
     # 创建编辑词典窗口
     def create_word_dic_widget(self):
         return app.widget.edit_widget.word_dic_widget.WordDicWidget(self)
+
+    # 创建查找窗口
+    def create_check_widget(self):
+        return app.widget.check_widget.CheckWidget(self)
 
     # 获取窗口焦点
     @staticmethod
