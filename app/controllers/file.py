@@ -7,6 +7,8 @@ import app.controllers.statistic_widget as c_sw
 
 # 保存文件
 def save_file(main_window):
+    status_widget = main_window.status_widget
+    status_widget.set_process_status("正在保存文件")
 
     if not main_window.file_datas.check_is_filed(): # 如果当前没有打开文件
         file_path, selected_filter = QFileDialog.getSaveFileName(
@@ -16,11 +18,15 @@ def save_file(main_window):
             "分词文件 (*.jbt);;所有文件 (*.*)"
         )
         if not file_path:
+            status_widget.set_message_status("取消保存文件")
             return False
         main_window.file_datas.set_file_path_data(file_path)
 
+    status_widget.set_process_bar(0)
     c_cw.text_to_data(main_window.central_widget)
+    status_widget.set_process_bar(10)
     c_sw.statistic_start_main(main_window)
+    status_widget.set_process_bar(20)
     main_window.file_datas.set_is_filed_data(True)
     main_window.file_datas.set_filed_saved_data(True)
 
@@ -30,9 +36,50 @@ def save_file(main_window):
               main_window.statistic_datas,
               main_window.file_datas
         )
+    status_widget.set_process_bar(50)
 
     s_if.save_to_file(file_dic, main_window.file_datas.get_file_path_data())
+    status_widget.set_process_bar(80)
     main_window.change_saved(True)
+    status_widget.set_message_status("保存文件成功")
+    return True
+
+# 另存为文件
+def other_save_file(main_window):
+    status_widget = main_window.status_widget
+    status_widget.set_process_status("正在另存为文件")
+
+    file_path, selected_filter = QFileDialog.getSaveFileName(
+        main_window.window,
+        "请选择保存路径",
+        "~/新建分词文件.jbt",
+        "分词文件 (*.jbt);;所有文件 (*.*)"
+    )
+    if not file_path:
+        status_widget.set_message_status("取消另存为文件")
+        return False
+    main_window.file_datas.set_file_path_data(file_path)
+
+    status_widget.set_process_bar(0)
+    c_cw.text_to_data(main_window.central_widget)
+    status_widget.set_process_bar(10)
+    c_sw.statistic_start_main(main_window)
+    status_widget.set_process_bar(20)
+    main_window.file_datas.set_is_filed_data(True)
+    main_window.file_datas.set_filed_saved_data(True)
+
+    file_dic = s_if.save_to_dic(main_window.word_seg_result_datas,
+              main_window.word_dic_datas,
+              main_window.text_datas,
+              main_window.statistic_datas,
+              main_window.file_datas
+        )
+    status_widget.set_process_bar(50)
+
+    s_if.save_to_file(file_dic, main_window.file_datas.get_file_path_data())
+    status_widget.set_process_bar(80)
+    main_window.change_saved(True)
+    status_widget.set_message_status("另存为文件成功")
     return True
 
 # 关闭窗口方法

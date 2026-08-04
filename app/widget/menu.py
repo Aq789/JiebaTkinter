@@ -107,3 +107,4 @@ class Menu:
         self.undo_action.triggered.connect(lambda :c_m.undo(self))
         self.redo_action.triggered.connect(lambda :c_m.redo(self))
         self.save_action.triggered.connect(lambda :c_m.save(self))
+        self.other_save_action.triggered.connect(lambda :c_m.other_save(self))

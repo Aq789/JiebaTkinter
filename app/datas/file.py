@@ -7,7 +7,7 @@ class File:
 
         self.is_filed_data = False
         self.file_path_data = ""
-        self.file_saved_data = False
+        self.file_saved_data = True
 
     # 是否打开至文件
     def set_is_filed_data(self, data):

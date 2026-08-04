@@ -96,3 +96,7 @@ def redo(menu):
 # 保存操作
 def save(menu):
     c_f.save_file(menu.main_window)
+
+# 另存为操作
+def other_save(menu):
+    c_f.other_save_file(menu.main_window)
