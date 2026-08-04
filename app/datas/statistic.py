@@ -35,10 +35,10 @@ class Statistic:
         return self.char_count_with_space_data
 
     # 中文词数
-    def set_chinese_word_count_frame_data(self, data):
+    def set_chinese_word_count_data(self, data):
         self.chinese_word_count_data = data
 
-    def get_chinese_word_count_frame_data(self):
+    def get_chinese_word_count_data(self):
         return self.chinese_word_count_data
 
     # 分词结果总数（仅中文）
@@ -81,7 +81,7 @@ class Statistic:
         self.set_chinese_char_count_data(ls[0])
         self.set_char_count_no_space_data(ls[1])
         self.set_char_count_with_space_data(ls[2])
-        self.set_chinese_word_count_frame_data(ls[3])
+        self.set_chinese_word_count_data(ls[3])
         self.set_seg_result_count_only_chinese_data(ls[4])
         self.set_seg_result_count_all_data(ls[5])
         self.set_custom_dict_size_data(ls[6])

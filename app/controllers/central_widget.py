@@ -11,6 +11,11 @@ import time
 def text_to_data(central_widget):
     central_widget.main_window.text_datas.set_text_data(central_widget.text_edit.toPlainText())
 
+# 从数据集中加载文本
+def data_to_text(central_widget):
+    data = central_widget.main_window.text_datas.get_text_data()
+    central_widget.text_edit.setPlainText(data)
+
 # 开始分词控制器
 def start_seg_word(central_widget):
     status_bar = central_widget.main_window.status_widget

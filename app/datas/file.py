@@ -27,6 +27,10 @@ class File:
     def get_file_name_data(self):
         return os.path.basename(self.get_file_path_data())
 
+    # 获取不加后缀的文件名
+    def get_file_real_name_data(self):
+        return os.path.splitext(self.get_file_name_data())[0]
+
     # 保存状态
     def set_filed_saved_data(self, data):
         self.file_saved_data = data

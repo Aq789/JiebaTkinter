@@ -100,3 +100,7 @@ def save(menu):
 # 另存为操作
 def other_save(menu):
     c_f.other_save_file(menu.main_window)
+
+# 打开操作
+def open_file(menu):
+    c_f.open_file(menu.main_window)
