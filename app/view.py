@@ -56,6 +56,7 @@ class MainWindow:
         # 主窗口应用配置
         self.set_window_size()
         self.change_window_title("未命名")
+        self.window_move()
 
         # 加载模块
         self.menu = app.widget.menu.Menu(self)
@@ -69,6 +70,15 @@ class MainWindow:
     def destroy_window(self):
         if self.window:
             self.window.close()
+
+    # 窗口偏移计算
+    def window_move(self):
+        max_offset = 300
+        number = len(self.windows)
+        offset = 30 * number
+        if offset > max_offset:
+            offset = max_offset
+        self.window.move(300 + offset, 100 + offset)
 
     # 获取主窗口大小
     def get_window_size(self):
@@ -98,7 +108,9 @@ class MainWindow:
 
     # 关闭窗口事件
     def close_event(self, event):
-        c_f.close_event(self, event)
+        if c_f.close_event(self, event):
+            temp_window = self
+            self.windows.remove(temp_window)
 
     # 保存状态更改
     def change_saved(self, state):

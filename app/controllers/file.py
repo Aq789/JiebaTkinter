@@ -5,6 +5,7 @@ import app.service.io.file as s_if
 import app.controllers.central_widget as c_cw
 import app.controllers.statistic_widget as c_sw
 import app.controllers.preview_window as c_pw
+import app.view
 
 # 保存文件
 def save_file(main_window):
@@ -133,6 +134,10 @@ def open_file(main_window):
     else:
         return False
 
+# 新建文件
+def new_file(main_window):
+    app.view.create_new_window()
+
 # 询问用户未更改是否保存
 def on_save(main_window):
     is_saved = main_window.file_datas.get_filed_saved_data()
@@ -154,5 +159,7 @@ def on_save(main_window):
 def close_event(main_window, event):
     if on_save(main_window):
         event.accept()
+        return True
     else:
         event.ignore()
+        return False

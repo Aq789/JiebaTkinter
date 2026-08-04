@@ -104,3 +104,7 @@ def other_save(menu):
 # 打开操作
 def open_file(menu):
     c_f.open_file(menu.main_window)
+
+# 新建操作
+def new_file(menu):
+    c_f.new_file(menu.main_window)

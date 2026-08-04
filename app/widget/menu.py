@@ -109,3 +109,4 @@ class Menu:
         self.save_action.triggered.connect(lambda :c_m.save(self))
         self.other_save_action.triggered.connect(lambda :c_m.other_save(self))
         self.open_action.triggered.connect(lambda :c_m.open_file(self))
+        self.new_action.triggered.connect(lambda :c_m.new_file(self))
