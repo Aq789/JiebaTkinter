@@ -5,6 +5,8 @@ import app.widget.settings.settings_widget as w_ssw
 import app.widget.statistic_widget as w_sw
 import app.controllers.central_widget as c_cw
 import app.controllers.file as c_f
+import app.controllers.io.output as c_io
+import app.controllers.io.input as c_ii
 
 # 创建设置窗口
 def create_settings_widget(menu):
@@ -108,3 +110,23 @@ def open_file(menu):
 # 新建操作
 def new_file(menu):
     c_f.new_file(menu.main_window)
+
+# 导入文本文件
+def input_text_file(menu):
+    c_ii.input_text_file(menu.main_window)
+
+# 导入词典文件
+def input_dic_file(menu):
+    c_ii.input_dic_file(menu.main_window)
+
+# 导出文本文件
+def output_text_file(menu):
+    c_io.output_text_file(menu.main_window)
+
+# 导出分词结果文件
+def output_seg_result_file(menu):
+    c_io.output_seg_result_file(menu.main_window)
+
+# 导出词典文件
+def output_dic_file(menu):
+    c_io.output_dic_file(menu.main_window)

@@ -55,7 +55,7 @@ def other_save_file(main_window):
     if file_datas.get_is_filed_data():
         file_name = f"~/{file_datas.get_file_real_name_data()} - 副本"
     else:
-        file_name = "~/新建分词文件.jbt"
+        file_name = "~/新建分词文件"
 
     file_path, selected_filter = QFileDialog.getSaveFileName(
         main_window.window,

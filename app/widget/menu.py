@@ -1,5 +1,6 @@
 # 菜单栏
 from PySide6.QtGui import QAction
+from PySide6.QtWidgets import QMenu
 
 import app.controllers.menu as c_m
 
@@ -25,6 +26,13 @@ class Menu:
         self.open_action = QAction("打开", self.window)
         self.save_action = QAction("保存", self.window)
         self.other_save_action = QAction("另存为", self.window)
+        self.input_menu = QMenu("导入...")
+        self.input_text_action = QAction("导入文本文件")
+        self.input_dic_action = QAction("导入词典文件")
+        self.output_menu = QMenu("导出...")
+        self.output_text_action = QAction("导出文本文件")
+        self.output_seg_result_action = QAction("导出分词结果")
+        self.output_dic_action = QAction("导出自定义词典")
 
         # 编辑项
         self.undo_action = QAction("撤销", self.window)
@@ -65,6 +73,13 @@ class Menu:
         self.file_menu.addAction(self.save_action)
         self.file_menu.addAction(self.other_save_action)
         self.file_menu.addSeparator()
+        self.file_menu.addMenu(self.input_menu)
+        self.input_menu.addAction(self.input_text_action)
+        self.input_menu.addAction(self.input_dic_action)
+        self.file_menu.addMenu(self.output_menu)
+        self.output_menu.addAction(self.output_text_action)
+        self.output_menu.addAction(self.output_seg_result_action)
+        self.output_menu.addAction(self.output_dic_action)
         self.edit_menu.addAction(self.undo_action)
         self.edit_menu.addAction(self.redo_action)
         self.edit_menu.addSeparator()
@@ -110,3 +125,8 @@ class Menu:
         self.other_save_action.triggered.connect(lambda :c_m.other_save(self))
         self.open_action.triggered.connect(lambda :c_m.open_file(self))
         self.new_action.triggered.connect(lambda :c_m.new_file(self))
+        self.input_text_action.triggered.connect(lambda :c_m.input_text_file(self))
+        self.input_dic_action.triggered.connect(lambda :c_m.input_dic_file(self))
+        self.output_text_action.triggered.connect(lambda :c_m.output_text_file(self))
+        self.output_seg_result_action.triggered.connect(lambda :c_m.output_seg_result_file(self))
+        self.output_dic_action.triggered.connect(lambda :c_m.output_dic_file(self))

@@ -1,8 +1,8 @@
-from PySide6.QtWidgets import QTableWidget, QApplication, QTableWidgetItem
-from PySide6.QtCore import Qt
 from PySide6.QtGui import QKeySequence
+from PySide6.QtWidgets import QTableWidget, QApplication, QTableWidgetItem
 
 import app.service.word_class_name as s_wcn
+import app.service.word_dic as s_wd
 from service.pyside6.numeric_table_item import NumericTableItem
 
 
@@ -54,33 +54,8 @@ class CustomTable(QTableWidget):
     # 获取剪贴板中的内容，转换成表格内容
     def paste_rows_as_custom_string(self):
         clipboard = QApplication.clipboard().text()
-        clip_list = clipboard.splitlines()
-        temp_list = []
 
-        for line in clip_list:
-            line = line.strip()
-
-            if not line or line.startswith("#"):
-                continue
-
-            line = line.split('#', 1)[0].rstrip()
-            try:
-                parts = line.split()
-                if len(parts) == 0:
-                    continue
-                elif len(parts) == 1:
-                    temp_list.append([parts[0], "", ""])
-                elif len(parts) == 2:
-                    if not parts[1].isdigit():
-                        raise ValueError
-                    temp_list.append([parts[0], int(parts[1]), ""])
-                else:
-                    if not parts[1].isdigit():
-                        raise ValueError
-                    temp_list.append([parts[0], int(parts[1]), parts[2]])
-            except ValueError:
-                return False
-
+        temp_list = s_wd.txt_to_dic(clipboard)
         for row in temp_list:
             self.create_dic_data(row[0], row[1], row[2])
         return True

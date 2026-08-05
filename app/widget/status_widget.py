@@ -85,7 +85,7 @@ class StatusWidget:
         self.progress_bar.setVisible(True)
 
     # 设置消息状态
-    def set_message_status(self, message, text="就绪", timeout=3000):
+    def set_message_status(self, message, text="就绪", timeout=1500):
         self.state.setText(message)
         self.progress_bar.setVisible(False)
         QTimer.singleShot(timeout, lambda :self.state.setText(text))
