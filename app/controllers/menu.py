@@ -130,3 +130,7 @@ def output_seg_result_file(menu):
 # 导出词典文件
 def output_dic_file(menu):
     c_io.output_dic_file(menu.main_window)
+
+# 退出
+def exit_action(menu):
+    menu.main_window.on_close()

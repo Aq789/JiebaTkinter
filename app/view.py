@@ -112,6 +112,10 @@ class MainWindow:
             temp_window = self
             self.windows.remove(temp_window)
 
+    # 退出事件
+    def on_close(self):
+        self.window.close()
+
     # 保存状态更改
     def change_saved(self, state):
         if state:

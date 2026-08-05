@@ -33,6 +33,7 @@ class Menu:
         self.output_text_action = QAction("导出文本文件")
         self.output_seg_result_action = QAction("导出分词结果")
         self.output_dic_action = QAction("导出自定义词典")
+        self.exit_action = QAction("退出")
 
         # 编辑项
         self.undo_action = QAction("撤销", self.window)
@@ -80,6 +81,8 @@ class Menu:
         self.output_menu.addAction(self.output_text_action)
         self.output_menu.addAction(self.output_seg_result_action)
         self.output_menu.addAction(self.output_dic_action)
+        self.file_menu.addSeparator()
+        self.file_menu.addAction(self.exit_action)
         self.edit_menu.addAction(self.undo_action)
         self.edit_menu.addAction(self.redo_action)
         self.edit_menu.addSeparator()
@@ -130,3 +133,4 @@ class Menu:
         self.output_text_action.triggered.connect(lambda :c_m.output_text_file(self))
         self.output_seg_result_action.triggered.connect(lambda :c_m.output_seg_result_file(self))
         self.output_dic_action.triggered.connect(lambda :c_m.output_dic_file(self))
+        self.exit_action.triggered.connect(lambda :c_m.exit_action(self))
