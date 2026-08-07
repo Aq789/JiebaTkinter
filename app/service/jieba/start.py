@@ -12,7 +12,6 @@ def start(seg_settings, text_datas, word_dic_datas, word_seg_result_datas):
         s_jd.load_main_dict(seg_settings.custom_path)
     s_jd.load_user_dict(word_dic_datas) # 加载用户词典
 
-    word_seg_result_datas.delete_all_word_seg_result()  # 删除所有分词结果
     if seg_settings.seg_mode_data == 0: # 全模式
         if seg_settings.hmm_data:
             seg_result = jieba.cut(text_datas.get_text_data(), cut_all=True, HMM=True) # 如果HMM开启

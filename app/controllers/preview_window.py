@@ -36,3 +36,29 @@ def insert_table(table, word_name, word_frequency, word_class):
 def delete_all_table(table):
     table.clearContents() # 清除所有单元格
     table.setRowCount(0) # 重置行数为0
+
+# 关键字查找方法
+def search_datas(table, search_data):
+    row_count = table.rowCount()
+
+    if not search_data or not search_data.strip():
+        for row in range(row_count):
+            table.setRowHidden(row, False)
+        return
+
+    search_data = search_data.strip()
+    col_count = table.columnCount()
+    for row in range(row_count):
+        if not search_data:
+            table.setRowHidden(row, False)
+            continue
+        found = False
+        for col in range(col_count):
+            item = table.item(row, col)
+            if item is None:
+                continue
+            if search_data in item.text():
+                found = True
+                break
+        table.setRowHidden(row, not found)
+    return

@@ -1,7 +1,17 @@
+from PySide6.QtWidgets import QApplication, QPlainTextEdit
 
-# 字符串转为可读取的列表
-def string_to_list(string):
-    enter = string.split("\n")
-    print(enter)
+class MyEdit(QPlainTextEdit):
+    def __init__(self):
+        super().__init__()
+        self.selectionChanged.connect(self.on_selection_change)
 
-string_to_list("人工智能 150 n")
+    def on_selection_change(self):
+        if self.textCursor().hasSelection():
+            print("状态变为：有选中文本")
+        else:
+            print("状态变为：无选中文本")
+
+app = QApplication([])
+edit = MyEdit()
+edit.show()
+app.exec()

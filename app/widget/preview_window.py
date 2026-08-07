@@ -1,7 +1,11 @@
 # 侧边栏——预览窗口
-from PySide6.QtWidgets import QTabWidget, QTableWidget, QAbstractItemView
+from PySide6.QtGui import QAction
+from PySide6.QtWidgets import QTabWidget, QTableWidget, QAbstractItemView, QMenu, QMessageBox
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHeaderView
+from PySide6.QtCore import Qt
+
 from app.service.pyside6.table_widget import CustomTable
+import app.controllers.menu as c_m
 
 class PreviewWindow:
     def __init__(self, main_window, dock_widget):
@@ -23,6 +27,7 @@ class PreviewWindow:
         self.seg_result_layout = QVBoxLayout()
 
         self.seg_result_table = CustomTable(self.seg_result_tab, 3) # 创建表
+        self.seg_result_table.setContextMenuPolicy(Qt.CustomContextMenu)
         self.seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
         self.seg_result_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.seg_result_table.setSortingEnabled(True) # 可排序
@@ -42,7 +47,8 @@ class PreviewWindow:
         self.tab_widget.addTab(self.dic_tab, "词典")
         self.dic_layout = QVBoxLayout()
 
-        self.dic_table = QTableWidget(self.dic_tab) # 创建表
+        self.dic_table = CustomTable(self.dic_tab, 3) # 创建表
+        self.dic_table.setContextMenuPolicy(Qt.CustomContextMenu)
         self.dic_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 设为只读
         self.dic_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.dic_table.setSortingEnabled(True) # 可排序
@@ -79,3 +85,107 @@ class PreviewWindow:
                 }
             """
         )
+
+        # 信号槽
+        self.seg_result_table.customContextMenuRequested.connect(self.seg_result_menu)
+        self.dic_table.customContextMenuRequested.connect(self.dic_menu)
+
+    # 右键菜单
+    def seg_result_menu(self, pos):
+        self.seg_result_table_menu = QMenu()
+        self.seg_result_copy_action = QAction("复制到剪贴板")
+        self.seg_result_check_action = QAction("在文中查找")
+        self.seg_result_open_widget_action = QAction("编辑分词结果")
+
+        self.seg_result_table_menu.addAction(self.seg_result_copy_action)
+        self.seg_result_table_menu.addAction(self.seg_result_check_action)
+        self.seg_result_table_menu.addAction(self.seg_result_open_widget_action)
+
+        if self.is_selected() == 0:
+            self.seg_result_copy_action.setEnabled(False)
+            self.seg_result_check_action.setEnabled(False)
+
+        self.seg_result_copy_action.triggered.connect(self.seg_result_copy)
+        self.seg_result_check_action.triggered.connect(self.seg_result_check)
+        self.seg_result_open_widget_action.triggered.connect(self.seg_result_open_widget)
+
+        self.seg_result_table_menu.exec(self.seg_result_table.mapToGlobal(pos))
+
+    # 右键菜单
+    def dic_menu(self, pos):
+        self.dic_table_menu = QMenu()
+        self.dic_copy_action = QAction("复制到剪贴板")
+        self.dic_check_action = QAction("在文中查找")
+        self.dic_open_widget_action = QAction("编辑词典")
+
+        self.dic_table_menu.addAction(self.dic_copy_action)
+        self.dic_table_menu.addAction(self.dic_check_action)
+        self.dic_table_menu.addAction(self.dic_open_widget_action)
+
+        if self.is_selected() == 0:
+            self.dic_copy_action.setEnabled(False)
+            self.dic_check_action.setEnabled(False)
+
+        self.dic_copy_action.triggered.connect(self.dic_copy)
+        self.dic_check_action.triggered.connect(self.dic_check)
+        self.dic_open_widget_action.triggered.connect(self.dic_open_widget)
+
+        self.dic_table_menu.exec(self.dic_table.mapToGlobal(pos))
+
+    # 选中项监测
+    def is_selected(self):
+        select_num = self.seg_result_table.selectedIndexes()
+        if not select_num:
+            return 0
+        else:
+            return int(len(select_num) / 3)
+
+    # 复制到剪切板
+    def seg_result_copy(self):
+        self.seg_result_table.copy_rows_as_custom_string()
+
+    # 复制到剪切板
+    def dic_copy(self):
+        self.dic_table.copy_rows_as_custom_string()
+
+    # 在文本中查找
+    def seg_result_check(self):
+        menu = self.main_window.menu
+        current_row = self.seg_result_table.currentRow()
+        item = self.seg_result_table.item(current_row, 0)
+        search_text = item.text()
+        if self.is_selected() == 1:
+            if menu.check_widget is None:
+                menu.check_widget = menu.main_window.create_check_widget()
+                menu.check_widget.set_check(search_text)
+            else:
+                menu.check_widget.set_check(search_text)
+
+    # 在文本中查找
+    def dic_check(self):
+        menu = self.main_window.menu
+        current_row = self.dic_table.currentRow()
+        item = self.dic_table.item(current_row, 0)
+        search_text = item.text()
+        if self.is_selected() == 1:
+            if menu.check_widget is None:
+                menu.check_widget = menu.main_window.create_check_widget()
+                menu.check_widget.set_check(search_text)
+            else:
+                menu.check_widget.set_check(search_text)
+
+    # 编辑分词结果
+    def seg_result_open_widget(self):
+        menu = self.main_window.menu
+        if menu.word_seg_result_widget is not None:
+            QMessageBox.warning(self.main_window.window, "提示", "编辑分词结果窗口已打开！")
+        else:
+            menu.edit_seg_result_action.setChecked(True)
+
+    # 编辑分词结果
+    def dic_open_widget(self):
+        menu = self.main_window.menu
+        if menu.word_dic_widget is not None:
+            QMessageBox.warning(self.main_window.window, "提示", "编辑词典窗口已打开！")
+        else:
+            menu.edit_dic_action.setChecked(True)

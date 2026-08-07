@@ -77,3 +77,7 @@ class CheckWidget:
 
             cursor.movePosition(QTextCursor.NextCharacter, QTextCursor.MoveAnchor)
             self.text_edit.setTextCursor(cursor)
+
+    # 设置查找内容
+    def set_check(self, text):
+        self.check.setText(text)
