@@ -2,7 +2,7 @@
 from PySide6.QtCore import Qt, QSignalBlocker
 from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QTableWidget, QHeaderView, QLabel, QMessageBox, \
-    QAbstractItemView
+    QAbstractItemView, QMenu
 from app.service.pyside6.int_with_validation_delegate import IntWithValidationDelegate
 from app.service.pyside6.string_non_empty_delegate import StringNonEmptyDelegate
 from app.service.pyside6.table_widget import CustomTable
@@ -48,6 +48,7 @@ class WordDicWidget:
         self.central_widget = QWidget()
         self.central_layout = QHBoxLayout()
         self.word_dic_table = CustomTable(self.word_dic_widget, 3)
+        self.word_dic_table.setContextMenuPolicy(Qt.CustomContextMenu)
         self.word_dic_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.word_dic_table.setSortingEnabled(True)
         self.word_dic_table.setColumnCount(3)
@@ -92,6 +93,7 @@ class WordDicWidget:
         self.copy_action.triggered.connect(self.copy)
         self.paste_action.triggered.connect(self.paste)
         self.cut_action.triggered.connect(self.cut)
+        self.word_dic_table.customContextMenuRequested.connect(self.menu)
 
         # 表格样式
         self.word_dic_table.setStyleSheet(
@@ -104,6 +106,43 @@ class WordDicWidget:
         )
 
         self.word_dic_widget.show()
+
+    # 右键菜单
+    def menu(self, pos):
+        self.menu = QMenu()
+        self.new_menu_action = QAction("新建")
+        self.delete_menu_action = QAction("删除")
+        self.copy_menu_action = QAction("复制")
+        self.cut_menu_action = QAction("剪切")
+        self.paste_menu_action = QAction("粘贴")
+
+        self.menu.addAction(self.new_menu_action)
+        self.menu.addAction(self.delete_menu_action)
+        self.menu.addSeparator()
+        self.menu.addAction(self.copy_menu_action)
+        self.menu.addAction(self.cut_menu_action)
+        self.menu.addAction(self.paste_menu_action)
+
+        if self.is_selected() == 0:
+            self.copy_menu_action.setEnabled(False)
+            self.cut_menu_action.setEnabled(False)
+            self.delete_menu_action.setEnabled(False)
+
+        self.new_menu_action.triggered.connect(lambda: c_ewwdw.create_dic_data(self))
+        self.copy_menu_action.triggered.connect(self.copy)
+        self.paste_menu_action.triggered.connect(self.paste)
+        self.cut_menu_action.triggered.connect(self.cut)
+        self.delete_menu_action.triggered.connect(lambda: c_ewwdw.delete_current_row(self))
+
+        self.menu.exec(self.word_dic_table.mapToGlobal(pos))
+
+    # 选中项监测
+    def is_selected(self):
+        select_num = self.word_dic_table.selectedIndexes()
+        if not select_num:
+            return 0
+        else:
+            return int(len(select_num) / 3)
 
     # 用户点击窗口关闭时触发方法
     def on_close(self):

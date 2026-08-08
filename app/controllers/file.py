@@ -104,6 +104,10 @@ def open_file(main_window):
     if not file_path:
         status_widget.set_message_status("取消打开文件")
         return False
+    if file_path == main_window.file_datas.get_file_path_data():
+        QMessageBox.warning(main_window.window, "提示", "文件已被打开！")
+        status_widget.set_message_status("打开文件成功")
+        return True
 
     if on_save(main_window):
         data = s_if.load_from_file(file_path)

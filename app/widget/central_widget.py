@@ -37,8 +37,8 @@ class CentralWidget:
         self.check_seg_result_action = QAction("查找分词结果")
         self.check_dic_action = QAction("查找词典结果")
         self.start_menu = QMenu("开始分词")
-        self.start_action = QAction("整个文本")
-        self.start_word_seg = QAction("选中文本")
+        self.start_action = QAction("所有文本")
+        self.start_word_seg = QAction("仅选中文本")
 
         self.text_edit_menu.addAction(self.undo_action)
         self.text_edit_menu.addAction(self.redo_action)

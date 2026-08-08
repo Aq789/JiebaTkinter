@@ -1,6 +1,7 @@
 # 编辑分词结果窗口
 from PySide6.QtCore import Qt, QSignalBlocker
-from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderView, QWidget, QHBoxLayout, QLabel, QAbstractItemView
+from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderView, QWidget, QHBoxLayout, QLabel, \
+    QAbstractItemView, QMenu
 from PySide6.QtGui import QAction
 from app.service.pyside6.table_widget import CustomTable
 import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
@@ -35,6 +36,7 @@ class WordSegResultWidget:
         self.central_widget = QWidget()
         self.central_layout = QHBoxLayout()
         self.word_seg_result_table = CustomTable(self.central_widget, 3)
+        self.word_seg_result_table.setContextMenuPolicy(Qt.CustomContextMenu)
         self.word_seg_result_table.setEditTriggers(QTableWidget.NoEditTriggers)
         self.word_seg_result_table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.word_seg_result_table.setSortingEnabled(True)
@@ -69,6 +71,7 @@ class WordSegResultWidget:
         self.word_seg_result_table.horizontalHeader().sortIndicatorChanged.connect(lambda :c_ewwsrw.save_refresh(self, False))
         self.word_seg_result_table.itemSelectionChanged.connect(lambda :c_ewwsrw.status_refresh(self))
         self.copy_action.triggered.connect(self.copy)
+        self.word_seg_result_table.customContextMenuRequested.connect(self.menu)
 
         # 表格样式
         self.word_seg_result_table.setStyleSheet(
@@ -81,6 +84,33 @@ class WordSegResultWidget:
         )
 
         self.word_seg_result_widget.show()
+
+    # 右键菜单
+    def menu(self, pos):
+        self.menu = QMenu()
+        self.copy_menu_action = QAction("复制")
+        self.delete_menu_action = QAction("删除")
+
+        self.menu.addAction(self.copy_menu_action)
+        self.menu.addSeparator()
+        self.menu.addAction(self.delete_menu_action)
+
+        if self.is_selected() == 0:
+            self.copy_menu_action.setEnabled(False)
+            self.delete_menu_action.setEnabled(False)
+
+        self.copy_menu_action.triggered.connect(self.copy)
+        self.delete_menu_action.triggered.connect(lambda :c_ewwsrw.delete_current_row(self))
+
+        self.menu.exec(self.word_seg_result_table.mapToGlobal(pos))
+
+    # 选中项监测
+    def is_selected(self):
+        select_num = self.word_seg_result_table.selectedIndexes()
+        if not select_num:
+            return 0
+        else:
+            return int(len(select_num) / 3)
 
     # 用户点击窗口关闭时触发方法
     def on_close(self):
