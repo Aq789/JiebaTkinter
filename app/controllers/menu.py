@@ -21,6 +21,11 @@ def start_menu(menu):
     central_widget = menu.main_window.central_widget
     c_cw.start_seg_word(central_widget)
 
+# 开始部分分词
+def start_part_menu(menu):
+    central_widget = menu.main_window.central_widget
+    c_cw.start_seg_word(central_widget, False)
+
 # 换行开关
 def auto_enter(menu):
     central_widget = menu.main_window.central_widget

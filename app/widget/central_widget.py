@@ -1,5 +1,5 @@
 # 工作区
-from PySide6.QtGui import QFont, QAction
+from PySide6.QtGui import QFont, QAction, QKeySequence
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPlainTextEdit, QMenu
 from PySide6.QtCore import Qt
 import app.controllers.central_widget as c_cw
@@ -29,16 +29,23 @@ class CentralWidget:
     def menu(self, pos):
         self.text_edit_menu = QMenu()
         self.undo_action = QAction("撤销")
+        self.undo_action.setShortcut(QKeySequence("Ctrl+Z"))
         self.redo_action = QAction("恢复")
+        self.redo_action.setShortcut(QKeySequence("Ctrl+Shift+Z"))
         self.copy_action = QAction("复制")
+        self.copy_action.setShortcut(QKeySequence("Ctrl+C"))
         self.cut_action = QAction("剪切")
+        self.cut_action.setShortcut(QKeySequence("Ctrl+X"))
         self.paste_action = QAction("粘贴")
+        self.paste_action.setShortcut(QKeySequence("Ctrl+V"))
         self.check_menu = QMenu("查找")
-        self.check_seg_result_action = QAction("查找分词结果")
-        self.check_dic_action = QAction("查找词典结果")
+        self.check_seg_result_action = QAction("查找分词结果(&S)")
+        self.check_dic_action = QAction("查找词典结果(&D)")
         self.start_menu = QMenu("开始分词")
         self.start_action = QAction("所有文本")
+        self.start_action.setShortcut(QKeySequence("Shift+F3"))
         self.start_word_seg = QAction("仅选中文本")
+        self.start_word_seg.setShortcut(QKeySequence("Shift+F4"))
 
         self.text_edit_menu.addAction(self.undo_action)
         self.text_edit_menu.addAction(self.redo_action)
