@@ -1,6 +1,6 @@
 # 编辑词典窗口
 from PySide6.QtCore import Qt, QSignalBlocker
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QAction, QKeySequence
 from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QTableWidget, QHeaderView, QLabel, QMessageBox, \
     QAbstractItemView, QMenu
 from app.service.pyside6.int_with_validation_delegate import IntWithValidationDelegate
@@ -21,19 +21,33 @@ class WordDicWidget:
 
         self.toolbar = self.word_dic_widget.addToolBar("主工具栏")
         self.new_action = QAction("新建", self.word_dic_widget)
+        self.new_action.setShortcut(QKeySequence("Ctrl+N"))
+        self.new_action.setToolTip("新建 Ctrl+N")
         self.new_action.setStatusTip("新建词典项")
         self.delete_action = QAction("删除", self.word_dic_widget)
+        self.delete_action.setShortcut(QKeySequence("Delete"))
+        self.delete_action.setToolTip("删除 Delete")
         self.delete_action.setStatusTip("删除部分词典项")
         self.copy_action = QAction("复制", self.word_dic_widget)
+        self.copy_action.setShortcut(QKeySequence("Ctrl+C"))
+        self.copy_action.setToolTip("复制 Ctrl+C")
         self.copy_action.setStatusTip("复制所选表格内容到剪贴板")
         self.cut_action = QAction("剪切", self.word_dic_widget)
+        self.cut_action.setShortcut(QKeySequence("Ctrl+X"))
+        self.cut_action.setToolTip("剪切 Ctrl+X")
         self.cut_action.setStatusTip("剪切所选表格内容到剪贴板")
         self.paste_action = QAction("粘贴", self.word_dic_widget)
+        self.paste_action.setShortcut(QKeySequence("Ctrl+V"))
+        self.paste_action.setToolTip("粘贴 Ctrl+V")
         self.paste_action.setStatusTip("粘贴剪贴板内容到表格（需对应格式）")
         self.check_action = QAction("查找", self.word_dic_widget)
+        self.check_action.setShortcut(QKeySequence("Ctrl+F"))
+        self.check_action.setToolTip("查找 Ctrl+F")
         self.check_action.setCheckable(True)
         self.check_action.setStatusTip("通过关键信息查找词典项")
         self.save_action = QAction("保存", self.word_dic_widget)
+        self.save_action.setShortcut(QKeySequence("Ctrl+S"))
+        self.save_action.setToolTip("保存 Ctrl+S")
         self.save_action.setStatusTip("保存修改后的词典")
         self.toolbar.addAction(self.new_action)
         self.toolbar.addAction(self.delete_action)
@@ -111,10 +125,15 @@ class WordDicWidget:
     def menu(self, pos):
         self.menu = QMenu()
         self.new_menu_action = QAction("新建")
+        self.new_menu_action.setShortcut(QKeySequence("Ctrl+N"))
         self.delete_menu_action = QAction("删除")
+        self.delete_menu_action.setShortcut(QKeySequence("Delete"))
         self.copy_menu_action = QAction("复制")
+        self.copy_menu_action.setShortcut(QKeySequence("Ctrl+C"))
         self.cut_menu_action = QAction("剪切")
+        self.cut_menu_action.setShortcut(QKeySequence("Ctrl+X"))
         self.paste_menu_action = QAction("粘贴")
+        self.paste_menu_action.setShortcut(QKeySequence("Ctrl+V"))
 
         self.menu.addAction(self.new_menu_action)
         self.menu.addAction(self.delete_menu_action)

@@ -2,7 +2,7 @@
 from PySide6.QtCore import Qt, QSignalBlocker
 from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderView, QWidget, QHBoxLayout, QLabel, \
     QAbstractItemView, QMenu
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QAction, QKeySequence
 from app.service.pyside6.table_widget import CustomTable
 import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
 
@@ -18,14 +18,22 @@ class WordSegResultWidget:
 
         self.toolbar = self.word_seg_result_widget.addToolBar("主工具栏")
         self.check_action = QAction("查找", self.word_seg_result_widget)
+        self.check_action.setShortcut(QKeySequence("Ctrl+F"))
         self.check_action.setCheckable(True)
         self.check_action.setStatusTip("通过关键信息查找分词结果项")
+        self.check_action.setToolTip("查找 Ctrl+F")
         self.delete_action = QAction("删除", self.word_seg_result_widget)
         self.delete_action.setStatusTip("删除部分分词结果项")
+        self.delete_action.setShortcut(QKeySequence("Delete"))
+        self.delete_action.setToolTip("删除 Delete")
         self.copy_action = QAction("复制", self.word_seg_result_widget)
+        self.copy_action.setShortcut(QKeySequence("Ctrl+C"))
         self.copy_action.setStatusTip("复制所选表格内容到剪贴板")
+        self.copy_action.setToolTip("复制 Ctrl+C")
         self.save_action = QAction("保存", self.word_seg_result_widget)
+        self.save_action.setShortcut(QKeySequence("Ctrl+S"))
         self.save_action.setStatusTip("保存修改后的分词结果项")
+        self.save_action.setToolTip("保存 Ctrl+S")
         self.toolbar.addAction(self.check_action)
         self.toolbar.addAction(self.delete_action)
         self.toolbar.addSeparator()
@@ -89,7 +97,9 @@ class WordSegResultWidget:
     def menu(self, pos):
         self.menu = QMenu()
         self.copy_menu_action = QAction("复制")
+        self.copy_menu_action.setShortcut(QKeySequence("Ctrl+C"))
         self.delete_menu_action = QAction("删除")
+        self.delete_menu_action.setShortcut(QKeySequence("Delete"))
 
         self.menu.addAction(self.copy_menu_action)
         self.menu.addSeparator()
