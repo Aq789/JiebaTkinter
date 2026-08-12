@@ -1,5 +1,8 @@
 # 主窗口创建
-from PySide6.QtWidgets import QMainWindow, QApplication, QPlainTextEdit, QTableWidget
+from PySide6.QtGui import QAction
+from PySide6.QtCore import QTimer
+from PySide6.QtWidgets import QMainWindow, QApplication, QPlainTextEdit, QTableWidget, QMenu
+from app import clear_icon_cache, get_icon
 import app.widget.menu
 import app.widget.dock_widget
 import app.widget.central_widget
@@ -28,6 +31,37 @@ def create_new_window(): # 创建窗口实例方法
 def delete_new_window(): # 删除窗口实例方法
     last_window = MainWindow.windows.pop() # 将列表中最后一个窗口去掉并记录下来
     last_window.destroy_window()
+
+def on_theme_changed(): # 系统主题切换
+    QTimer.singleShot(50, do_refresh)
+
+def do_refresh():
+    clear_icon_cache()
+    for widget in QApplication.topLevelWidgets():
+        if isinstance(widget, QMainWindow):
+            menubar = widget.menuBar()
+            if not menubar:
+                continue
+
+            def get_all_actions(menu): # 递归函数：获取所有 QAction（包括子菜单里的）
+                actions = []
+                for action in menu.actions():
+                    sub_menu = action.menu()
+                    if sub_menu:  # 如果有子菜单
+                        actions.extend(get_all_actions(sub_menu))
+                    actions.append(action)
+                return actions
+
+            all_actions = get_all_actions(menubar)
+            for action in all_actions:
+                if hasattr(action, 'icon_name'):
+                    action.setIcon(get_icon(action.icon_name))
+
+            menubar.update() # 强制刷新菜单栏及其所有子菜单
+            menubar.repaint()
+            for menu in menubar.findChildren(QMenu):
+                menu.update()
+                menu.repaint()
 
 class MainWindow:
     windows = []

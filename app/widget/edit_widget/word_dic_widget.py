@@ -6,6 +6,8 @@ from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QTableWidget, Q
 from app.service.pyside6.int_with_validation_delegate import IntWithValidationDelegate
 from app.service.pyside6.string_non_empty_delegate import StringNonEmptyDelegate
 from app.service.pyside6.table_widget import CustomTable
+import app.controllers.menu as c_m
+from app import get_icon
 
 import app.controllers.edit_widget.word_dic_widget as c_ewwdw
 
@@ -20,35 +22,57 @@ class WordDicWidget:
         self.word_dic_widget.setAttribute(Qt.WA_DeleteOnClose)
 
         self.toolbar = self.word_dic_widget.addToolBar("主工具栏")
+        self.toolbar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
         self.new_action = QAction("新建", self.word_dic_widget)
         self.new_action.setShortcut(QKeySequence("Ctrl+N"))
         self.new_action.setToolTip("新建 Ctrl+N")
         self.new_action.setStatusTip("新建词典项")
+        self.new_action.setIcon(get_icon("new_action_1.svg"))
+        self.new_action.icon_name = "new_action_1.svg"
+
         self.delete_action = QAction("删除", self.word_dic_widget)
         self.delete_action.setShortcut(QKeySequence("Delete"))
         self.delete_action.setToolTip("删除 Delete")
         self.delete_action.setStatusTip("删除部分词典项")
+        self.delete_action.setIcon(get_icon("delete_action.svg"))
+        self.delete_action.icon_name = "delete_action.svg"
+
         self.copy_action = QAction("复制", self.word_dic_widget)
         self.copy_action.setShortcut(QKeySequence("Ctrl+C"))
         self.copy_action.setToolTip("复制 Ctrl+C")
         self.copy_action.setStatusTip("复制所选表格内容到剪贴板")
+        self.copy_action.setIcon(get_icon("copy_action.svg"))
+        self.copy_action.icon_name = "copy_action.svg"
+
         self.cut_action = QAction("剪切", self.word_dic_widget)
         self.cut_action.setShortcut(QKeySequence("Ctrl+X"))
         self.cut_action.setToolTip("剪切 Ctrl+X")
         self.cut_action.setStatusTip("剪切所选表格内容到剪贴板")
+        self.cut_action.setIcon(get_icon("cut_action.svg"))
+        self.cut_action.icon_name = "cut_action.svg"
+
         self.paste_action = QAction("粘贴", self.word_dic_widget)
         self.paste_action.setShortcut(QKeySequence("Ctrl+V"))
         self.paste_action.setToolTip("粘贴 Ctrl+V")
         self.paste_action.setStatusTip("粘贴剪贴板内容到表格（需对应格式）")
+        self.paste_action.setIcon(get_icon("paste_action.svg"))
+        self.paste_action.icon_name = "paste_action.svg"
+
         self.check_action = QAction("查找", self.word_dic_widget)
         self.check_action.setShortcut(QKeySequence("Ctrl+F"))
         self.check_action.setToolTip("查找 Ctrl+F")
         self.check_action.setCheckable(True)
         self.check_action.setStatusTip("通过关键信息查找词典项")
+        self.check_action.setIcon(get_icon("check_action.svg"))
+        self.check_action.icon_name = "check_action.svg"
+
         self.save_action = QAction("保存", self.word_dic_widget)
         self.save_action.setShortcut(QKeySequence("Ctrl+S"))
         self.save_action.setToolTip("保存 Ctrl+S")
         self.save_action.setStatusTip("保存修改后的词典")
+        self.save_action.setIcon(get_icon("save_action.svg"))
+        self.save_action.icon_name = "save_action.svg"
+
         self.toolbar.addAction(self.new_action)
         self.toolbar.addAction(self.delete_action)
         self.toolbar.addAction(self.check_action)
@@ -126,14 +150,28 @@ class WordDicWidget:
         self.menu = QMenu()
         self.new_menu_action = QAction("新建")
         self.new_menu_action.setShortcut(QKeySequence("Ctrl+N"))
+        self.new_menu_action.setIcon(get_icon("new_action_1.svg"))
+        self.new_menu_action.icon_name = "new_action_1.svg"
+
         self.delete_menu_action = QAction("删除")
         self.delete_menu_action.setShortcut(QKeySequence("Delete"))
+        self.delete_menu_action.setIcon(get_icon("delete_action.svg"))
+        self.delete_menu_action.icon_name = "delete_action.svg"
+
         self.copy_menu_action = QAction("复制")
         self.copy_menu_action.setShortcut(QKeySequence("Ctrl+C"))
+        self.copy_menu_action.setIcon(get_icon("copy_action.svg"))
+        self.copy_menu_action.icon_name = "copy_action.svg"
+
         self.cut_menu_action = QAction("剪切")
         self.cut_menu_action.setShortcut(QKeySequence("Ctrl+X"))
+        self.cut_menu_action.setIcon(get_icon("cut_action.svg"))
+        self.cut_menu_action.icon_name = "cut_action.svg"
+
         self.paste_menu_action = QAction("粘贴")
         self.paste_menu_action.setShortcut(QKeySequence("Ctrl+V"))
+        self.paste_menu_action.setIcon(get_icon("paste_action.svg"))
+        self.paste_menu_action.icon_name = "paste_action.svg"
 
         self.menu.addAction(self.new_menu_action)
         self.menu.addAction(self.delete_menu_action)
@@ -167,7 +205,8 @@ class WordDicWidget:
     def on_close(self):
         self.main_window.menu.word_dic_widget = None
         with QSignalBlocker(self.main_window.menu.edit_dic_action):
-            self.main_window.menu.edit_dic_action.setChecked(False)
+            self.main_window.menu.edit_dic_action.checked = True
+            c_m.word_dic_widget(self.main_window.menu)
 
     # 自定义窗口关闭方法
     def custom_close_event(self, event):

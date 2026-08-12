@@ -3,6 +3,7 @@ from PySide6.QtGui import QFont, QAction, QKeySequence
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPlainTextEdit, QMenu
 from PySide6.QtCore import Qt
 import app.controllers.central_widget as c_cw
+from app import get_icon, ICON_DIR
 
 class CentralWidget:
     def __init__(self, main_window):
@@ -30,14 +31,29 @@ class CentralWidget:
         self.text_edit_menu = QMenu()
         self.undo_action = QAction("撤销")
         self.undo_action.setShortcut(QKeySequence("Ctrl+Z"))
+        self.undo_action.setIcon(get_icon("undo_action.svg"))
+        self.undo_action.icon_name = "undo_action.svg"
+
         self.redo_action = QAction("恢复")
         self.redo_action.setShortcut(QKeySequence("Ctrl+Shift+Z"))
+        self.redo_action.setIcon(get_icon("redo_action.svg"))
+        self.redo_action.icon_name = "redo_action.svg"
+
         self.copy_action = QAction("复制")
         self.copy_action.setShortcut(QKeySequence("Ctrl+C"))
+        self.copy_action.setIcon(get_icon("copy_action.svg"))
+        self.copy_action.icon_name = "copy_action.svg"
+
         self.cut_action = QAction("剪切")
         self.cut_action.setShortcut(QKeySequence("Ctrl+X"))
+        self.cut_action.setIcon(get_icon("cut_action.svg"))
+        self.cut_action.icon_name = "cut_action.svg"
+
         self.paste_action = QAction("粘贴")
         self.paste_action.setShortcut(QKeySequence("Ctrl+V"))
+        self.paste_action.setIcon(get_icon("paste_action.svg"))
+        self.paste_action.icon_name = "paste_action.svg"
+
         self.check_menu = QMenu("查找")
         self.check_seg_result_action = QAction("查找分词结果(&S)")
         self.check_dic_action = QAction("查找词典结果(&D)")

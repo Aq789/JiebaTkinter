@@ -200,7 +200,7 @@ class PreviewWindow:
         if menu.word_seg_result_widget is not None:
             QMessageBox.warning(self.main_window.window, "提示", "编辑分词结果窗口已打开！")
         else:
-            menu.edit_seg_result_action.setChecked(True)
+            c_m.word_seg_result_widget(menu)
 
     # 编辑分词结果
     def dic_open_widget(self):
@@ -208,4 +208,4 @@ class PreviewWindow:
         if menu.word_dic_widget is not None:
             QMessageBox.warning(self.main_window.window, "提示", "编辑词典窗口已打开！")
         else:
-            menu.edit_dic_action.setChecked(True)
+            c_m.word_dic_widget(menu)

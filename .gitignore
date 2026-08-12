@@ -1,1 +1,5 @@
-rules.txt
+/rules.txt
+/.idea/.name
+/cloc.exe
+/.idea/MarsCodeWorkspaceAppSettings.xml
+/test/test_python.py

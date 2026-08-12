@@ -7,6 +7,7 @@ import app.view as a_v
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.paletteChanged.connect(a_v.on_theme_changed)
 
     # 中文包加载
     translator = QTranslator()

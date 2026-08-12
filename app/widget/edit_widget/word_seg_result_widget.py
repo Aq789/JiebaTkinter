@@ -5,6 +5,8 @@ from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderVie
 from PySide6.QtGui import QAction, QKeySequence
 from app.service.pyside6.table_widget import CustomTable
 import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
+import app.controllers.menu as c_m
+from app import get_icon
 
 class WordSegResultWidget:
     def __init__(self, main_window):
@@ -17,23 +19,39 @@ class WordSegResultWidget:
         self.word_seg_result_widget.setAttribute(Qt.WA_DeleteOnClose)
 
         self.toolbar = self.word_seg_result_widget.addToolBar("主工具栏")
+        self.toolbar.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
         self.check_action = QAction("查找", self.word_seg_result_widget)
         self.check_action.setShortcut(QKeySequence("Ctrl+F"))
         self.check_action.setCheckable(True)
         self.check_action.setStatusTip("通过关键信息查找分词结果项")
         self.check_action.setToolTip("查找 Ctrl+F")
+        self.check_action.setIcon(get_icon("check_action.svg"))
+        self.check_action.icon_name = "check_action.svg"
+
         self.delete_action = QAction("删除", self.word_seg_result_widget)
         self.delete_action.setStatusTip("删除部分分词结果项")
         self.delete_action.setShortcut(QKeySequence("Delete"))
         self.delete_action.setToolTip("删除 Delete")
+        self.delete_action.setIcon(get_icon("delete_action.svg"))
+        self.delete_action.icon_name = "delete_action.svg"
+
         self.copy_action = QAction("复制", self.word_seg_result_widget)
         self.copy_action.setShortcut(QKeySequence("Ctrl+C"))
         self.copy_action.setStatusTip("复制所选表格内容到剪贴板")
         self.copy_action.setToolTip("复制 Ctrl+C")
+        self.copy_action.setIcon(get_icon("copy_action.svg"))
+        self.copy_action.icon_name = "copy_action.svg"
+
         self.save_action = QAction("保存", self.word_seg_result_widget)
         self.save_action.setShortcut(QKeySequence("Ctrl+S"))
         self.save_action.setStatusTip("保存修改后的分词结果项")
         self.save_action.setToolTip("保存 Ctrl+S")
+        self.save_action.setIcon(get_icon("save_action.svg"))
+        self.save_action.icon_name = "save_action.svg"
+
+        self.exit_action = QAction()
+        self.exit_action.setShortcut(QKeySequence("Esc"))
+
         self.toolbar.addAction(self.check_action)
         self.toolbar.addAction(self.delete_action)
         self.toolbar.addSeparator()
@@ -80,6 +98,7 @@ class WordSegResultWidget:
         self.word_seg_result_table.itemSelectionChanged.connect(lambda :c_ewwsrw.status_refresh(self))
         self.copy_action.triggered.connect(self.copy)
         self.word_seg_result_table.customContextMenuRequested.connect(self.menu)
+        self.exit_action.triggered.connect(self.word_seg_result_widget.close)
 
         # 表格样式
         self.word_seg_result_table.setStyleSheet(
@@ -98,8 +117,13 @@ class WordSegResultWidget:
         self.menu = QMenu()
         self.copy_menu_action = QAction("复制")
         self.copy_menu_action.setShortcut(QKeySequence("Ctrl+C"))
+        self.copy_menu_action.setIcon(get_icon("copy_action.svg"))
+        self.copy_menu_action.icon_name = "copy_action.svg"
+
         self.delete_menu_action = QAction("删除")
         self.delete_menu_action.setShortcut(QKeySequence("Delete"))
+        self.delete_menu_action.setIcon(get_icon("delete_action.svg"))
+        self.delete_menu_action.icon_name = "delete_action.svg"
 
         self.menu.addAction(self.copy_menu_action)
         self.menu.addSeparator()
@@ -126,7 +150,8 @@ class WordSegResultWidget:
     def on_close(self):
         self.main_window.menu.word_seg_result_widget = None # 将menu的widget清零
         with QSignalBlocker(self.main_window.menu.edit_seg_result_action):
-            self.main_window.menu.edit_seg_result_action.setChecked(False)
+            self.main_window.menu.edit_seg_result_action.checked = True
+            c_m.word_seg_result_widget(self.main_window.menu)
 
     # 自定义窗口关闭方法
     def custom_close_event(self, event):

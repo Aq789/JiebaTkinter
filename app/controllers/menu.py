@@ -7,6 +7,7 @@ import app.controllers.central_widget as c_cw
 import app.controllers.file as c_f
 import app.controllers.io.output as c_io
 import app.controllers.io.input as c_ii
+from app import get_icon
 
 # 创建设置窗口
 def create_settings_widget(menu):
@@ -43,22 +44,34 @@ def check_widget(menu):
         menu.check_widget = None
 
 # 编辑分词结果开关
-def word_seg_result_widget(menu, checked):
+def word_seg_result_widget(menu):
+    checked = not menu.edit_seg_result_action.checked
+    menu.edit_seg_result_action.checked = checked
     if checked:
         if menu.word_seg_result_widget is None:
             menu.word_seg_result_widget = menu.main_window.create_word_seg_result_widget()
+        menu.edit_seg_result_action.setIcon(get_icon("ok_action.svg"))
+        menu.edit_seg_result_action.icon_name = "ok_action.svg"
     else:
         if menu.word_seg_result_widget is not None:
             menu.word_seg_result_widget.word_seg_result_widget.close()
+        menu.edit_seg_result_action.setIcon(get_icon("null_action.svg"))
+        menu.edit_seg_result_action.icon_name = "null_action.svg"
 
 # 编辑词典开关
-def word_dic_widget(menu, checked):
+def word_dic_widget(menu):
+    checked = not menu.edit_dic_action.checked
+    menu.edit_dic_action.checked = checked
     if checked:
         if menu.word_dic_widget is None:
             menu.word_dic_widget = menu.main_window.create_word_dic_widget()
+        menu.edit_dic_action.setIcon(get_icon("ok_action.svg"))
+        menu.edit_dic_action.icon_name = "ok_action.svg"
     else:
         if menu.word_dic_widget is not None:
             menu.word_dic_widget.word_dic_widget.close()
+        menu.edit_dic_action.setIcon(get_icon("null_active.svg"))
+        menu.edit_dic_action.icon_name = "null_active.svg"
 
 # 状态栏隐藏开关
 def toggle_statusbar(menu):
