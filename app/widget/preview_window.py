@@ -5,6 +5,7 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout, QHeaderView
 from PySide6.QtCore import Qt
 
 from app.service.pyside6.table_widget import CustomTable
+from app import get_style
 import app.controllers.menu as c_m
 
 class PreviewWindow:
@@ -68,23 +69,8 @@ class PreviewWindow:
         self.preview_window.setLayout(self.preview_window_layout)
 
         # 表格样式
-        self.seg_result_table.setStyleSheet(
-            """
-                QTableWidget::item:selected {
-                    background-color: palette(highlight);
-                    color: palette(highlighted-text);
-                }
-            """
-        )
-        # 表格样式
-        self.dic_table.setStyleSheet(
-            """
-                QTableWidget::item:selected {
-                    background-color: palette(highlight);
-                    color: palette(highlighted-text);
-                }
-            """
-        )
+        self.seg_result_table.setStyleSheet(get_style("table.qss"))
+        self.dic_table.setStyleSheet(get_style("table.qss"))
 
         # 信号槽
         self.seg_result_table.customContextMenuRequested.connect(self.seg_result_menu)
@@ -144,6 +130,12 @@ class PreviewWindow:
         menu.addAction(self.dic_check_action)
         menu.addAction(self.dic_open_widget_action)
         menu.exec(self.dic_table.mapToGlobal(pos))
+
+    # 刷新样式
+    def refresh_style(self):
+        style = get_style("table.qss")
+        self.seg_result_table.setStyleSheet(style)
+        self.dic_table.setStyleSheet(style)
 
     # 更新函数
     def _update_seg_actions(self):

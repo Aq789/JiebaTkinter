@@ -3,10 +3,11 @@ from PySide6.QtCore import Qt, QSignalBlocker
 from PySide6.QtWidgets import QMessageBox, QMainWindow, QTableWidget, QHeaderView, QWidget, QHBoxLayout, QLabel, \
     QAbstractItemView, QMenu
 from PySide6.QtGui import QAction, QKeySequence
+
 from app.service.pyside6.table_widget import CustomTable
 import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
 import app.controllers.menu as c_m
-from app import get_icon
+from app import get_icon, get_style
 
 class WordSegResultWidget:
     def __init__(self, main_window):
@@ -101,14 +102,7 @@ class WordSegResultWidget:
         self.exit_action.triggered.connect(self.word_seg_result_widget.close)
 
         # 表格样式
-        self.word_seg_result_table.setStyleSheet(
-            """
-                QTableWidget::item:selected {
-                    background-color: palette(highlight);
-                    color: palette(highlighted-text);
-                }
-            """
-        )
+        self.word_seg_result_table.setStyleSheet(get_style("table.qss"))
 
         self.word_seg_result_widget.show()
 
@@ -137,6 +131,11 @@ class WordSegResultWidget:
         self.delete_menu_action.triggered.connect(lambda :c_ewwsrw.delete_current_row(self))
 
         self.menu.exec(self.word_seg_result_table.mapToGlobal(pos))
+
+    # 刷新样式表
+    def refresh_style(self):
+        style = get_style("table.qss")
+        self.word_seg_result_table.setStyleSheet(style)
 
     # 选中项监测
     def is_selected(self):

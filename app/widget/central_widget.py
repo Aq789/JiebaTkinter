@@ -1,9 +1,10 @@
 # 工作区
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont, QAction, QKeySequence
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QPlainTextEdit, QMenu
-from PySide6.QtCore import Qt
+
 import app.controllers.central_widget as c_cw
-from app import get_icon, ICON_DIR
+from app import get_icon
 
 class CentralWidget:
     def __init__(self, main_window):

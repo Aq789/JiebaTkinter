@@ -1,0 +1,4 @@
+QTableWidget::item:selected {
+    background-color: palette(highlight);
+    color: palette(highlighted-text);
+}

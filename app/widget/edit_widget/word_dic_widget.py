@@ -7,7 +7,7 @@ from app.service.pyside6.int_with_validation_delegate import IntWithValidationDe
 from app.service.pyside6.string_non_empty_delegate import StringNonEmptyDelegate
 from app.service.pyside6.table_widget import CustomTable
 import app.controllers.menu as c_m
-from app import get_icon
+from app import get_icon, get_style
 
 import app.controllers.edit_widget.word_dic_widget as c_ewwdw
 
@@ -134,14 +134,7 @@ class WordDicWidget:
         self.word_dic_table.customContextMenuRequested.connect(self.menu)
 
         # 表格样式
-        self.word_dic_table.setStyleSheet(
-            """
-                QTableWidget::item:selected {
-                    background-color: palette(highlight);
-                    color: palette(highlighted-text);
-                }
-            """
-        )
+        self.word_dic_table.setStyleSheet(get_style("table.qss"))
 
         self.word_dic_widget.show()
 
@@ -192,6 +185,11 @@ class WordDicWidget:
         self.delete_menu_action.triggered.connect(lambda: c_ewwdw.delete_current_row(self))
 
         self.menu.exec(self.word_dic_table.mapToGlobal(pos))
+
+    # 刷新样式表
+    def refresh_style(self):
+        style = get_style("table.qss")
+        self.word_dic_table.setStyleSheet(style)
 
     # 选中项监测
     def is_selected(self):

@@ -1,28 +1,25 @@
 # 主窗口创建
-from PySide6.QtGui import QAction
 from PySide6.QtCore import QTimer
-from PySide6.QtWidgets import QMainWindow, QApplication, QPlainTextEdit, QTableWidget, QMenu
-from app import clear_icon_cache, get_icon
-import app.widget.menu
-import app.widget.dock_widget
-import app.widget.central_widget
-import app.widget.status_widget
-import app.widget.edit_widget.word_seg_result_widget
-import app.widget.edit_widget.word_dic_widget
-import app.widget.check_widget
-
-import app.datas.word_seg_result
-import app.datas.word_dic
-import app.datas.text
-import app.datas.seg_settings
-import app.datas.window_settings
-import app.datas.font_settings
-import app.datas.statistic
-import app.datas.file
-
-import app.service.settings
+from PySide6.QtWidgets import QMainWindow, QApplication, QPlainTextEdit, QTableWidget
 
 import app.controllers.file as c_f
+import app.datas.file
+import app.datas.font_settings
+import app.datas.seg_settings
+import app.datas.statistic
+import app.datas.text
+import app.datas.window_settings
+import app.datas.word_dic
+import app.datas.word_seg_result
+import app.service.settings
+import app.widget.central_widget
+import app.widget.check_widget
+import app.widget.dock_widget
+import app.widget.edit_widget.word_dic_widget
+import app.widget.edit_widget.word_seg_result_widget
+import app.widget.menu
+import app.widget.status_widget
+from app import do_refresh_icon
 
 def create_new_window(): # 创建窗口实例方法
     new_window = MainWindow() # 创建窗口实例
@@ -33,35 +30,13 @@ def delete_new_window(): # 删除窗口实例方法
     last_window.destroy_window()
 
 def on_theme_changed(): # 系统主题切换
-    QTimer.singleShot(50, do_refresh)
-
-def do_refresh():
-    clear_icon_cache()
-    for widget in QApplication.topLevelWidgets():
-        if isinstance(widget, QMainWindow):
-            menubar = widget.menuBar()
-            if not menubar:
-                continue
-
-            def get_all_actions(menu): # 递归函数：获取所有 QAction（包括子菜单里的）
-                actions = []
-                for action in menu.actions():
-                    sub_menu = action.menu()
-                    if sub_menu:  # 如果有子菜单
-                        actions.extend(get_all_actions(sub_menu))
-                    actions.append(action)
-                return actions
-
-            all_actions = get_all_actions(menubar)
-            for action in all_actions:
-                if hasattr(action, 'icon_name'):
-                    action.setIcon(get_icon(action.icon_name))
-
-            menubar.update() # 强制刷新菜单栏及其所有子菜单
-            menubar.repaint()
-            for menu in menubar.findChildren(QMenu):
-                menu.update()
-                menu.repaint()
+    QTimer.singleShot(50, do_refresh_icon)
+    for window in MainWindow.windows:
+        window.dock_widget.preview_window.refresh_style()
+        if window.menu.word_seg_result_widget is not None:
+            window.menu.word_seg_result_widget.refresh_style()
+        if window.menu.word_dic_widget is not None:
+            window.menu.word_dic_widget.refresh_style()
 
 class MainWindow:
     windows = []

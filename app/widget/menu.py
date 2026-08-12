@@ -98,12 +98,11 @@ class Menu:
         self.edit_dic_action.icon_name = "null_action.svg"
         self.edit_dic_action.checked = False
 
-        self.start_menu = QMenu("开始分词")
+        self.start_menu = QMenu("开始分词", self.window)
         self.start_menu.setIcon(get_icon("start_action.svg"))
         self.start_menu.icon_name = "start_action.svg"
-        self.start_seg_action = QAction("所有文本", self.window)
+        self.start_seg_action = QAction("所有文本")
         self.start_seg_action.setShortcut(QKeySequence("Shift+F3"))
-
         self.start_seg_part_action = QAction("仅选中文本")
         self.start_seg_part_action.setShortcut(QKeySequence("Shift+F4"))
 
