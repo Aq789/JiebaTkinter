@@ -1,9 +1,10 @@
 # 菜单栏
 from PySide6.QtGui import QAction, QKeySequence
-from PySide6.QtWidgets import QMenu, QApplication, QStyle
+from PySide6.QtWidgets import QMenu, QApplication
 
 import app.controllers.menu as c_m
-from app import get_icon, ICON_DIR
+from app import get_icon
+
 
 class Menu:
     def __init__(self, main_window):

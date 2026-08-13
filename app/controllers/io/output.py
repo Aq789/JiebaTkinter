@@ -1,6 +1,8 @@
 # 导出控制器
-from PySide6.QtWidgets import QMessageBox, QFileDialog
+from PySide6.QtWidgets import QFileDialog
+
 import app.service.io.output as s_io
+
 
 # 导出文本
 def output_text_file(main_window):

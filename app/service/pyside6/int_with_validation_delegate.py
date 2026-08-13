@@ -1,7 +1,7 @@
 # 限制单元格输入数字
-from PySide6.QtWidgets import QStyledItemDelegate, QLineEdit, QMessageBox
 from PySide6.QtCore import Qt, QRegularExpression
-from PySide6.QtGui import QIntValidator, QRegularExpressionValidator
+from PySide6.QtGui import QRegularExpressionValidator
+from PySide6.QtWidgets import QStyledItemDelegate, QLineEdit
 
 
 class IntWithValidationDelegate(QStyledItemDelegate):

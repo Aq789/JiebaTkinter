@@ -5,9 +5,9 @@ from PySide6.QtWidgets import QPlainTextEdit, QMessageBox
 
 import app.controllers.edit_widget.word_seg_result_widget as c_ewwsrw
 import app.controllers.preview_window as c_pw
-import app.controllers.io.input as c_ii
 import app.service.jieba.start as s_js
 from app.datas.text import Text
+
 
 # 将文本上传至数据集
 def text_to_data(central_widget):

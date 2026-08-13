@@ -1,7 +1,8 @@
 # 结巴库词典有关方法
-import jieba
-import app.service.jieba.word_frequency as s_jwf
 import os
+
+import jieba
+
 
 # 初始化jieba词典（会丢失用户词典）
 def reload_jieba_dict():

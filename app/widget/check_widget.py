@@ -3,7 +3,6 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QTextDocument, QTextCursor
 from PySide6.QtWidgets import QPushButton, QLabel, QDialog, QGridLayout, QLineEdit
 
-
 class CheckWidget:
     def __init__(self, main_window):
         self.main_window = main_window

@@ -1,15 +1,16 @@
 # 编辑词典窗口
 from PySide6.QtCore import Qt, QSignalBlocker
 from PySide6.QtGui import QAction, QKeySequence
-from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QTableWidget, QHeaderView, QLabel, QMessageBox, \
+from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QHeaderView, QLabel, QMessageBox, \
     QAbstractItemView, QMenu
+
+import app.controllers.edit_widget.word_dic_widget as c_ewwdw
+import app.controllers.menu as c_m
+from app import get_icon, get_style
 from app.service.pyside6.int_with_validation_delegate import IntWithValidationDelegate
 from app.service.pyside6.string_non_empty_delegate import StringNonEmptyDelegate
 from app.service.pyside6.table_widget import CustomTable
-import app.controllers.menu as c_m
-from app import get_icon, get_style
 
-import app.controllers.edit_widget.word_dic_widget as c_ewwdw
 
 class WordDicWidget:
     def __init__(self, main_window):
