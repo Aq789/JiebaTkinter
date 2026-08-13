@@ -104,7 +104,7 @@ JiebaTool 中文分词可视化工具是一款高效、灵活、轻量级的桌�
 
 
 ### 3. 示例文本
-- 示例项目文件下载：<a href="中国人失去自信力了吗.jbt" download="resources/example/中国人失去自信力了吗.jbt">中国人失去自信力了吗</a>
+- 示例项目文件下载：[《中国人失掉自信力了吗》](https://raw.githubusercontent.com/Aq789/JiebaTool/resources/example/中国人失去自信力了吗.zip)
 - 示例文本：  
 ```
 北京时间8月13日，中国天眼FAST团队宣布，基于深度学习的脉冲星识别模型已成功发现数十颗新脉冲星。同时，SpaceX的星链项目再次发射了60颗低轨卫星，全球科技界对此反应热烈。

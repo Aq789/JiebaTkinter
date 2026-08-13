@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QTableWidget, QApplication, QTableWidgetItem
 
 import app.service.word_class_name as s_wcn
 import app.service.word_dic as s_wd
-from service.pyside6.numeric_table_item import NumericTableItem
+from app.service.pyside6.numeric_table_item import NumericTableItem
 
 
 class CustomTable(QTableWidget):

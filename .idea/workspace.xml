@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入">
-      <change afterPath="$PROJECT_DIR$/app/widget/about_widget.py" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.6.6 -alpha&#10;功能更新&#10;- 添加关于界面&#10;其他更新&#10;1. about_widget.py添加关于界面以及对应方法&#10;2. menu.py为帮助添加方法，并将关于窗口方法注册到菜单栏中&#10;3. README.md修改部分内容">
+      <change afterPath="$PROJECT_DIR$/icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/example/中国人失去自信力了吗.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/example/中国人失去自信力了吗.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_widget/word_dic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/edit_widget/word_seg_result_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/edit_widget/word_seg_result_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/pyside6/table_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/pyside6/table_widget.py" afterDir="false" />
     </list>
     <list id="1ae1c057-ab9d-48f2-8415-b28af8e1567f" name="新建更改列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,13 +78,14 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/project_Python/JiebaTool/resources/photos",
+    "last_opened_file_path": "E:/project_Python/JiebaTool",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "settings.extract.method.addTypeAnnotations": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project_Python\JiebaTool" />
       <recent name="E:\project_Python\JiebaTool\resources\photos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -497,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786601975197</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="0.6.6 -alpha&#10;功能更新&#10;- 添加关于界面&#10;其他更新&#10;1. about_widget.py添加关于界面以及对应方法&#10;2. menu.py为帮助添加方法，并将关于窗口方法注册到菜单栏中&#10;3. README.md修改部分内容">
+      <option name="closed" value="true" />
+      <created>1786618461856</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1786618461856</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -545,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.2.1&#10;功能更新&#10;- 分词过程中可以选择忽略标点符号和英文&#10;其他更新&#10;- 删除设置界面冗余选项&#10;- 添加忽略标点和英文选项&#10;- 添加对应的数据集和方法&#10;- 添加检查符号和英文方法&#10;- 优化部分代码" />
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 菜单的编辑分词结果和编辑词典现已可用&#10;其他更新&#10;- 新建菜单目录控制器&#10;- 创建菜单相关按钮的触发逻辑&#10;- 优化部分代码&#10;- 优化代码回调" />
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 菜单的编辑分词结果和编辑词典现已可用&#10;其他更新&#10;- 新建菜单目录控制器&#10;- 创建菜单相关按钮的触发逻辑&#10;- 优化部分代码&#10;- 优化代码回调" />
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 添加中文词性设置&#10;其他更新&#10;- 新建简写中文转换逻辑方法&#10;- 创建中文词性选项&#10;- 创建中文词性对应数据集、控制方法&#10;- 优化部分代码" />
@@ -570,6 +581,7 @@
     <MESSAGE value="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法" />
     <MESSAGE value="0.4.0&#10;核心功能更新&#10;- GUI核心已从 Tkinter 成功迁移至 PySide6&#10;其他更新&#10;1. 更改表格样式&#10;2. 更改项目名为 JiebaTool&#10;3. 修改README.md" />
     <MESSAGE value="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入" />
+    <MESSAGE value="0.6.6 -alpha&#10;功能更新&#10;- 添加关于界面&#10;其他更新&#10;1. about_widget.py添加关于界面以及对应方法&#10;2. menu.py为帮助添加方法，并将关于窗口方法注册到菜单栏中&#10;3. README.md修改部分内容" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.6 -alpha&#10;功能更新&#10;- 添加关于界面&#10;其他更新&#10;1. about_widget.py添加关于界面以及对应方法&#10;2. menu.py为帮助添加方法，并将关于窗口方法注册到菜单栏中&#10;3. README.md修改部分内容" />
   </component>
 </project>

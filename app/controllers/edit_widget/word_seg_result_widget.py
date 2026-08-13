@@ -1,7 +1,7 @@
 # 编辑分词结果控制器
 from PySide6.QtWidgets import QTableWidgetItem, QMessageBox, QInputDialog
 
-from service.pyside6.numeric_table_item import NumericTableItem
+from app.service.pyside6.numeric_table_item import NumericTableItem
 import app.service.word_class_name as s_wcn
 import app.controllers.preview_window as c_pw
 

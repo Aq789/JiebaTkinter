@@ -1,7 +1,7 @@
 # 编辑词典控制器
 from PySide6.QtWidgets import QTableWidgetItem, QMessageBox, QInputDialog, QAbstractItemView
 
-from service.pyside6.numeric_table_item import NumericTableItem
+from app.service.pyside6.numeric_table_item import NumericTableItem
 import app.controllers.preview_window as c_pw
 
 
