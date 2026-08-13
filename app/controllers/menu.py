@@ -1,12 +1,15 @@
 # 菜单栏控制器
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QUrl
+from PySide6.QtGui import QDesktopServices
+from PySide6.QtWidgets import QMessageBox
 
-import app.widget.settings.settings_widget as w_ssw
-import app.widget.statistic_widget as w_sw
 import app.controllers.central_widget as c_cw
 import app.controllers.file as c_f
-import app.controllers.io.output as c_io
 import app.controllers.io.input as c_ii
+import app.controllers.io.output as c_io
+import app.widget.about_widget as w_aw
+import app.widget.settings.settings_widget as w_ssw
+import app.widget.statistic_widget as w_sw
 from app import get_icon
 
 # 创建设置窗口
@@ -148,6 +151,16 @@ def output_seg_result_file(menu):
 # 导出词典文件
 def output_dic_file(menu):
     c_io.output_dic_file(menu.main_window)
+
+# 帮助
+def help_menu(menu):
+    url = QUrl("https://github.com/Aq789/JiebaTool/wiki")
+    if not QDesktopServices.openUrl(url):
+        QMessageBox.critical(menu.main_window.window, "错误", "无法打开浏览器，请检查系统设置")
+
+# 创建关于窗口
+def create_about_widget(menu):
+    w_aw.AboutWidget(menu.main_window)
 
 # 退出
 def exit_action(menu):

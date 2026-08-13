@@ -194,4 +194,6 @@ class Menu:
         self.output_text_action.triggered.connect(lambda :c_m.output_text_file(self))
         self.output_seg_result_action.triggered.connect(lambda :c_m.output_seg_result_file(self))
         self.output_dic_action.triggered.connect(lambda :c_m.output_dic_file(self))
+        self.about_action.triggered.connect(lambda :c_m.create_about_widget(self))
+        self.help_action.triggered.connect(lambda :c_m.help_menu(self))
         self.exit_action.triggered.connect(lambda :c_m.exit_action(self))

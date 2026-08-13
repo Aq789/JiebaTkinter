@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.4.0&#10;核心功能更新&#10;- GUI核心已从 Tkinter 成功迁移至 PySide6&#10;其他更新&#10;1. 更改表格样式&#10;2. 更改项目名为 JiebaTool&#10;3. 修改README.md">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/example/中国人失去自信力了吗.jbt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/icons/ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/photos/ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/photos/img01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/photos/img02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/photos/img03.png" afterDir="false" />
+    <list default="true" id="8e0f8c01-eab3-4f87-982d-2763e2ee917f" name="更改" comment="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入">
+      <change afterPath="$PROJECT_DIR$/app/widget/about_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/central_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/central_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/io/output.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/io/output.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/jieba/dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/jieba/dictionary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/pyside6/int_with_validation_delegate.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/pyside6/int_with_validation_delegate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/service/pyside6/string_non_empty_delegate.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/service/pyside6/string_non_empty_delegate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/check_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/check_widget.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widget/edit_widget/word_dic_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/edit_widget/word_dic_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widget/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/widget/menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <list id="1ae1c057-ab9d-48f2-8415-b28af8e1567f" name="新建更改列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -503,7 +489,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785085166088</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入">
+      <option name="closed" value="true" />
+      <created>1786601975197</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1786601975197</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -551,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0.2.0&#10;核心功能更新&#10;- 支持开始分词，可以读取分词设置和词典进行分词&#10;其他更新&#10;- 开始分词按钮现已可用&#10;- 创建服务算法软件包&#10;- 添加开始分词相关算法&#10;- 添加词典读取算法&#10;- 添加词性标注算法&#10;- 添加词频统计算法&#10;- 添加文本数据集并添加至主线&#10;- 添加测试代码&#10;- 优化分词结果数据集方法判断条件&#10;- 优化部分代码&#10;- 更正部分文本错误" />
     <MESSAGE value="0.2.1&#10;功能更新&#10;- 分词过程中可以选择忽略标点符号和英文&#10;其他更新&#10;- 删除设置界面冗余选项&#10;- 添加忽略标点和英文选项&#10;- 添加对应的数据集和方法&#10;- 添加检查符号和英文方法&#10;- 优化部分代码" />
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 菜单的编辑分词结果和编辑词典现已可用&#10;其他更新&#10;- 新建菜单目录控制器&#10;- 创建菜单相关按钮的触发逻辑&#10;- 优化部分代码&#10;- 优化代码回调" />
     <MESSAGE value="0.2.2&#10;功能更新&#10;- 菜单的编辑分词结果和编辑词典现已可用&#10;其他更新&#10;- 新建菜单目录控制器&#10;- 创建菜单相关按钮的触发逻辑&#10;- 优化部分代码&#10;- 优化代码回调" />
@@ -576,6 +569,7 @@
     <MESSAGE value="0.3.7-s&#10;重要进程&#10;- 迁移了统计窗口和状态栏信息&#10;其他更新&#10;1. central_widget.py为开始分词提供计时&#10;2. dictionary.py优化加载用户词典方法&#10;3. menu.py写入创建统计窗口逻辑&#10;4. preview_window.py将预览窗口中词典表格设为可排序&#10;5. statistic.py加入接受列表写入数据集方法并优化算法&#10;6. statistic_widget.py添加统计窗口并其控制器&#10;7. status_widget.py添加部分状态栏信息及方法&#10;8. view_s.py可以在主线中注册数据集&#10;9. word_dic_widget.py添加导出方法中的状态栏更新，并优化方法" />
     <MESSAGE value="0.3.8-s&#10;重要进程&#10;- 迁移了状态栏开关和侧边栏开关&#10;其他更新&#10;1. dock_widget.py建立连接&#10;2. menu.py 添加状态栏和侧边栏隐藏方法，并添加信号&#10;3. status_widget.py添加状态栏隐藏方法" />
     <MESSAGE value="0.4.0&#10;核心功能更新&#10;- GUI核心已从 Tkinter 成功迁移至 PySide6&#10;其他更新&#10;1. 更改表格样式&#10;2. 更改项目名为 JiebaTool&#10;3. 修改README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4.0&#10;核心功能更新&#10;- GUI核心已从 Tkinter 成功迁移至 PySide6&#10;其他更新&#10;1. 更改表格样式&#10;2. 更改项目名为 JiebaTool&#10;3. 修改README.md" />
+    <MESSAGE value="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.6 -alpha&#10;功能更新&#10;- 添加应用图标&#10;其他更新&#10;1. main.py添加图标加载方法&#10;2. README.md修改文档&#10;3. 优化大部分代码的导入" />
   </component>
 </project>
